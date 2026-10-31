@@ -3722,6 +3722,36 @@ function renderSummary(){
 }
 
 /* ── 방 ── */
+function show(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  const target=document.getElementById(id);
+  if(target) target.classList.add('on');
+  window.scrollTo({top:0});
+  if(typeof drawProg==='function') drawProg();
+}
+function toDig(){ show('dig'); }
+function toHub(){ curRoom=0; show('hub'); if(typeof renderEnvs==='function') renderEnvs(); }
+function puff(){
+  const d=document.getElementById('dust'); if(!d) return;
+  d.innerHTML=''; d.classList.add('on');
+  for(let i=0;i<26;i++){
+    const m=document.createElement('span'); m.className='mote';
+    m.style.left=(30+Math.random()*40)+'%'; m.style.top=(38+Math.random()*30)+'%';
+    m.style.setProperty('--dx',(Math.random()*160-80)+'px'); m.style.setProperty('--dy',(-40-Math.random()*120)+'px');
+    m.style.animationDelay=(Math.random()*.5)+'s'; d.appendChild(m);
+  }
+  setTimeout(()=>d.classList.remove('on'),3600);
+}
+function pullCrate(){
+  const btn=document.getElementById('pullbtn'), crate=document.getElementById('crate'); if(!btn||!crate) return;
+  btn.style.display='none';
+  const guide=document.getElementById('digguide'); if(guide) guide.textContent='낡은 골판지 상자가 딸려 나왔다.';
+  if(!reduce) puff(); crate.classList.add('out');
+  setTimeout(()=>{crate.classList.add('clean'); const sub=document.getElementById('digsub'); if(sub) sub.textContent='겉면에 테이프로 붙인 종이가 있다.';},reduce?0:900);
+  setTimeout(()=>crate.classList.add('read'),reduce?0:1500);
+  setTimeout(()=>{const digbtn=document.getElementById('digbtn'); if(digbtn) digbtn.classList.add('on');},reduce?200:4200);
+}
+
 function openRoom(n){
   fadeTo(()=>{
     curRoom=n;
