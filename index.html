@@ -3792,8 +3792,10 @@ window.addEventListener('message',e=>{
     if(n>=1&&n<=5&&!opened.includes(n)){ opened.push(n); save(); }
     fadeTo(()=>{
       document.getElementById('frame').srcdoc=''; curRoom=0;
-      if(n===5&&opened.length===5){ show('hub'); renderEnvs(); }
-      else { show('hub'); renderEnvs(); }
+      show('hub'); renderEnvs();
+      if(n < 5){
+        setTimeout(()=>openRoom(n+1),450);
+      }
     });
   }
 });
