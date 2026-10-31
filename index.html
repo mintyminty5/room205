@@ -774,18 +774,19 @@ function tryLock(){
 function typeGift(){
   const el=document.getElementById('gifthand');
   el.textContent='';
+  const next=()=>document.getElementById('after').classList.add('on');
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){
     el.textContent=GIFT;
-    setTimeout(()=>document.getElementById('after').classList.add('on'),300);
+    setTimeout(next,500);
     return;
   }
+  // 편지 연출은 계속되지만 다음 봉투 버튼은 빠르게 제공한다.
+  setTimeout(next,1800);
   let i=0;
   (function t(){
     if(i<=GIFT.length){
       el.textContent=GIFT.slice(0,i); i++;
-      setTimeout(t, GIFT[i-1]==='\\n'?150:42);
-    }else{
-      setTimeout(()=>document.getElementById('after').classList.add('on'),600);
+      setTimeout(t, GIFT[i-1]==='\\n'?80:20);
     }
   })();
 }
