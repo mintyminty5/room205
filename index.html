@@ -506,7 +506,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 <section id="s1" class="screen">
     <div class="lock" id="lockbox">
     <div class="ltitle">조용이의 사물함</div>
-    <div class="lq">조용이는 왜 손을 들지 않았을까</div>
+    <div class="lq">조용이는 무엇을 예의라고 배웠을까</div>
     <div class="lsub">단서에서 찾은 말을 적어 넣으세요</div>
     <div class="lockrow">
       <input id="code" maxlength="4" placeholder="○○" autocomplete="off" aria-label="답">
@@ -715,7 +715,7 @@ function updateHint(){
 const HINTS=[
   '열리지 않습니다. 메모를 더 읽어 보세요.',
   '선생님은 "모른다"고 생각했지만, 조용이는 다 알고 있었습니다.',
-  '포스트잇의 마지막 줄을 다시 보세요. "우리 집에서는 그게 ○○라고 배웠는데"',
+  '포스트잇의 마지막 줄을 다시 보세요. 어른 말씀을 어떻게 듣는 것이 예의였는지 적혀 있습니다.',
 ];
 const GIFT=\`사물함을 연 사람에게.
 
@@ -735,7 +735,7 @@ function tryLock(){
   if(!v){ m.textContent='답을 적어 주세요.'; return; }
 
   // 정답 — 예의 / 예의바름 / 예절 모두 인정
-  if(v==='예의'||v==='예의바름'||v==='예절'){
+  if(v==='예의'||v==='예의바름'||v==='예절'||v==='조용히듣기'||v==='듣기'||v==='조용히'){
     SND.unlock();
     clearInterval(S.tick);
     const s=Math.floor((Date.now()-S.t0)/1000);
