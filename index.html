@@ -257,6 +257,8 @@ button:focus-visible,.env:focus-visible{outline:2px solid var(--accent);outline-
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
   .crate{opacity:1;transform:none}.crate::before{opacity:0}.ctape .ink{opacity:1}}
+#cover:not(.on){display:none}
+.env .name,.env .state{display:block}
 </style>
 </head>
 <body>
@@ -321,7 +323,7 @@ button:focus-visible,.env:focus-visible{outline:2px solid var(--accent);outline-
       <span style="font-size:.88rem;opacity:.72">모두 자기가 자란 곳에서 배운 것이었습니다.</span></div>
   </div>
   <div class="sumbtns">
-    <button class="btn" onclick="openRoom(6)">내 기록 다시 보기</button>
+    <button class="btn" onclick="openRoom(6)">최종 미션 다시 하기</button>
     <button class="btn" style="background:transparent;color:var(--accent-soft);border:1px solid var(--line)"
       onclick="toHub()">상자로 돌아가기</button>
   </div>
@@ -506,7 +508,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 <section id="s1" class="screen">
     <div class="lock" id="lockbox">
     <div class="ltitle">조용이의 사물함</div>
-    <div class="lq">조용이는 무엇을 예의라고 배웠을까</div>
+    <div class="lq">조용이는 왜 말을 하지 않았을까</div>
     <div class="lsub">단서에서 찾은 말을 적어 넣으세요</div>
     <div class="lockrow">
       <input id="code" maxlength="4" placeholder="○○" autocomplete="off" aria-label="답">
@@ -527,13 +529,13 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
       <div class="dbody"><div class="inner">
         <div class="scrollbox" id="sb0">2026.05.13 / 날씨 흐림
 
-오늘 과학 또 그랬다
+오늘 국어 또 그랬다
 
 선생님이 "질문 있어요?" 하셨을 때
 손 들까 말까 하다가 그냥 있었음
 
 수업 끝나고 선생님이 나 불렀어
-"혹시 잘 <b style="color:var(--err)">모름</b>이 있으면 말해도 돼"
+"혹시 잘 <b style="color:var(--err)">모르는</b> 거 있으면 말해도 돼"
 
 아니에요, 하고 웃었다
 
@@ -561,7 +563,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
         <div class="found" id="found1">
           <b>안 지워진 줄을 찾았습니다.</b><br>
           "우리 집에서는 그게 <b style="color:var(--accent-soft)">예의</b>라고 배웠는데"<br><br>
-          조용이는 무엇이 예의라고 배웠을까요?
+          조용이가 말을 하지 않은 이유는 이 말 안에 있습니다.
         </div>
       </div></div>
     </div>
@@ -715,7 +717,7 @@ function updateHint(){
 const HINTS=[
   '열리지 않습니다. 메모를 더 읽어 보세요.',
   '선생님은 "모른다"고 생각했지만, 조용이는 다 알고 있었습니다.',
-  '포스트잇의 마지막 줄을 다시 보세요. 어른 말씀을 어떻게 듣는 것이 예의였는지 적혀 있습니다.',
+  '포스트잇의 마지막 줄을 다시 보세요. 조용이가 그 행동을 뭐라고 배웠는지 적혀 있습니다.',
 ];
 const GIFT=\`사물함을 연 사람에게.
 
@@ -735,7 +737,7 @@ function tryLock(){
   if(!v){ m.textContent='답을 적어 주세요.'; return; }
 
   // 정답 — 예의 / 예의바름 / 예절 모두 인정
-  if(v==='예의'||v==='예의바름'||v==='예절'||v==='조용히듣기'||v==='듣기'||v==='조용히'){
+  if(v==='예의'||v==='예의바름'||v==='예절'){
     SND.unlock();
     clearInterval(S.tick);
     const s=Math.floor((Date.now()-S.t0)/1000);
@@ -765,6 +767,8 @@ function tryLock(){
     m.textContent='그건 친구들이 짐작한 이유였습니다. 포스트잇을 다시 보세요.';
   }else if(v.includes('존중')||v.includes('배려')){
     m.textContent='비슷합니다. 포스트잇에 적힌 말 그대로 넣어 보세요.';
+  }else if(v.includes('침묵')||v.includes('조용')||v.includes('말없')||v.includes('가만')||v.includes('듣기')||v.includes('안함')||v.includes('안했')){
+    m.textContent='조용이가 한 행동은 맞아요. 그런데 이 칸에는 "왜 그랬는지"를 적어요. 포스트잇에서 조용이가 그 행동을 뭐라고 배웠는지 찾아보세요.';
   }else{
     m.textContent=HINTS[Math.min(S.tries-1,HINTS.length-1)];
   }
@@ -990,11 +994,11 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
 
     <!-- 1단계 — 숫자 자물쇠 -->
     <div id="stage1">
-      <div class="lq">넓이가 이 교실에서 보낸 두 달</div>
-      <div class="lsub">기록에서 숫자 세 개를 찾아 넣으세요</div>
+      <div class="lq">넓이가 이 교실에서 보낸 시간</div>
+      <div class="lsub">기록에서 굵게 표시된 숫자 세 개를 찾아 넣으세요</div>
       <div class="numrows">
         <div class="numrow">
-          <span class="nlabel">이사 온 지</span>
+          <span class="nlabel">이 도시에 온 지</span>
           <input class="ninput" id="n1" inputmode="numeric" maxlength="2" placeholder="?">
           <span class="nunit">일째</span>
         </div>
@@ -1020,7 +1024,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
     <!-- 2단계 — 말 자물쇠 -->
     <div id="stage2" style="display:none">
       <div class="lq">그런데 넓이는 왜 그랬을까</div>
-      <div class="lsub">단서에서 찾은 말을 적어 넣으세요</div>
+      <div class="lsub">접힌 종이의 마지막 줄에서 찾은 말을 적어 넣으세요</div>
       <div class="lockrow">
         <input id="code" maxlength="6" placeholder="○○○" autocomplete="off" aria-label="답">
         <button class="btn" onclick="tryLock()">열기</button>
@@ -1184,7 +1188,7 @@ function renderSeats(){
   let html='';
   for(let i=0;i<16;i++){
     const isWin=(i%4===3);
-    html+=\`<button class="seat\${isWin?' win':''}" id="seat\${i}" onclick="tapSeat(\${i})">\${i+1}</button>\`;
+    html+=\`<button class="seat\${isWin?' win':''}\${i===ANSWER_SEAT?' pen':''}" id="seat\${i}" onclick="tapSeat(\${i})">\${i+1}</button>\`;
   }
   g.innerHTML=html;
 }
@@ -1342,7 +1346,7 @@ function showSum(){
 const HINTS=[
   '열리지 않습니다. 기록을 더 읽어 보세요.',
   '모둠 친구들은 "하기 싫은 줄" 알았지만, 넓이는 다르게 생각하고 있었습니다.',
-  '접힌 종이의 마지막 줄을 보세요. "우리 동네에서는 ○○○이 배려라고 했는데"',
+  '접힌 종이의 마지막 줄을 보세요. "우리 동네에서는 ○○○이 배려라고 했는데" 빈칸이나 그 뒤의 말, 둘 중 하나가 답입니다.',
 ];
 const GIFT=\`2026.11.09
 
@@ -1365,7 +1369,7 @@ function tryLock(){
   const m=document.getElementById('lmsg');
   if(!v){ m.textContent='답을 적어 주세요.'; return; }
 
-  if(v==='기다림'||v==='기다리기'||v==='기다려서'){
+  if(v==='기다림'||v==='기다리기'||v==='기다려서'||v==='배려'||v==='배려심'){
     SND.unlock();
     clearInterval(S.tick);
     const s=Math.floor((Date.now()-S.t0)/1000);
@@ -1388,8 +1392,8 @@ function tryLock(){
     m.textContent='그건 모둠 친구들이 짐작한 이유였습니다. 넓이 기록을 다시 보세요.';
   }else if(v.includes('부끄')||v.includes('소심')||v.includes('낯')){
     m.textContent='넓이는 부끄러워서 가만히 있었던 게 아닙니다. 접힌 종이를 보세요.';
-  }else if(v.includes('배려')||v.includes('존중')||v.includes('양보')){
-    m.textContent='비슷합니다. 접힌 종이에 적힌 말 그대로 넣어 보세요.';
+  }else if(v.includes('존중')||v.includes('양보')){
+    m.textContent='비슷합니다. 접힌 종이의 마지막 줄에 적힌 말을 그대로 넣어 보세요.';
   }else{
     m.textContent=HINTS[Math.min(S.tries-1,HINTS.length-1)];
   }
@@ -1623,23 +1627,23 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
     <div class="ltitle">신중이의 휴대폰</div>
 
     <div id="stage1">
-      <div class="lq">신중이가 메시지를 지운 시각</div>
-      <div class="lsub">삭제된 기록 세 개의 시각을 찾아 넣으세요</div>
+      <div class="lq">신중이가 지운 메시지의 시각</div>
+      <div class="lsub">단톡방 캡처에서 "삭제된 메시지입니다"가 적힌 세 줄의 시각을 찾아 넣으세요</div>
       <div class="timerows">
         <div class="timerow">
-          <span class="tlabel">발표 이틀 전 밤</span>
+          <span class="tlabel">발표 이틀 전 밤 (11/18)</span>
           <input class="tinput" id="h1" inputmode="numeric" maxlength="2" placeholder="--">
           <span class="tcolon">:</span>
           <input class="tinput" id="m1" inputmode="numeric" maxlength="2" placeholder="--">
         </div>
         <div class="timerow">
-          <span class="tlabel">발표 하루 전 아침</span>
+          <span class="tlabel">발표 하루 전 아침 (11/19)</span>
           <input class="tinput" id="h2" inputmode="numeric" maxlength="2" placeholder="--">
           <span class="tcolon">:</span>
           <input class="tinput" id="m2" inputmode="numeric" maxlength="2" placeholder="--">
         </div>
         <div class="timerow">
-          <span class="tlabel">발표 당일 새벽</span>
+          <span class="tlabel">발표 당일 새벽 (11/20)</span>
           <input class="tinput" id="h3" inputmode="numeric" maxlength="2" placeholder="--">
           <span class="tcolon">:</span>
           <input class="tinput" id="m3" inputmode="numeric" maxlength="2" placeholder="--">
@@ -2141,6 +2145,8 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
 .post .ptxt{font-size:1rem;line-height:1.6}
 .post .pemo{font-size:1.2rem;margin-right:5px}
 .post .plike{font-size:.76rem;color:#9A7A5C;margin-top:8px}
+.care{margin-top:16px;padding:12px 14px;font-size:.9rem;line-height:1.75;background:rgba(184,72,26,.08);border-left:3px solid #B8481A}
+.pcmt{margin-top:8px;padding-top:8px;border-top:1px dashed #E8CFB2;font-size:.86rem;color:#7A5A3C}
 
 /* 짝 맞추기 */
 .matchzone{margin-top:4px}
@@ -2300,9 +2306,15 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
     <div class="u1">밝음이는 매일 두 개의 하루를 살았습니다.
 
 보이는 하루, 그리고 보이지 않는 하루.</div>
-    <div class="u2">밝음이가 자란 집에서는 힘들어도 웃는 것이 가족을 걱정시키지 않는 방법이었습니다. 감정을 드러내면 옆 사람이 불편해진다고 배웠습니다.<br><br>
+    <div class="u2">밝음이가 자란 집에서는 힘들어도 웃는 것이 가족을 걱정시키지 않는 방법이었습니다. 그게 밝음이가 배운 '버팀'이었습니다. 이건 존중받아야 할 다름입니다.<br><br>
+    <b style="color:#B8481A;font-size:1.02rem">하지만 모든 일이 '다름' 때문은 아니었습니다.</b><br>
+    혼자 밥을 먹은 날들, 줄다리기 팀을 짤 때 마지막까지 남은 일, 아무도 듣지 않은 모둠 발표.
+    이건 문화가 달라서 생긴 일이 아닙니다. 누군가 밝음이를 빼놓은 일이었습니다.<br><br>
+    웃는 방식이 다른 건 '다름'입니다. 혼자 남겨지는 건 다름이 아니라, 우리가 함께 바꿔야 할 일입니다.<br><br>
     친구들은 "쟤는 걱정이 없다"고 생각했습니다.<br>
     밝은 사람에게는 아무도 "괜찮아?"를 두 번 묻지 않았습니다.</div>
+    <div class="care">혹시 밝음이처럼 웃으면서 버티고 있는 친구가 보이면, "괜찮아?"를 한 번 더 물어봐 주세요.
+    내가 그렇다면, 담임 선생님이나 상담 선생님(Wee클래스)에게 한 번 말해 보세요. 그건 약한 게 아닙니다.</div>
 
     <div class="gift" id="gift">
       <div class="gbar"><i></i></div>
@@ -2365,7 +2377,7 @@ function updTimer(){
 /* ── SNS 피드 ── */
 const POSTS=[
   {d:'4/5', e:'🌸',t:'체육대회 연습 ㅋㅋ 우리 반 진짜 최고다',like:'좋아요 24'},
-  {d:'4/9', e:'🍜',t:'오늘 급식 대박 맛있었음 ㅎㅎ 또 나왔으면',like:'좋아요 31'},
+  {d:'4/9', e:'🍜',t:'오늘 급식 대박 맛있었음 ㅎㅎ 또 나왔으면',like:'좋아요 31',c:'같은 반 친구 · 요즘 살쪘다ㅋㅋ 밥은 먹고 다녀?'},
   {d:'4/12',e:'😊',t:'점심시간 순삭 ㅋㅋ 벌써 5교시라니',like:'좋아요 42'},
   {d:'4/15',e:'🎉',t:'모둠 발표 끝!! 우리 조 분위기 좋았어',like:'좋아요 28'},
 ];
@@ -2373,7 +2385,7 @@ function renderFeed(){
   document.getElementById('feed').innerHTML=POSTS.map(p=>
     \`<div class="post"><div class="ptop"><span>밝음이</span><span>\${p.d}</span></div>\`+
     \`<div class="ptxt"><span class="pemo">\${p.e}</span>\${p.t}</div>\`+
-    \`<div class="plike">\${p.like}</div></div>\`).join('');
+    \`<div class="plike">\${p.like}</div>\`+(p.c?'<div class="pcmt">💬 '+p.c+'</div>':'')+'</div>').join('');
 }
 
 /* ── 짝 맞추기 ── */
@@ -2406,8 +2418,9 @@ function drop(slot){
   if(sel===null){ document.getElementById('mhint').textContent='아래에서 일기 조각을 먼저 고르세요.'; return; }
   if(sel!==slot){
     SND.deny();
-    document.getElementById('mhint').textContent='짝이 아닙니다. SNS 글과 일기에 같은 단어가 나오는 것을 찾아보세요.';
-    sel=null; renderMatch(); return;
+    sel=null; renderMatch();
+    document.getElementById('mhint').textContent='짝이 아닙니다. SNS 글과 일기에 같은 사건, 같은 단어가 나오는 것을 찾아보세요. ('+S.matched+' / 4)';
+    return;
   }
   slots[slot]=sel; sel=null; S.matched++;
   SND.pair(); renderMatch();
@@ -2455,7 +2468,7 @@ function updateHint(){
   const n=S.opened.filter(Boolean).length;
   if(S.foundLine){ m.textContent='맨 뒷장에서 찾은 그 말이 답입니다.'; return; }
   if(S.matched===4) m.textContent='다이어리 맨 뒷장을 열어 보세요.';
-  else if(n>=2) m.textContent='SNS 게시물과 일기 조각을 날짜로 짝지어 보세요.';
+  else if(n>=2) m.textContent='SNS 게시물과 일기 조각을 같은 사건끼리 짝지어 보세요.';
   else if(n>=1) m.textContent='다른 기록도 열어 보세요.';
 }
 
@@ -2758,18 +2771,21 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
     <div class="u1">이 사람은 나쁜 사람이 아니었습니다.
 밝음이도 예민한 게 아니었습니다.
 
-둘은 그냥 달랐고
-그 다름을 몰랐습니다.</div>
+둘은 자란 자리가 달랐고
+그 다름을 몰랐습니다.
+
+하지만 몰랐다고 해서
+아프지 않은 건 아니었습니다.</div>
     <div class="u2">네 사람의 기록을 모은 사람은,<br>
     네 사람을 가장 몰랐던 사람이었습니다.<br><br>
-    그런데 왜 모았을까요?</div>
+    그런데 그 사람이 이 상자를 만들었습니다.</div>
 
     <div class="why" id="why">
       <h3>마지막 질문</h3>
-      <p>이 사람은 네 사람을 별명으로 숨겼습니다.<br>
+      <p>이 사람은 네 사람을 별명으로 적었습니다.<br>
       조용이, 넓이, 신중이, 밝음이.<br><br>
       그런데 자기 봉투에만 별명을 쓰지 않았습니다.<br><br>
-      왜 그랬을까요?</p>
+      이 사람은 왜 이 상자를 만들었을까요?</p>
       <div id="wopts"></div>
       <div class="wfb" id="wfb"></div>
     </div>
@@ -2854,13 +2870,13 @@ const S={t0:0,tick:null,cleared:0,tries:0};
 
 /* ── 종이 네 장 ── */
 const PAPERS=[
-  { id:'jo',  from:'조용이 노트에서',        cls:'f-jo',  txt:'나 다 알고 있었는데',
+  { id:'jo',  from:'조용이 포스트잇에서',        cls:'f-jo',  txt:'저 사실 다 알아요',
     ok:false, fb:'조용이 글씨는 각이 지고 반듯합니다. 기준 손글씨는 흘려 썼습니다.' },
-  { id:'neo', from:'넓이 휴대폰 메모장에서',  cls:'f-neo', txt:'아무도 안 물어봤음',
+  { id:'neo', from:'넓이 휴대폰 메모장에서',  cls:'f-neo', txt:'아무도 안 열어서 말을 못 하겠다',
     ok:false, fb:'이건 손글씨가 아니라 휴대폰에 입력한 글입니다.' },
   { id:'jun', from:'카톡 캡처 옆에 적어둔 메모에서', cls:'f-jun', txt:'내가 뭘 잘못한 거지',
     ok:true,  fb:'' },
-  { id:'bal', from:'밝음이 다이어리에서',     cls:'f-bal', txt:'집에 와서 울었음',
+  { id:'bal', from:'밝음이 다이어리에서',     cls:'f-bal', txt:'…아니다. 지우자.',
     ok:false, fb:'밝음이 글씨는 둥글고 통통합니다. 기준 손글씨는 끝이 뾰족합니다.' },
 ];
 let order=[];
@@ -3014,8 +3030,8 @@ function playMatch(){
 
 /* ── 준의 말 ── */
 const ECHO=[
-  { t:'"야 쟤 왜 맨날 조용해"', w:'조용이 방에서' },
-  { t:'"또 모둠에서 아무것도 안 함"', w:'넓이 방에서' },
+  { t:'"야 조용이 왜 맨날 조용해"', w:'조용이 방에서' },
+  { t:'"넓이가 아무 말도 안 함"', w:'넓이 방에서' },
   { t:'"숫자 하나 틀렸다고 하심 ㅠ"', w:'신중이 방에서' },
   { t:'"요즘 살쪘다ㅋㅋ 밥은 먹고 다녀?"', w:'밝음이 방에서' },
 ];
@@ -3071,12 +3087,12 @@ function openRoom(){
 
 /* ── 마지막 질문 ── */
 const WHY=[
-  ['자기가 한 일이니까 숨길 수 없어서',
-   '그렇게 생각했을지 모릅니다.\\n숨기면 없던 일이 되니까요.'],
+  ['자기가 한 일을 숨기지 않고 남기려고',
+   '그랬을 수도 있습니다.\\n숨기면 없던 일이 되니까요.'],
   ['언젠가 누가 알아줬으면 해서',
-   '상자 겉면에 이렇게 적혀 있었습니다.\\n"우리가 여기 있었다는 걸 누군가 알아줬으면 해서."'],
+   '상자 겉면에는 이런 문장이 적혀 있었습니다.\\n"우리가 여기 있었다는 걸 누군가 알아줬으면 해서."\\n하지만 준이 왜 이 상자를 만들었는지는 어디에도 적혀 있지 않습니다.'],
   ['미안하다는 말을 못 해서 대신',
-   '그 사람은 끝내 그 말을 못 했습니다.\\n대신 자기 자리를 남겼습니다.'],
+   '그랬을 수도 있습니다.\\n말 대신 자기 자리를 남긴 것일지도 모릅니다.'],
   ['모르겠다',
    '괜찮습니다. 그 사람도 몰랐을 수 있습니다.\\n그냥 그렇게 했을 뿐일지도 모릅니다.'],
 ];
@@ -3110,13 +3126,24 @@ const GIFT=\`2026.12.01
 
 근데 밝음이한테는 아니었나봄
 
+반가워서 한 말이어도
+몸에 대한 말은
+듣는 사람한테 아플 수 있다는 거
+
+그리고
+밝음이 혼자 밥 먹는 거
+나도 봤음
+그냥 지나갔음
+그건 문화 차이가 아니었음
+
 내가 당연하게 하는 게
 누군가한테는 이상하게 보일 수 있다는 거
 
 낯설었음
 
 내일 말해야겠음
-뭐라고 할지는 아직 모르겠지만
+미안하다고
+그리고 같이 먹자고
 
 
 
@@ -3260,6 +3287,7 @@ textarea::placeholder{color:#8A8475}
 .subbtns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px}
 .copied{color:var(--ok);font-size:.9rem;margin-top:12px;text-align:center;display:none}
 .copied.on{display:block}
+.savenote{font-size:.86rem;opacity:.8;margin-top:10px;text-align:center;line-height:1.7}
 
 /* 마지막 말 */
 .closing{display:none;margin-top:30px;text-align:center}
@@ -3306,7 +3334,7 @@ textarea::placeholder{color:#8A8475}
 
     <div class="heard">
       <div class="hrow"><span class="hwho">조용이</span>
-        <span class="hsay">"자신감을 좀 가져"</span><span class="hfrom">선생님이</span></div>
+        <span class="hsay">"잘 모르는 거 있으면 말해도 돼"</span><span class="hfrom">선생님이</span></div>
       <div class="hrow"><span class="hwho">넓이</span>
         <span class="hsay">"그냥 의욕이 없나 봄"</span><span class="hfrom">모둠 친구가</span></div>
       <div class="hrow"><span class="hwho">신중이</span>
@@ -3328,7 +3356,7 @@ textarea::placeholder{color:#8A8475}
       마지막 봉투의 그 사람은 이 교실에서 다수였습니다.<br>
       이 나라에서 나고 자랐고, 모두와 같은 말을 썼습니다.<br>
       그래서 자기가 기준인 줄 알았습니다.<br><br>
-      그런데 영어 시간에 그 자료를 읽은 날,
+      그런데 자기가 반가워서 한 말이 밝음이에게 상처였다는 걸 안 날,
       <b style="color:var(--accent-soft)">그 사람도 처음으로 낯선 사람이 됐습니다.</b><br><br>
       당신이 낯선 사람이 됐던 순간은 언제였나요?
     </div>
@@ -3336,7 +3364,7 @@ textarea::placeholder{color:#8A8475}
       아무도 모르는 곳에 처음 갔을 때 · 나만 모르는 이야기를 다들 할 때<br>
       당연하다고 믿었던 게 통하지 않았을 때 · 내 방식이 이상하다는 말을 들었을 때
     </div>
-    <textarea id="a2" maxlength="150" placeholder="그때 나는 …" oninput="chk(2)"></textarea>
+    <textarea id="a2" maxlength="150" placeholder="예) 전학 온 첫날, 다들 아는 이야기를 나만 몰랐다" oninput="chk(2)"></textarea>
     <div class="cnt" id="c2">0 / 10자 이상</div>
   </div>
 
@@ -3353,7 +3381,7 @@ textarea::placeholder{color:#8A8475}
       "뭐 하고 있었어?" 하고 한 번 물어보기 · 급식 때 옆에 앉아 보기<br>
       모둠에서 아직 말 안 한 사람에게 먼저 묻기
     </div>
-    <textarea id="a3" maxlength="150" placeholder="내일 나는 …" oninput="chk(3)"></textarea>
+    <textarea id="a3" maxlength="150" placeholder="예) 급식 때 혼자 앉은 친구 옆에 앉아 본다" oninput="chk(3)"></textarea>
     <div class="cnt" id="c3">0 / 10자 이상</div>
   </div>
 
@@ -3371,17 +3399,17 @@ textarea::placeholder{color:#8A8475}
       모둠 정할 때 바꿀 것 · 발표 순서 정하는 방식 · 자리 바꾸는 방식<br>
       학급 규칙에 추가할 한 줄 · 아침에 함께 할 수 있는 것
     </div>
-    <textarea id="a4" maxlength="150" placeholder="우리 반은 다음 주에 …" oninput="chk(4)"></textarea>
+    <textarea id="a4" maxlength="150" placeholder="예) 모둠 역할은 순서표를 붙여 돌아가며 맡는다" oninput="chk(4)"></textarea>
     <div class="cnt" id="c4">0 / 10자 이상</div>
     <div style="text-align:center;margin-top:18px">
-      <button class="btn" id="finBtn" onclick="finish()" disabled>타임캡슐에 넣기</button>
+      <button class="btn" id="finBtn" onclick="finish()" disabled>내 기록 완성하기</button>
     </div>
   </div>
 
   <!-- 완성 -->
   <div class="result" id="result">
     <div class="capsule" id="capsule">
-      <div class="ctop">2045년 · 205호에 남기는 기록</div>
+      <div class="ctop">2045년 · 205호에 남길 기록</div>
       <div class="clabel">내가 낯선 사람이었던 순간</div>
       <div class="cline" id="r2"></div>
       <div class="clabel">내일 내가 할 것</div>
@@ -3396,6 +3424,7 @@ textarea::placeholder{color:#8A8475}
       <button class="btn ghost" onclick="window.print()">인쇄 · PDF로 저장</button>
     </div>
     <div class="copied" id="copied">복사했습니다. 선생님이 안내한 곳에 붙여넣으세요.</div>
+    <div class="savenote">이 화면은 입력한 내용을 저장하지 않습니다.<br>복사하거나 인쇄해서 선생님이 안내한 곳에 남겨 주세요.</div>
 
     <div class="closing" id="closing">
       <p>조용이는 자기가 배운 예의를 지켰습니다.
@@ -3403,8 +3432,10 @@ textarea::placeholder{color:#8A8475}
 신중이는 자기가 배운 배려로 말을 아꼈습니다.
 밝음이는 자기가 배운 방법으로 버텼습니다.
 그리고 한 사람은 자기가 당연한 줄 알았습니다.</p>
-      <p class="big">틀린 사람은 없었습니다.
+      <p class="big">다르게 행동했다고 틀린 사람은 없었습니다.
 다만 자란 자리가 달랐습니다.</p>
+      <p style="font-size:.98rem">그래도 누군가를 혼자 두는 일은 다름이 아닙니다.
+그건 우리가 내일 바꿀 수 있는 일입니다.</p>
       <p style="font-size:.98rem;opacity:.85">낯섦은 어디에서 오지 않습니다.
 자리가 바뀌면, 누구나 낯선 사람이 됩니다.</p>
       <p style="font-size:.95rem;opacity:.72">당신도 어딘가에서는
@@ -3697,10 +3728,10 @@ function renderEnvs(){
   if(opened.length===5){
     const fp=document.getElementById('floorpaper');
     fp.innerHTML = finalDone
-      ? '기록을 남겼습니다.<br>205호의 다섯 사람 옆에, 당신의 한 장이 놓였습니다.'
+      ? '최종 미션을 마쳤습니다.<br>이 화면은 기록을 저장하지 않습니다. 복사하거나 인쇄해서 남겨 두었는지 확인해 주세요.'
         +'<div style="margin-top:16px;display:flex;gap:9px;justify-content:center;flex-wrap:wrap">'
         +'<button class="btn" onclick="toSummary()">조사 결과 보기</button>'
-        +'<button class="btn" style="background:transparent;color:#5A5440;border:1px solid rgba(0,0,0,.2)" onclick="openRoom(6)">내 기록 다시 보기</button></div>'
+        +'<button class="btn" style="background:transparent;color:#5A5440;border:1px solid rgba(0,0,0,.2)" onclick="openRoom(6)">최종 미션 다시 하기</button></div>'
       : '다섯 봉투가 모두 열렸습니다.<br>상자 바닥에 빈 종이 한 장이 깔려 있습니다.'
         +'<div style="margin-top:16px"><button class="btn" onclick="openRoom(6)">종이를 꺼내기</button></div>';
   }
@@ -3724,6 +3755,7 @@ function renderSummary(){
 /* ── 방 ── */
 function show(id){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  const rm=document.getElementById('room'); if(rm) rm.classList.remove('on');
   const target=document.getElementById(id);
   if(target) target.classList.add('on');
   window.scrollTo({top:0});
@@ -3752,6 +3784,7 @@ function pullCrate(){
   setTimeout(()=>{const digbtn=document.getElementById('digbtn'); if(digbtn) digbtn.classList.add('on');},reduce?200:4200);
 }
 
+const ROOM_EXTRA_CSS='<style>.tapline:not([onclick*="this,3)"]):not(.picked){opacity:.42;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(0,0,0,.35)}.tapline[onclick*="this,3)"]{font-weight:700}.seat.pen{position:relative;box-shadow:inset 0 0 0 2px rgba(46,107,124,.75)}.seat.pen::before{content:"✎";position:absolute;left:6px;top:2px;font-size:.9rem;color:#2E6B7C}</style>';
 function openRoom(n){
   fadeTo(()=>{
     curRoom=n;
@@ -3761,7 +3794,7 @@ function openRoom(n){
     document.getElementById('rtime').textContent = (n===6?'':'00:00');
     document.getElementById('rtime').style.display = (n===6?'none':'');
     const f=document.getElementById('frame');
-    f.srcdoc=ROOMS[n-1];
+    f.srcdoc=ROOMS[n-1].replace('</head>',ROOM_EXTRA_CSS+'</head>');
     f.onload=()=>{ try{ f.contentWindow.postMessage({q:'sound',on:soundOn},'*'); }catch(e){} };
     window.scrollTo({top:0});
     drawProg();
