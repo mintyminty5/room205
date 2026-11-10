@@ -376,7 +376,7 @@ const ROOMS=[
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>205호 타임캡슐 — 1방 시험판 v2</title>
+<title>205호 타임캡슐 — 1방</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -526,7 +526,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
     <div class="lq">조용이는 왜 말을 하지 않았을까</div>
     <div class="lsub">단서에서 찾은 말을 적어 넣으세요</div>
     <div class="lockrow">
-      <input id="code" maxlength="4" placeholder="○○" autocomplete="off" aria-label="답">
+      <input id="code" maxlength="10" placeholder="○○" autocomplete="off" aria-label="답">
       <button class="btn" onclick="tryLock()">열기</button>
     </div>
     <div class="lmsg" id="lmsg">봉투 안의 메모를 먼저 읽어 보세요.</div>
@@ -752,7 +752,7 @@ function tryLock(){
   if(!v){ m.textContent='답을 적어 주세요.'; return; }
 
   // 정답 — 예의 / 예의바름 / 예절 모두 인정
-  if(v==='예의'||v==='예의바름'||v==='예절'){
+  if((v.includes('예의')||v.includes('예절'))&&!/없|못|안|않/.test(v)){
     SND.unlock();
     clearInterval(S.tick);
     const s=Math.floor((Date.now()-S.t0)/1000);
@@ -833,7 +833,7 @@ window.addEventListener('message',e=>{
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>205호 타임캡슐 — 2방 시험판</title>
+<title>205호 타임캡슐 — 2방</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -889,6 +889,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
 .ninput.ok{background:#C3E3DA;border-bottom-color:#4F8F7C}
 .ninput.no{background:#F0D6D1;border-bottom-color:#C97B6E}
 .nunit{font-size:.86rem;opacity:.75;width:30px;text-align:left;flex-shrink:0}
+@media(max-width:480px){.numrow{flex-wrap:wrap;row-gap:8px}.nlabel{flex:1 1 100%}.ninput{width:84px}}
 .sumline{display:none;font-family:'Gowun Batang',serif;font-size:1.05rem;line-height:1.95;
   background:rgba(127,179,168,.16);border:1px solid #7FB3A8;padding:18px 16px;margin:4px 0 18px;
   white-space:pre-line}
@@ -1041,7 +1042,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
       <div class="lq">그런데 넓이는 왜 그랬을까</div>
       <div class="lsub">접힌 종이의 마지막 줄에서 찾은 말을 적어 넣으세요</div>
       <div class="lockrow">
-        <input id="code" maxlength="6" placeholder="○○○" autocomplete="off" aria-label="답">
+        <input id="code" maxlength="10" placeholder="○○○" autocomplete="off" aria-label="답">
         <button class="btn" onclick="tryLock()">열기</button>
       </div>
     </div>
@@ -1361,7 +1362,7 @@ function showSum(){
 const HINTS=[
   '열리지 않습니다. 기록을 더 읽어 보세요.',
   '모둠 친구들은 "하기 싫은 줄" 알았지만, 넓이는 다르게 생각하고 있었습니다.',
-  '접힌 종이의 마지막 줄을 보세요. "우리 동네에서는 ○○○이 배려라고 했는데" 빈칸이나 그 뒤의 말, 둘 중 하나가 답입니다.',
+  '접힌 종이의 마지막 줄을 보세요. "우리 동네에서는 ○○○이 배려라고 했는데" 빈칸에 들어갈 말이 답입니다.',
 ];
 const GIFT=\`2026.11.09
 
@@ -1384,7 +1385,7 @@ function tryLock(){
   const m=document.getElementById('lmsg');
   if(!v){ m.textContent='답을 적어 주세요.'; return; }
 
-  if(v==='기다림'||v==='기다리기'||v==='기다려서'||v==='배려'||v==='배려심'){
+  if(v.includes('기다')&&!/없|못|안|않/.test(v)){
     SND.unlock();
     clearInterval(S.tick);
     const s=Math.floor((Date.now()-S.t0)/1000);
@@ -1407,6 +1408,8 @@ function tryLock(){
     m.textContent='그건 모둠 친구들이 짐작한 이유였습니다. 넓이 기록을 다시 보세요.';
   }else if(v.includes('부끄')||v.includes('소심')||v.includes('낯')){
     m.textContent='넓이는 부끄러워서 가만히 있었던 게 아닙니다. 접힌 종이를 보세요.';
+  }else if(v.includes('배려')){
+    m.textContent='"배려"는 넓이가 그 행동에 붙인 뜻이에요. 접힌 종이의 마지막 줄에서 "배려" 바로 앞에 있는 말을 찾아보세요.';
   }else if(v.includes('존중')||v.includes('양보')){
     m.textContent='비슷합니다. 접힌 종이의 마지막 줄에 적힌 말을 그대로 넣어 보세요.';
   }else{
@@ -1460,7 +1463,7 @@ window.addEventListener('message',e=>{
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>205호 타임캡슐 — 3방 시험판</title>
+<title>205호 타임캡슐 — 3방</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -1643,7 +1646,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
 
     <div id="stage1">
       <div class="lq">신중이가 지운 메시지의 시각</div>
-      <div class="lsub">단톡방 캡처에서 "삭제된 메시지입니다"가 적힌 세 줄의 시각을 찾아 넣으세요</div>
+      <div class="lsub">단톡방 캡처에서 "삭제된 메시지입니다"가 적힌 세 줄의 시각을 찾아 넣으세요 (캡처에 적힌 그대로, 24시간제로 적어요. 예: 오후 9시 5분 → 21 : 05)</div>
       <div class="timerows">
         <div class="timerow">
           <span class="tlabel">발표 이틀 전 밤 (11/18)</span>
@@ -1675,7 +1678,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
       <div class="lq">그런데 신중이는 왜 다 지웠을까</div>
       <div class="lsub">단서에서 찾은 말을 적어 넣으세요</div>
       <div class="lockrow">
-        <input id="code" maxlength="6" placeholder="○○" autocomplete="off" aria-label="답">
+        <input id="code" maxlength="10" placeholder="○○" autocomplete="off" aria-label="답">
         <button class="btn" onclick="tryLock()">열기</button>
       </div>
     </div>
@@ -1949,10 +1952,10 @@ function tryTimes(){
   const box=document.getElementById('lockbox');
   box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
   if(wrongRow.length===3){
-    m.textContent='세 시각 모두 단톡방 캡처에 있습니다. 어두우니 빛을 비춰 보세요.';
+    m.textContent='세 시각 모두 단톡방 캡처에 있습니다. 어두우니 빛을 비춰 보세요. 시각은 캡처에 적힌 24시간제 그대로 적어요.';
   }else{
     const nm=['첫 번째','두 번째','세 번째'];
-    m.textContent=wrongRow.map(i=>nm[i]).join(', ')+' 줄을 다시 보세요. 삭제된 메시지의 시각입니다.';
+    m.textContent=wrongRow.map(i=>nm[i]).join(', ')+' 줄을 다시 보세요. 삭제된 메시지의 시각입니다. (24시간제로 적어요. 예: 오후 11시 → 23)';
   }
 }
 
@@ -2006,7 +2009,7 @@ function tryLock(){
   const m=document.getElementById('lmsg');
   if(!v){ m.textContent='답을 적어 주세요.'; return; }
 
-  if(v==='배려'||v==='배려심'){
+  if(v.includes('배려')&&!/없|못|안|않/.test(v)){
     SND.unlock();
     clearInterval(S.tick);
     const s=Math.floor((Date.now()-S.t0)/1000);
@@ -2075,7 +2078,7 @@ window.addEventListener('message',e=>{
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>205호 타임캡슐 — 4방 시험판</title>
+<title>205호 타임캡슐 — 4방</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -2250,7 +2253,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
     <div class="lq">밝음이는 왜 매일 웃었을까</div>
     <div class="lsub">단서에서 찾은 말을 적어 넣으세요</div>
     <div class="lockrow">
-      <input id="code" maxlength="6" placeholder="○○" autocomplete="off" aria-label="답">
+      <input id="code" maxlength="10" placeholder="○○" autocomplete="off" aria-label="답">
       <button class="btn" onclick="tryLock()">열기</button>
     </div>
 
@@ -2511,7 +2514,7 @@ function tryLock(){
   const m=document.getElementById('lmsg');
   if(!v){ m.textContent='답을 적어 주세요.'; return; }
 
-  if(v==='버팀'||v==='버티기'||v==='버팀목'){
+  if((v.includes('버팀')||v.includes('버티')||v.includes('버텨')||v.includes('버텼'))&&!/없|못|안|않/.test(v)){
     SND.unlock();
     clearInterval(S.tick);
     const s=Math.floor((Date.now()-S.t0)/1000);
@@ -2569,7 +2572,7 @@ window.addEventListener('message',e=>{
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>205호 타임캡슐 — 5방 시험판 v2</title>
+<title>205호 타임캡슐 — 5방</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Pen+Script&family=Gaegu:wght@400;700&family=Hi+Melody&family=Single+Day&display=swap" rel="stylesheet">
