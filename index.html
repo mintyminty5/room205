@@ -259,6 +259,18 @@ button:focus-visible,.env:focus-visible{outline:2px solid var(--accent);outline-
   .crate{opacity:1;transform:none}.crate::before{opacity:0}.ctape .ink{opacity:1}}
 #cover:not(.on){display:none}
 .env .name,.env .state{display:block}
+
+/* ── 음악·몰입 보완 ── */
+body:not(.showtimer) #rtime,body:not(.showtimer) .env .rt,body:not(.showtimer) .sumrow .st,body:not(.showtimer) #sumtotal{display:none!important}
+.soundcard{margin:22px auto 0;max-width:380px;padding:12px 14px;border:1px dashed rgba(224,184,104,.65);border-radius:10px;font-size:.92rem;line-height:1.7;text-align:center}
+.soundcard .btn{margin-top:8px}
+.soundcard.on{opacity:.85}
+.roombar #musBtn{font-size:1rem}
+#resume{flex-wrap:wrap;justify-content:center;width:calc(100vw - 24px);max-width:420px;box-sizing:border-box;text-align:center}
+#resume span{flex:1 1 100%;white-space:normal}
+#resume button{white-space:nowrap;flex:0 0 auto}
+#flash{position:fixed;inset:0;pointer-events:none;z-index:90;opacity:0;background:radial-gradient(circle at 50% 45%,rgba(255,226,150,.6),rgba(255,226,150,0) 68%);transition:opacity .9s ease}
+#flash.on{opacity:1;transition:opacity .08s ease}
 </style>
 </head>
 <body>
@@ -272,6 +284,7 @@ button:focus-visible,.env:focus-visible{outline:2px solid var(--accent);outline-
     2학년 교실이 있던 자리, 벽을 뜯던 중 작업이 멈췄다.</p>
   </div>
   <p>연구원 여러분이 호출되었습니다.<br>벽 안에서 무언가 발견됐습니다.</p>
+  <div class="soundcard" id="soundcard"><span id="soundcardtxt">이어폰을 끼고 소리를 켜면 더 몰입할 수 있어요.<br>소리 없이 해도 됩니다.</span><br><button class="btn" id="soundOnBtn" onclick="enableSoundFromCover()">소리 켜기</button></div>
   <p style="margin-top:22px"><button class="btn" onclick="toDig()">현장으로 가기</button></p>
 </div></section>
 
@@ -338,12 +351,14 @@ button:focus-visible,.env:focus-visible{outline:2px solid var(--accent);outline-
     <button class="back" onclick="backToHub()">◀ 상자</button>
     <span class="rname" id="rname"></span>
     <span class="rt" id="rtime">00:00</span>
-    <button class="snd off" id="sndBtn" onclick="toggleSound()">🔇</button>
+    <button class="snd off" id="sndBtn" onclick="toggleSound()" title="효과음">🔇</button>
+    <button class="snd" id="musBtn" onclick="toggleMusic()" title="배경음악">♪</button>
   </div>
   <iframe id="frame" title="방"></iframe>
 </div>
 
 <div id="fade"></div>
+<div id="flash"></div>
 <div class="progbar" id="prog"></div>
 
 <div id="resume">
@@ -3795,7 +3810,8 @@ function openRoom(n){
     document.getElementById('rtime').style.display = (n===6?'none':'');
     const f=document.getElementById('frame');
     f.srcdoc=ROOMS[n-1].replace('</head>',ROOM_EXTRA_CSS+'</head>');
-    f.onload=()=>{ try{ f.contentWindow.postMessage({q:'sound',on:soundOn},'*'); }catch(e){} };
+    f.onload=()=>{ try{ f.contentWindow.postMessage({q:'sound',on:soundOn},'*'); }catch(e){}
+      try{ const w=f.contentWindow, S2=w.eval('SND'); if(S2&&S2.unlock&&!S2.__w){ const o=S2.unlock.bind(S2); S2.unlock=function(){ try{ w.parent.postMessage({q:'unlock'},'*'); }catch(e){} return o(); }; S2.__w=1; } }catch(e){} };
     window.scrollTo({top:0});
     drawProg();
   });
@@ -3848,6 +3864,98 @@ function drawProg(){
   p.appendChild(t);
 }
 drawProg();
+</script>
+<script>
+/* ── 배경음악(브라우저 합성, 파일 없음) · 시간 표시 · 해제 연출 ── */
+(function(){
+  if(new URLSearchParams(location.search).has('timer')) document.body.classList.add('showtimer');
+  let musicOn=true, ctx=null, master=null, fx=null, an=null, cur=null, curName=null;
+  const mtof=m=>440*Math.pow(2,(m-69)/12);
+  const SCENES={
+    hub:{pad:[50,57,62],    notes:[62,64,66,69,71,74], gap:[3.2,5.2], vol:.9,  wave:'sine'},
+    r1: {pad:[45,52,57],    notes:[57,60,62,64,67,69], gap:[4.5,7.5], vol:.8,  wave:'sine'},
+    r2: {pad:[48,55,60],    notes:[72,74,76,79,81,84], gap:[2.2,3.8], vol:.85, wave:'triangle'},
+    r3: {pad:[38,45,50],    notes:[50,53,55,57,60,62], gap:[3.6,6.2], vol:.8,  wave:'sine'},
+    r4: {pad:[41,48,53,56], notes:[65,68,70,72,75],    gap:[4.2,7],   vol:.6,  wave:'sine'},
+    r5: {pad:[36,43],       notes:[],                  gap:[0,0],     vol:.45, wave:'sine'},
+    end:{pad:[48,55,60,64], notes:[72,76,79,84,88],    gap:[2.4,4.2], vol:.9,  wave:'sine'}
+  };
+  function ensure(){
+    if(ctx) return true;
+    try{
+      ctx=new (window.AudioContext||window.webkitAudioContext)();
+      master=ctx.createGain(); master.gain.value=.22;
+      const lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=2400;
+      an=ctx.createAnalyser(); an.fftSize=1024;
+      master.connect(lp); lp.connect(ctx.destination); lp.connect(an);
+      fx=ctx.createDelay(1.0); fx.delayTime.value=.38;
+      const fb=ctx.createGain(); fb.gain.value=.36; const fl=ctx.createBiquadFilter(); fl.type='lowpass'; fl.frequency.value=1500;
+      fx.connect(fl); fl.connect(fb); fb.connect(fx); fl.connect(master);
+      return true;
+    }catch(e){ ctx=null; return false; }
+  }
+  function note(dest,m,vol,wave,dur){
+    const t=ctx.currentTime, f=mtof(m);
+    [[1,1],[2,.22]].forEach(([mul,a])=>{
+      const o=ctx.createOscillator(), g=ctx.createGain(); o.type=wave; o.frequency.value=f*mul;
+      g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol*a,t+.03); g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+      o.connect(g); g.connect(dest); g.connect(fx); o.start(t); o.stop(t+dur+.1);
+    });
+  }
+  function makeScene(name){
+    const sp=SCENES[name], g=ctx.createGain(); g.gain.value=0; g.connect(master);
+    const oscs=[];
+    sp.pad.forEach((m,i)=>{
+      [-4,4].forEach(det=>{
+        const o=ctx.createOscillator(), pg=ctx.createGain(); o.type='sine'; o.frequency.value=mtof(m); o.detune.value=det;
+        pg.gain.value=.05/Math.sqrt(sp.pad.length);
+        const lfo=ctx.createOscillator(), lg=ctx.createGain(); lfo.frequency.value=.07+i*.03; lg.gain.value=pg.gain.value*.5; lfo.connect(lg); lg.connect(pg.gain);
+        o.connect(pg); pg.connect(g); o.start(); lfo.start(); oscs.push(o,lfo);
+      });
+    });
+    let timer=null, dead=false, last=-1;
+    function next(){
+      if(dead||!sp.notes.length) return;
+      let k; do{ k=Math.floor(Math.random()*sp.notes.length); }while(k===last&&sp.notes.length>1); last=k;
+      note(g,sp.notes[k],.07,sp.wave,3.4);
+      timer=setTimeout(next,(sp.gap[0]+Math.random()*(sp.gap[1]-sp.gap[0]))*1000);
+    }
+    timer=setTimeout(next,1200);
+    g.gain.linearRampToValueAtTime(sp.vol,ctx.currentTime+3);
+    return { name, stop(){ dead=true; clearTimeout(timer); const t=ctx.currentTime; g.gain.cancelScheduledValues(t); g.gain.setValueAtTime(g.gain.value,t); g.gain.linearRampToValueAtTime(0,t+2.4); setTimeout(()=>{ oscs.forEach(o=>{try{o.stop();}catch(e){}}); try{g.disconnect();}catch(e){} },2800); } };
+  }
+  function sceneName(){
+    const r=curRoom; if(r>=1&&r<=5) return 'r'+r; if(r===6) return 'end';
+    const v=document.querySelector('.view.on'); return (v&&v.id==='summary')?'end':'hub';
+  }
+  function tick(){
+    const want=(soundOn&&musicOn&&!document.hidden)?sceneName():null;
+    if(want===curName) return;
+    if(cur){ cur.stop(); cur=null; }
+    curName=want;
+    if(want && ensure()){ if(ctx.state==='suspended') ctx.resume(); cur=makeScene(want); }
+  }
+  setInterval(tick,400);
+  document.addEventListener('visibilitychange',()=>{ if(ctx){ if(document.hidden) ctx.suspend(); else if(soundOn) ctx.resume(); } });
+
+  // 소리 버튼: 클릭(사용자 동작) 안에서 오디오를 깨움
+  const _ts=toggleSound;
+  window.toggleSound=function(){ _ts(); if(soundOn){ ensure(); if(ctx&&ctx.state==='suspended') ctx.resume(); } const c=document.getElementById('soundcard'); if(c) c.classList.toggle('on',soundOn); };
+  window.toggleMusic=function(){ musicOn=!musicOn; const b=document.getElementById('musBtn'); b.classList.toggle('off',!musicOn); b.style.opacity=musicOn?'1':'.45'; };
+  window.enableSoundFromCover=function(){
+    if(!soundOn) window.toggleSound();
+    document.getElementById('soundcardtxt').innerHTML='소리가 켜졌습니다. 이어폰을 권장합니다.<br>방에서 상단 🔊와 ♪로 끌 수 있어요.';
+    document.getElementById('soundOnBtn').style.display='none';
+  };
+
+  // 잠금 해제 연출: 맑은 화음 + 번쩍임 + 진동(핸드폰)
+  function unlockFx(){
+    if(soundOn && ensure()){ if(ctx.state==='suspended') ctx.resume(); [72,76,79,84].forEach((m,i)=>setTimeout(()=>{ if(ctx) note(master,m,.11,'sine',2.6); },i*110)); try{ if(navigator.vibrate) navigator.vibrate([25,45,30]); }catch(e){} }
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){ const f=document.getElementById('flash'); f.classList.add('on'); setTimeout(()=>f.classList.remove('on'),260); }
+  }
+  window.addEventListener('message',e=>{ if((e.data||{}).q==='unlock') unlockFx(); });
+  window.__music={ info(){ if(!an) return null; const a=new Float32Array(an.fftSize); an.getFloatTimeDomainData(a); let sum=0; for(let i=0;i<a.length;i++) sum+=a[i]*a[i]; return {scene:curName, state:ctx&&ctx.state, rms:+Math.sqrt(sum/a.length).toFixed(5)}; } };
+})();
 </script>
 </body>
 </html>
