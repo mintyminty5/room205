@@ -1,0 +1,85 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>협력 미션 판정</title>
+<style>
+:root{--paper:#f7f2e8;--ink:#2b2420;--mute:#6b5f55;--line:#d9ccb8;--teal:#1f6f6b;--teal-bg:#e1f0ee;--red:#a8402f;--red-bg:#f8e3de;--gold:#b8862b;--card:#fffdf8}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;line-height:1.6;font-size:17px;word-break:keep-all}
+.wrap{max-width:720px;margin:0 auto;padding:18px 16px 60px}
+h1{font-size:22px;margin:4px 0 2px}.sub{color:var(--mute);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:14px}
+.rule{display:block;text-align:left;font:inherit;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;color:var(--ink);min-height:84px}
+.rule .n{font-weight:800;color:var(--teal);margin-right:6px}.rule.sel{border-color:var(--teal);background:var(--teal-bg)}.rule:disabled{opacity:.55;cursor:default}
+.bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0}
+.pill{display:inline-block;padding:3px 12px;border-radius:999px;background:var(--line);font-size:14px}
+.btn{font:inherit;font-size:18px;padding:12px 24px;border-radius:10px;border:2px solid var(--teal);background:var(--teal);color:#fff;cursor:pointer}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.res{font-size:22px;font-weight:800;margin-top:6px}.hist{color:var(--mute);font-size:15px;margin:6px 0 0;padding-left:20px}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:16px}
+table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}th{background:#efe6d4}
+td.o{background:var(--teal-bg);color:var(--teal);font-weight:700;text-align:center}td.x{background:var(--red-bg);color:var(--red);font-weight:700;text-align:center}
+.hide{display:none}.note{color:var(--mute);font-size:14px}.ok{color:var(--teal)}
+.foot{margin-top:28px;text-align:center}.foot button{background:none;border:0;color:var(--mute);text-decoration:underline;font:inherit;font-size:13px;cursor:pointer}
+</style></head><body><div class="wrap">
+<h1>협력 미션 판정</h1>
+<div class="sub">규칙 카드를 <b>3장 이하</b>로 골라 판정해요. 판정은 <b>3번</b>만 할 수 있어요.</div>
+<div id="rules" class="grid"></div>
+<div class="bar"><span class="pill" id="cnt"></span><span class="pill" id="left"></span><button class="btn" id="go">판정하기</button></div>
+<div class="res" id="res" aria-live="polite"></div><ul class="hist" id="hist"></ul>
+<div id="reveal" class="box hide"></div>
+<div class="foot"><button id="newTeam">새 팀 시작(교사용)</button></div>
+</div>
+<script>
+const CHARS = [
+ {k:'jo', no:1, name:'조용이', scene:'"손 들까 말까 하다가 그냥 있었음"', checks:['갑자기 지목받거나, 손을 들어야만 말할 수 있는 규칙이 있나?','조용히 준비하고 정리해서 낼 길이 있나?','틀린 것을 모두 앞에서 바로 고치게 하는 규칙이 있나?']},
+ {k:'ne', no:2, name:'넓이', scene:'"내가 맞장구치면 다 쳐다봄"', checks:['손을 들 때까지 반응을 참아야 하는 규칙이 있나?','내가 마음껏 말할 차례나 시간이 정해져 있나?','나만 유리하고 조용한 친구가 밀리는 규칙은 아닌가?']},
+ {k:'si', no:3, name:'신중이', scene:'"썼다가 지웠다 또 썼다가 지웠다"', checks:['틀린 것을 여러 사람 앞에서 바로 말해야 하나?','조용히 따로 알릴 길이 있나?','글로 먼저 정리해서 낼 수 있나?']},
+ {k:'ba', no:4, name:'밝음이', scene:'"괜찮냐고 물어보면 괜찮다고 해야지"', checks:['"괜찮아?"를 한 번 묻고 끝내는 규칙이 있나?','티 내지 않고 힘든 것을 알릴 길이 있나?','혼자 남는 사람이 생기지 않게 하는 장치가 있나?']},
+ {k:'jun', no:5, name:'준', scene:'"내가 당연하게 하는 게 누군가한테는 이상하게 보일 수 있다"', checks:['이 규칙이 내 방식만 기본으로 삼고 있지는 않나?','내가 몰랐던 사정을 알 길이 있나?','규칙이 안 맞을 때 바꿀 길이 있나?']}
+];
+const RULES = [
+ {id:1, t:'발표는 손을 든 사람부터 시킨다', e:{jo:['x','손을 들기 어려운 사람은 말할 차례가 오지 않는다'], ne:['x','손을 들 때까지 반응을 참아야 해서, 바로 말하는 내 방식이 막힌다']}},
+ {id:2, t:'발표는 말, 글, 포스트잇 중에서 고를 수 있다', e:{jo:['o','조용히 준비해서 낼 길이 생긴다'], si:['o','글로 먼저 정리해서 낼 수 있다']}},
+ {id:3, t:'모둠 역할은 순서표를 미리 붙여 돌아가며 맡는다', e:{ne:['o','내 차례가 정해져 있어서, 그때는 마음껏 말할 수 있다'], jo:['o','미리 알고 준비할 수 있다']}},
+ {id:4, t:'역할과 자리는 먼저 말한 사람이 정한다', e:{ne:['o','말이 빠른 나는 먼저 정할 수 있다'], jo:['x','조용히 있으면 남는 자리가 된다'], ba:['x','마지막까지 남는 사람이 생긴다']}},
+ {id:5, t:'틀린 것은 그 자리에서 모두 앞에서 바로 고쳐 준다', e:{si:['x','친구를 여러 사람 앞에서 지적하는 일이 된다'], jo:['x','모두 앞에서 틀리는 일이 부담이 된다']}},
+ {id:6, t:'틀린 것은 쪽지나 개인 대화로 먼저 알려 준다', e:{si:['o','조용히 따로 알릴 길이 생긴다'], jo:['o','모두 앞에서 틀릴 부담이 줄어든다']}},
+ {id:7, t:'"괜찮아?"는 한 번 묻고, 괜찮다고 하면 넘어간다', e:{ba:['x','괜찮다고 하면 아무도 두 번 묻지 않는다'], jun:['x','내가 몰랐던 사정을 알 길이 닫힌다']}},
+ {id:8, t:'일주일에 한 번, 이름 없이 적어 내는 "불편한 규칙" 쪽지함을 연다', e:{ba:['o','티 내지 않고 힘든 것을 알릴 수 있다'], jun:['o','내가 몰랐던 사정이 규칙에 반영된다']}},
+ {id:9, t:'자리와 모둠은 학기 중 두 번, 바라는 점을 적어 낸 뒤 바꾼다', e:{ba:['o','혼자 남는 자리를 바꿀 기회가 생긴다']}},
+ {id:10, t:'하루 한 번 옆 친구에게 "요즘 어때?"를 묻고, 괜찮다고 해도 한 번 더 묻는다', e:{ba:['o','두 번째 질문에서 말할 문이 열린다'], jun:['o','내 기준 밖의 사정을 직접 듣게 된다']}},
+ {id:11, t:'점심은 각자 알아서 먹는다. 누구와 먹든 간섭하지 않는다', e:{ba:['x','간섭하지 않는다는 말이 혼자 남는 사람을 그대로 둔다']}}
+];
+
+const MAXPICK=3,MAXTRY=3;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+let st={picked:[],tries:[],done:false,passed:false,last:null};
+try{const x=JSON.parse(sessionStorage.getItem('coopJudge')||'null'); if(x&&Array.isArray(x.tries)) st=x;}catch(e){}
+const save=()=>{try{sessionStorage.setItem('coopJudge',JSON.stringify(st));}catch(e){}};
+function judge(ids){return CHARS.map(c=>{const xs=[],os=[];ids.forEach(id=>{const v=RULES.find(r=>r.id===id).e[c.k];if(v)(v[0]==='x'?xs:os).push(v[1]);});return {c,xs,os,pass:xs.length===0&&os.length>0};});}
+function renderRules(){
+  $('#rules').innerHTML=RULES.map(r=>'<button class="rule'+(st.picked.includes(r.id)?' sel':'')+'" data-id="'+r.id+'" aria-pressed="'+st.picked.includes(r.id)+'"'+(st.done?' disabled':'')+'><span class="n">'+r.id+'</span>'+esc(r.t)+'</button>').join('');
+  document.querySelectorAll('#rules .rule').forEach(b=>b.onclick=()=>{if(st.done)return;const id=+b.dataset.id;if(st.picked.includes(id))st.picked=st.picked.filter(x=>x!==id);else if(st.picked.length<MAXPICK)st.picked.push(id);save();renderRules();upd();});
+}
+function upd(){
+  $('#cnt').textContent='고른 카드 '+st.picked.length+' / '+MAXPICK;
+  $('#left').textContent='판정 기회 '+(MAXTRY-st.tries.length)+'번 남음';
+  $('#go').disabled=st.done||st.picked.length<1||st.tries.length>=MAXTRY;
+  $('#hist').innerHTML=st.tries.map((t,i)=>'<li>'+(i+1)+'번째: 카드 '+t.ids.join(', ')+' → 5명 중 '+t.n+'명 통과</li>').join('');
+  if(st.last){$('#res').textContent='5명 중 '+st.last.n+'명 통과'+(st.done?'':'. 걸린 사람은 어떤 점이 걸렸는지 말로 알려 주세요.');}else{$('#res').textContent='';}
+  if(st.done&&st.last){
+    const res=judge(st.last.ids);
+    let h='<h2 style="margin:0 0 8px;font-size:19px">'+(st.passed?'다섯 사람이 모두 통과했습니다':'판정 기회를 모두 썼습니다. 결과를 함께 읽어 봅시다')+'</h2><table><tr><th>인물</th><th>결과</th><th>이유</th></tr>';
+    res.forEach(r=>{const why=[].concat(r.xs.map(x=>'걸림: '+x),r.os.map(x=>'도움: '+x));h+='<tr><td>'+r.c.name+'</td><td class="'+(r.pass?'o':'x')+'">'+(r.pass?'통과':'걸림')+'</td><td>'+(why.length?why.map(esc).join('<br>'):'아직 이 인물에게 도움이 되는 규칙이 없습니다')+'</td></tr>';});
+    h+='</table>'+(st.passed?'<p class="note ok"><b>성공!</b> 팀 규칙을 한 줄로 종이에 적어요.</p>':'<p class="note">어떤 규칙이 누구에게 걸렸는지 이야기해 보세요.</p>');
+    $('#reveal').innerHTML=h;$('#reveal').classList.remove('hide');
+  }else{$('#reveal').classList.add('hide');}
+}
+$('#go').onclick=()=>{
+  const res=judge(st.picked),n=res.filter(r=>r.pass).length;
+  st.tries.push({ids:[].concat(st.picked),n});st.last={ids:[].concat(st.picked),n};
+  if(n===5){st.done=true;st.passed=true;}else if(st.tries.length>=MAXTRY){st.done=true;}
+  save();renderRules();upd();
+};
+$('#newTeam').onclick=()=>{if(confirm('새 팀을 위해 판정 기록을 지울까요? (교사용)')){st={picked:[],tries:[],done:false,passed:false,last:null};save();renderRules();upd();}};
+renderRules();upd();
+</script></body></html>
