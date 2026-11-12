@@ -1,0 +1,4084 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>205호 타임캡슐 | 우리가 같은 반이었던 그 해</title>
+<meta name="description" content="2045년 리모델링 현장에서 발견된 다섯 사람의 기록. 단서를 모아 205호의 이야기를 복원하는 학생용 다문화 공감 퀘스트.">
+<meta name="theme-color" content="#17232B">
+
+<link rel="icon" type="image/png" href="https://room205.vercel.app/room205-student-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="205호 타임캡슐">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="205호 타임캡슐 | 우리가 같은 반이었던 그 해">
+<meta property="og:description" content="2045년 리모델링 현장에서 발견된 다섯 사람의 기록. 단서를 모아 205호의 이야기를 복원하는 학생용 다문화 공감 퀘스트.">
+<meta property="og:image" content="https://room205.vercel.app/room205-student-og.jpg?v=1">
+<meta property="og:image:secure_url" content="https://room205.vercel.app/room205-student-og.jpg?v=1">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="205호 타임캡슐. 우리가 같은 반이었던 그 해, 다섯 사람의 기록을 복원하는 퀘스트.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="205호 타임캡슐 | 우리가 같은 반이었던 그 해">
+<meta name="twitter:description" content="다섯 사람의 기록을 복원하는 학생용 다문화 공감 퀘스트.">
+<meta name="twitter:image" content="https://room205.vercel.app/room205-student-og.jpg?v=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#C9A479;          /* 크라프트 골판지 — 밝게 */
+  --bg2:#B89266;
+  --fg:#241C14;          /* 짙은 갈색 잉크 */
+  --fg-soft:#3E3328;
+  --paper:#F6F0E2;
+  --paper-2:#E2D8C4;
+  --accent:#6B2607;      /* 스탬프 적갈 */
+  --accent-soft:#5C2108;
+  --line:#8A6A47;
+  --ink:#241C14;
+  --ok:#2F5E38;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%}
+body{
+  color:var(--fg);font-family:'Gowun Dodum',system-ui,sans-serif;
+  line-height:1.75;-webkit-text-size-adjust:100%;overscroll-behavior:none;
+  background-color:var(--bg);
+  background-image:
+    /* 골판지 세로 결 */
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.055) 0 1px, transparent 1px 7px),
+    /* 결 사이 음영 */
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,.05) 0 3px, transparent 3px 7px),
+    /* 종이 얼룩 */
+    radial-gradient(ellipse 60% 40% at 18% 22%, rgba(120,88,52,.16), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 82% 68%, rgba(140,104,62,.13), transparent 62%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(70,50,30,.18), transparent 70%);
+  background-attachment:fixed;
+}
+h1,h2,h3{font-family:'Gowun Batang',serif;font-weight:700;line-height:1.35;margin:0}
+button{font-family:inherit;cursor:pointer;border:0}
+button:focus-visible,.env:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.view{display:none}
+.view.on{display:block}
+.wrap{max-width:720px;margin:0 auto;padding:28px 20px 70px}
+.btn{background:var(--accent);color:#F7F1E4;padding:14px 26px;font-weight:700;font-size:1rem;
+  box-shadow:0 3px 0 rgba(0,0,0,.22)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.22)}
+.btn:hover{filter:brightness(1.14)}
+
+/* ══ 표지 ══ */
+#cover{min-height:88vh;display:flex;flex-direction:column;justify-content:center}
+.box-tag{display:inline-block;align-self:flex-start;border:1px solid var(--accent);
+  color:var(--accent);background:rgba(255,255,255,.18);
+  padding:5px 12px;font-size:.82rem;margin-bottom:26px;
+  font-family:'Gowun Batang',serif;letter-spacing:.04em}
+#cover h1{font-size:clamp(2.2rem,8vw,3.4rem);letter-spacing:-.02em}
+#cover h1{text-shadow:0 1px 0 rgba(255,255,255,.25)}
+#cover .sub{font-family:'Gowun Batang',serif;font-size:1.15rem;color:var(--accent);margin-top:10px}
+.dig{margin:34px 0;border-left:3px solid var(--accent);padding:2px 0 2px 18px;opacity:.92}
+.dig p{margin:0 0 12px}
+
+/* ══ 발굴 ══ */
+#dig{text-align:center;padding-top:10px}
+#dig h2{font-size:1.5rem;margin-bottom:6px;text-shadow:0 1px 0 rgba(255,255,255,.25)}
+#dig .digsub{opacity:.75;font-size:.92rem;margin-bottom:26px;color:var(--fg-soft)}
+.wallwrap{position:relative;max-width:460px;margin:0 auto 22px}
+.wall{position:relative;height:260px;border-radius:3px;overflow:hidden;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 46px),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.13) 0 1px,transparent 1px 92px),
+    linear-gradient(#5E5A4F,#46433A);
+  box-shadow:inset 0 0 60px rgba(0,0,0,.55)}
+.hole{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:240px;height:164px;background:#05080B;
+  clip-path:polygon(6% 14%,26% 3%,52% 9%,78% 2%,96% 18%,100% 52%,90% 84%,64% 97%,34% 92%,11% 98%,2% 66%);
+  box-shadow:inset 0 0 44px rgba(0,0,0,.95),0 0 0 3px rgba(28,24,18,.85)}
+.dust{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s}
+.dust.on{opacity:1}
+.mote{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(226,214,186,.62);
+  animation:drift 3.4s ease-out forwards}
+@keyframes drift{0%{opacity:0;transform:translate(0,0)}18%{opacity:.9}
+  100%{opacity:0;transform:translate(var(--dx),var(--dy))}}
+.crate{position:relative;max-width:330px;margin:0 auto;
+  background:linear-gradient(168deg,#9C7F55,#7A6240);border:1px solid #5E4B30;
+  padding:28px 20px 24px;box-shadow:0 16px 40px rgba(0,0,0,.6),inset 0 0 40px rgba(0,0,0,.28);
+  opacity:0;transform:translateY(-42px) scale(.9);
+  transition:opacity 1s ease,transform 1.1s cubic-bezier(.2,.8,.3,1)}
+.crate.out{opacity:1;transform:none}
+.crate::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(80% 110% at 30% 8%,rgba(120,106,80,.55),rgba(48,42,32,.72));
+  transition:opacity 1.5s ease}
+.crate.clean::before{opacity:0}
+.ctape{position:relative;z-index:2;background:rgba(233,227,212,.93);color:#2A2620;
+  font-family:'Nanum Pen Script',cursive;font-size:1.3rem;line-height:1.45;
+  padding:14px 16px;transform:rotate(-1.6deg);box-shadow:0 3px 10px rgba(0,0,0,.4);
+  clip-path:polygon(0 6%,4% 0,96% 3%,100% 9%,99% 92%,95% 100%,5% 97%,1% 90%)}
+.ctape .ink{opacity:0;transition:opacity 1.6s ease}
+.crate.read .ctape .ink{opacity:1}
+.digbtn{margin-top:24px;opacity:0;transition:opacity .9s ease;pointer-events:none}
+.digbtn.on{opacity:1;pointer-events:auto}
+
+/* ══ 허브 ══ */
+#hub .hubhead{text-align:center;margin-bottom:6px}
+#hub h2{font-size:1.6rem;text-shadow:0 1px 0 rgba(255,255,255,.25)}
+#hub .hubsub{opacity:.78;font-size:.92rem;margin-bottom:22px;text-align:center;color:var(--fg-soft)}
+.riddle{max-width:470px;margin:0 auto 22px;padding:15px 17px;
+  border:1px dashed var(--accent);background:rgba(255,255,255,.2);
+  color:var(--fg);font-family:'Gowun Batang',serif;font-size:.95rem;line-height:1.8;text-align:center}
+.riddle b{color:var(--accent)}
+
+/* 상자 */
+.boxlip{height:18px;position:relative;
+  background:linear-gradient(#8E6B42,#6E5231);
+  border:1px solid #5C4428;border-bottom:0}
+.boxlip::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
+  background:linear-gradient(rgba(0,0,0,.45),transparent)}
+.boxinner{border:1px solid #5C4428;border-top:0;
+  background-color:#6B4F30;
+  background-image:
+    radial-gradient(130% 70% at 50% 0%,rgba(0,0,0,.55),transparent 74%),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0 1px,transparent 1px 7px);
+  padding:26px 16px;box-shadow:inset 0 26px 46px rgba(0,0,0,.6)}
+
+/* 봉투 — 다섯 개가 각기 다르다 */
+.env{position:relative;display:block;width:100%;text-align:left;
+  color:#33301F;border:0;padding:19px 18px 19px 64px;margin-bottom:13px;
+  box-shadow:0 8px 20px rgba(0,0,0,.52);
+  transition:transform .35s ease,filter 1.2s ease,opacity 1.2s ease}
+.env:not(.locked):hover{transform:translateX(3px)}
+.env::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(90% 130% at 25% 10%,rgba(90,80,60,.5),rgba(40,36,28,.78));
+  transition:opacity 1.4s ease}
+.env.clean::after{opacity:0}
+.env .wax{position:absolute;left:17px;top:50%;transform:translateY(-50%);
+  width:30px;height:30px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#9E3D33,#6B241D);
+  box-shadow:0 2px 5px rgba(0,0,0,.5);z-index:3}
+.env.opened .wax{background:radial-gradient(circle at 34% 30%,#5B4038,#3A2721);
+  clip-path:polygon(0 0,42% 0,50% 22%,58% 0,100% 0,100% 100%,58% 100%,50% 78%,42% 100%,0 100%)}
+.env .name{position:relative;z-index:3;font-family:'Gowun Batang',serif;
+  font-size:1.16rem;font-weight:700}
+.env .state{position:relative;z-index:3;font-size:.77rem;opacity:.72;margin-top:3px}
+.env .rt{position:absolute;right:14px;top:50%;transform:translateY(-50%);z-index:3;
+  font-size:.76rem;color:#5A5440;font-variant-numeric:tabular-nums}
+.env.locked{filter:brightness(.42) blur(.5px);cursor:not-allowed}
+.env.locked .name{color:#6E6A59}
+.env.opened{opacity:.72}
+.env.shake{animation:shake .42s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* ① 조용이 — 평범한 미색, 손글씨 자국 */
+.env.e1{background:linear-gradient(172deg,#EDE4CE,#D8CDB2)}
+/* ② 넓이 — 오른쪽 위 모서리가 접혔다 */
+.env.e2{background:linear-gradient(172deg,#E8E2CC,#D2CBAF);
+  clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,0 100%)}
+.env.e2 .fold{position:absolute;right:0;top:0;width:26px;height:26px;z-index:4;
+  background:linear-gradient(225deg,#A89E82 50%,transparent 50%);
+  box-shadow:-2px 2px 4px rgba(0,0,0,.3)}
+/* ③ 신중이 — 테이프를 여러 번 붙였다 */
+.env.e3{background:linear-gradient(172deg,#E6DFC8,#CFC8AC)}
+.env.e3 .tape{position:absolute;z-index:4;background:rgba(226,220,198,.55);
+  border-top:1px solid rgba(255,255,255,.3);border-bottom:1px solid rgba(0,0,0,.12)}
+.env.e3 .tape.t1{left:36%;top:-5px;width:46px;height:19px;transform:rotate(-7deg)}
+.env.e3 .tape.t2{left:52%;top:-3px;width:38px;height:17px;transform:rotate(5deg)}
+.env.e3 .tape.t3{left:44%;bottom:-5px;width:42px;height:18px;transform:rotate(3deg)}
+/* ④ 밝음이 — 스티커가 붙어 있다 */
+.env.e4{background:linear-gradient(172deg,#F0E7CE,#DAD0B2)}
+.env.e4 .stk{position:absolute;z-index:4;border-radius:50%;
+  box-shadow:0 1px 3px rgba(0,0,0,.3);display:flex;align-items:center;
+  justify-content:center;font-size:.62rem}
+.env.e4 .s1{right:52px;top:9px;width:19px;height:19px;background:#E8A33D;transform:rotate(-12deg)}
+.env.e4 .s2{right:34px;top:26px;width:16px;height:16px;background:#D96A5E}
+.env.e4 .s3{right:60px;bottom:10px;width:14px;height:14px;background:#7FB08F;transform:rotate(18deg)}
+/* ⑤ 이름 없음 — 더 낡고 어둡다 */
+.env.e5{background:linear-gradient(172deg,#DCD3BC,#C3BAA2)}
+.env.e5 .name{font-style:italic;font-size:1.04rem}
+.env.e5::before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:linear-gradient(90deg,transparent,rgba(110,60,40,.4),transparent);z-index:4}
+
+/* 바닥 */
+.boxfloor{margin-top:22px;border-top:1px dashed rgba(255,255,255,.22);padding-top:22px;
+  display:none;text-align:center}
+.boxfloor.on{display:block;animation:rise .8s ease}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.floorpaper{background:var(--paper);color:var(--ink);padding:22px 20px;
+  font-family:'Gowun Batang',serif;box-shadow:0 10px 28px rgba(0,0,0,.45);
+  transform:rotate(-.5deg)}
+
+/* ══ 방 ══ */
+#room{position:fixed;inset:0;background:#6B4F30;display:none;flex-direction:column;z-index:20}
+#room.on{display:flex}
+.roombar{display:flex;align-items:center;gap:10px;padding:9px 12px;
+  background:linear-gradient(#5E4429,#4A351F);border-bottom:1px solid #3A2A18;flex-shrink:0;
+  box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.roombar .back{background:rgba(255,255,255,.08);color:rgba(255,240,220,.75);
+  border:1px solid rgba(255,255,255,.18);padding:6px 11px;font-size:.78rem;border-radius:4px;flex-shrink:0}
+.roombar .back:hover{color:#fff;border-color:rgba(255,255,255,.45)}
+.roombar .rname{flex:1;font-size:.84rem;color:#E8D9BE;
+  font-family:'Gowun Batang',serif;text-align:center;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.roombar .rt{font-size:.8rem;color:rgba(255,240,220,.6);font-variant-numeric:tabular-nums;flex-shrink:0}
+.roombar .snd{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  color:#fff;width:28px;height:28px;border-radius:7px;font-size:12px;flex-shrink:0}
+.roombar .snd.off{opacity:.42}
+#frame{flex:1;width:100%;border:0;background:#fff}
+
+/* 방 전환 페이드 */
+#fade{position:fixed;inset:0;background:#3A2A18;z-index:60;opacity:0;
+  pointer-events:none;transition:opacity .45s ease}
+#fade.on{opacity:1}
+
+/* ══ 완주 요약 ══ */
+#summary .skicker{text-align:center;font-size:.82rem;color:var(--accent);
+  letter-spacing:.08em;margin-bottom:8px;font-family:'Gowun Batang',serif}
+#summary h2{text-align:center;font-size:1.7rem;margin-bottom:26px;text-shadow:0 1px 0 rgba(255,255,255,.25)}
+.sumgrid{display:flex;flex-direction:column;gap:11px;margin-bottom:26px}
+.sumrow{display:flex;align-items:center;gap:13px;background:var(--paper);
+  border:1px solid rgba(0,0,0,.14);padding:14px 16px;color:var(--ink);
+  box-shadow:0 3px 10px rgba(0,0,0,.18)}
+.sumrow .sw{width:52px;flex-shrink:0;font-family:'Gowun Batang',serif;
+  font-size:.92rem;color:var(--accent)}
+.sumrow .sk{flex:1;font-family:'Nanum Pen Script',cursive;font-size:1.5rem;line-height:1.3;color:var(--accent)}
+.sumrow .st{font-size:.8rem;opacity:.55;font-variant-numeric:tabular-nums;flex-shrink:0;color:#6A5F52}
+.sumtotal{text-align:center;font-size:.92rem;opacity:.85;margin-bottom:26px}
+.sumtotal b{color:var(--accent);font-variant-numeric:tabular-nums}
+.sumword{background:rgba(255,255,255,.2);border:1px dashed var(--accent);
+  padding:20px 18px;text-align:center;margin-bottom:24px}
+.sumword .swl{font-size:.8rem;opacity:.72;margin-bottom:10px}
+.sumword .swt{font-family:'Gowun Batang',serif;font-size:1.12rem;line-height:1.9}
+.sumbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ══ 하단 ══ */
+.progbar{position:fixed;left:0;right:0;bottom:0;
+  background:linear-gradient(#6E5231,#5A4228);
+  border-top:1px solid #4A351F;padding:9px 16px;display:flex;gap:8px;
+  justify-content:center;align-items:center;font-size:.82rem;z-index:5;color:#E8D9BE}
+.dot{width:9px;height:9px;border:1px solid rgba(255,255,255,.3);border-radius:50%;transition:all .4s}
+.dot.done{background:#D9A05B;border-color:#D9A05B;box-shadow:0 0 6px rgba(217,160,91,.5)}
+.credit{margin-top:46px;padding-top:22px;border-top:1px dashed rgba(58,48,40,.3);
+  text-align:center;opacity:.85}
+.credit .brand{display:inline-block;background:#E6F2E8;color:#386A43;
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:1.1rem;
+  padding:8px 18px;border-radius:999px}
+.credit .csub{font-size:.72rem;color:var(--accent);margin-top:7px;font-style:italic}
+.credit .cline{font-size:.76rem;line-height:1.9;margin-top:12px;opacity:.85}
+
+#resume{display:none;position:fixed;left:50%;bottom:52px;transform:translateX(-50%);
+  background:var(--paper);color:var(--ink);padding:12px 18px;z-index:40;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);font-size:.9rem;align-items:center;gap:12px;max-width:92vw}
+#resume.on{display:flex}
+#resume button{border:0;background:var(--accent);color:#F7F1E4;padding:8px 14px;font-size:.86rem}
+#resume button.no{background:transparent;color:var(--ink);border:1px solid rgba(0,0,0,.25)}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .crate{opacity:1;transform:none}.crate::before{opacity:0}.ctape .ink{opacity:1}}
+#cover:not(.on){display:none}
+.env .name,.env .state{display:block}
+
+/* ── 음악·몰입 보완 ── */
+body:not(.showtimer) #rtime,body:not(.showtimer) .env .rt,body:not(.showtimer) .sumrow .st,body:not(.showtimer) #sumtotal{display:none!important}
+.soundcard{margin:22px auto 0;max-width:380px;padding:12px 14px;border:1px dashed rgba(224,184,104,.65);border-radius:10px;font-size:.92rem;line-height:1.7;text-align:center}
+.soundcard .btn{margin-top:8px}
+.soundcard.on{opacity:.85}
+.roombar #musBtn{font-size:1rem}
+#resume{flex-wrap:wrap;justify-content:center;width:calc(100vw - 24px);max-width:420px;box-sizing:border-box;text-align:center}
+#resume span{flex:1 1 100%;white-space:normal}
+#resume button{white-space:nowrap;flex:0 0 auto}
+#flash{position:fixed;inset:0;pointer-events:none;z-index:90;opacity:0;background:radial-gradient(circle at 50% 45%,rgba(255,226,150,.6),rgba(255,226,150,0) 68%);transition:opacity .9s ease}
+#flash.on{opacity:1;transition:opacity .08s ease}
+</style>
+</head>
+<body>
+
+<section id="cover" class="view on"><div class="wrap">
+  <span class="box-tag">2045년 · 리모델링 공사 기록</span>
+  <h1>205호 타임캡슐</h1>
+  <div class="sub">우리가 같은 반이었던 그 해</div>
+  <div class="dig">
+    <p>어느 중학교가 리모델링 공사를 시작했다.<br>
+    2학년 교실이 있던 자리, 벽을 뜯던 중 작업이 멈췄다.</p>
+  </div>
+  <p>연구원 여러분이 호출되었습니다.<br>벽 안에서 무언가 발견됐습니다.</p>
+  <div class="soundcard" id="soundcard"><span id="soundcardtxt">이어폰을 끼고 소리를 켜면 더 몰입할 수 있어요.<br>소리 없이 해도 됩니다.</span><br><button class="btn" id="soundOnBtn" onclick="enableSoundFromCover()">소리 켜기</button></div>
+  <p style="margin-top:22px"><button class="btn" onclick="toDig()">현장으로 가기</button></p>
+</div></section>
+
+<section id="dig" class="view"><div class="wrap">
+  <h2>205호가 있던 벽</h2>
+  <div class="digsub" id="digsub">벽 단면 안쪽에 무언가 들어 있다.</div>
+  <div class="wallwrap"><div class="wall"><div class="hole"></div><div class="dust" id="dust"></div></div></div>
+  <p id="digguide" style="opacity:.8;text-align:center">구멍 안으로 손을 넣어 꺼내 보세요.</p>
+  <p style="text-align:center"><button class="btn" id="pullbtn" onclick="pullCrate()">손을 넣어 꺼내기</button></p>
+  <div class="crate" id="crate">
+    <div class="ctape"><span class="ink">2026년 2반.<br>우리가 여기 있었다는 걸<br>누군가 알아줬으면 해서.</span></div>
+  </div>
+  <div class="digbtn" id="digbtn">
+    <p style="opacity:.78;margin-top:18px;text-align:center">상자 안에는 다섯 사람의 기록이 들어 있었다.</p>
+    <p style="text-align:center"><button class="btn" onclick="toHub()">상자 열기</button></p>
+  </div>
+</div></section>
+
+<section id="hub" class="view"><div class="wrap">
+  <div class="hubhead"><h2>벽 안에서 꺼낸 상자</h2></div>
+  <div class="hubsub" id="hubsub">봉투 다섯 개가 흙먼지에 덮여 있다.</div>
+  <div class="riddle">네 봉투에는 별명이 적혀 있다.<br>
+    <b>그런데 마지막 하나에는 별명이 없다.</b><br>
+    겉면에 이렇게만 적혀 있다 — "이 상자를 만든 사람"</div>
+  <div class="boxlip"></div>
+  <div class="boxinner" id="envbox"></div>
+  <div class="boxfloor" id="floor">
+    <div class="floorpaper" id="floorpaper">
+      다섯 봉투가 모두 열렸습니다.<br>상자 바닥에 빈 종이 한 장이 깔려 있습니다.
+      <div style="margin-top:16px"><button class="btn" onclick="openRoom(6)">종이를 꺼내기</button></div>
+    </div>
+  </div>
+  <div class="credit">
+    <div class="brand">205호 타임캡슐</div>
+    <div class="csub">made in Minty Lab</div>
+    <div class="cline">기획 · 시나리오 &nbsp;Minty.E &nbsp;/&nbsp; 개발 &nbsp;Minty Lab<br>
+      학교 현장에서 자유롭게 사용 · 복사 · 배포할 수 있습니다.</div>
+  </div>
+</div></section>
+
+<section id="summary" class="view"><div class="wrap">
+  <div class="skicker">조사 완료</div>
+  <h2>다섯 사람의 기록</h2>
+  <div class="sumgrid" id="sumgrid"></div>
+  <div class="sumtotal" id="sumtotal"></div>
+  <div class="sumword">
+    <div class="swl">네 사람이 쓴 말</div>
+    <div class="swt">예의 · 맞장구 · 배려 · 버팀<br>
+      <span style="font-size:.88rem;opacity:.72">모두 자기가 자란 곳에서 배운 것이었습니다.</span></div>
+  </div>
+  <div class="sumbtns">
+    <button class="btn" onclick="openRoom(6)">최종 미션 다시 하기</button>
+    <button class="btn" style="background:transparent;color:var(--accent-soft);border:1px solid var(--line)"
+      onclick="toHub()">상자로 돌아가기</button>
+  </div>
+  <div class="credit">
+    <div class="brand">205호 타임캡슐</div>
+    <div class="csub">made in Minty Lab</div>
+  </div>
+</div></section>
+
+<div id="room">
+  <div class="roombar">
+    <button class="back" onclick="backToHub()">◀ 상자</button>
+    <span class="rname" id="rname"></span>
+    <span class="rt" id="rtime">00:00</span>
+    <button class="snd off" id="sndBtn" onclick="toggleSound()" title="효과음">🔇</button>
+    <button class="snd" id="musBtn" onclick="toggleMusic()" title="배경음악">♪</button>
+  </div>
+  <iframe id="frame" title="방" allow="autoplay"></iframe>
+</div>
+
+<div id="fade"></div>
+<div id="flash"></div>
+<div class="progbar" id="prog"></div>
+
+<div id="resume">
+  <span id="resumetxt">이어서 할까요?</span>
+  <button onclick="doResume()">이어하기</button>
+  <button class="no" onclick="clearSave()">처음부터</button>
+</div>
+
+<script>
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const ROOMS=[
+`<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>205호 타임캡슐 — 1방</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#C8D2D6; --fg:#1B242C; --paper:#FFFFFF; --paper-2:#DCE4E7;
+  --accent:#2F5464; --accent-soft:#7A3D14; --line:#94A6AE; --ink:#1B242C;
+  --ok:#3F6B4C; --err:#9C3B34;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:'Gowun Dodum',system-ui,sans-serif;
+  line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:560px;margin:0 auto;padding:20px 16px 90px}
+h1,h2,h3{font-family:'Gowun Batang',serif;font-weight:700;line-height:1.35;margin:0}
+button{font-family:inherit;cursor:pointer;border:0}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.screen{display:none}.screen.on{display:block}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;
+  padding:8px 0 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.room-id{font-size:.78rem;color:var(--accent-soft);font-weight:700;letter-spacing:.04em}
+.timer{font-size:.84rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.snd{background:rgba(255,255,255,.5);border:1px solid var(--line);width:30px;height:30px;
+  border-radius:8px;font-size:13px;margin-left:8px}
+.snd.off{opacity:.45}
+.topright{display:flex;align-items:center}
+
+.intro{text-align:center;padding:40px 6px}
+.intro .tag{display:inline-block;border:1px solid var(--accent);color:var(--accent);
+  padding:5px 12px;font-size:.78rem;margin-bottom:22px}
+.intro h1{font-size:2rem;margin-bottom:10px}
+.intro .sub{font-family:'Gowun Batang',serif;color:var(--accent-soft);margin-bottom:28px}
+.intro p{font-size:1rem;line-height:1.95;margin-bottom:16px;opacity:.9}
+.btn{background:var(--accent);color:#fff;padding:14px 26px;font-weight:700;font-size:1rem}
+.btn:hover{filter:brightness(1.12)}
+.btn:disabled{opacity:.35;cursor:default;filter:none}
+
+/* 자물쇠 */
+.lock{background:linear-gradient(160deg,#6E7E88,#4C5A64);color:#fff;
+  padding:24px 20px;box-shadow:0 10px 26px rgba(0,0,0,.3);margin-bottom:20px;text-align:center}
+.lock .ltitle{font-family:'Gowun Batang',serif;font-size:1.15rem;margin-bottom:4px}
+.lock .lq{font-size:1rem;margin-bottom:4px;color:#FFE4B0}
+.lock .lsub{font-size:.82rem;opacity:.72;margin-bottom:18px}
+.lockrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;align-items:center}
+.lock input{
+  width:150px;padding:14px 10px;text-align:center;
+  font-family:'Gowun Batang',serif;font-size:1.6rem;font-weight:700;letter-spacing:.12em;
+  background:#EEF2F4;color:#1B242C;border:0;border-bottom:3px solid #E8C98A;
+}
+.lock input::placeholder{color:#9AA8B0;letter-spacing:.2em}
+.lock .btn{background:#E8C98A;color:#3A2A14}
+.lock .btn.sub{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);
+  padding:12px 18px;font-weight:400}
+.lmsg{min-height:22px;font-size:.88rem;margin-top:14px;color:#FFE4B0;line-height:1.6}
+.shake{animation:sh .4s}
+@keyframes sh{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+
+/* 서랍 */
+.drawers{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+.drawer{background:var(--paper);border:1px solid var(--line);
+  box-shadow:0 4px 12px rgba(0,0,0,.14);overflow:hidden}
+.dhead{width:100%;background:transparent;display:flex;align-items:center;gap:12px;
+  padding:16px;text-align:left;color:var(--ink);font-size:1rem}
+.dhead:hover{background:rgba(47,84,100,.06)}
+.dhead .ic{font-size:1.4rem;flex-shrink:0}
+.dhead .dt{flex:1;font-weight:700}
+.dhead .dnote{font-size:.76rem;opacity:.55;font-weight:400;display:block;margin-top:2px}
+.dhead .chev{font-size:.9rem;opacity:.5;transition:transform .25s}
+.drawer.open .chev{transform:rotate(90deg)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--err);flex-shrink:0}
+.dot.seen{background:var(--ok)}
+.dbody{display:none;padding:0 16px 18px;border-top:1px solid var(--paper-2)}
+.drawer.open .dbody{display:block;animation:slide .35s ease}
+@keyframes slide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.dbody .inner{padding-top:16px;white-space:pre-line;font-size:.97rem;line-height:1.75}
+.hand{font-family:'Nanum Pen Script',cursive;font-size:1.5rem;line-height:1.5}
+
+.tapline{display:block;padding:7px 10px;margin:3px -10px;cursor:pointer;
+  border-radius:4px;transition:background .18s,opacity 1.1s ease}
+.tapline:hover{background:rgba(232,201,138,.3)}
+.tapline.gone{opacity:.35;text-decoration:line-through;cursor:default}
+.tapline.gone:hover{background:transparent}
+.tapline.picked{background:#FFD98A;box-shadow:0 0 0 2px rgba(122,61,20,.4)}
+.tapline.nope{background:rgba(156,59,52,.18)}
+
+.msg{opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease;margin-bottom:9px}
+.msg.in{opacity:1;transform:none}
+.msg b{color:var(--accent)}
+
+.scrollbox{max-height:200px;overflow-y:auto;border-left:2px solid var(--paper-2);padding-left:12px}
+.scrollhint{font-size:.74rem;opacity:.5;text-align:center;padding-top:6px}
+
+.found{margin-top:14px;padding:12px 14px;background:rgba(63,107,76,.1);
+  border-left:3px solid var(--ok);font-size:.92rem;display:none}
+.found.on{display:block;animation:slide .4s ease}
+
+/* 해제 */
+.unseal{display:none;background:var(--paper);padding:24px 20px;
+  box-shadow:0 10px 26px rgba(0,0,0,.2);border-top:3px solid var(--ok)}
+.unseal.on{display:block;animation:rise .6s ease}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.unseal .u1{font-family:'Gowun Batang',serif;font-size:1.1rem;line-height:1.9;
+  white-space:pre-line;margin-bottom:16px}
+.unseal .u2{font-size:.93rem;line-height:1.8;opacity:.8;padding-top:14px;
+  border-top:1px solid var(--paper-2)}
+
+/* 사물함 속 쪽지 — 선물 */
+.gift{display:none;margin-top:20px;background:#FBF8F0;border:1px solid #E4D9C0;
+  padding:22px 20px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.gift.on{display:block;animation:rise .8s ease}
+.gift .glabel{font-size:.76rem;opacity:.55;margin-bottom:12px}
+.gift .ghand{font-family:'Nanum Pen Script',cursive;font-size:1.65rem;line-height:1.55;
+  color:#3A3028;white-space:pre-line;min-height:7em}
+
+.record{display:flex;justify-content:space-between;align-items:center;
+  background:rgba(47,84,100,.08);padding:12px 14px;margin-top:16px;font-size:.9rem}
+.record b{color:var(--accent);font-variant-numeric:tabular-nums}
+.after{opacity:0;transition:opacity 1s ease;pointer-events:none;margin-top:18px;text-align:center}
+.after.on{opacity:1;pointer-events:auto}
+
+.note{margin-top:30px;padding:14px;border:1px dashed var(--line);
+  font-size:.8rem;line-height:1.8;opacity:.72}
+.note b{color:var(--accent-soft)}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="s0" class="screen on">
+  <div class="intro">
+    <span class="tag">2045년 · 리모델링 공사 기록</span>
+    <h1>205호 타임캡슐</h1>
+    <div class="sub">첫 번째 봉투</div>
+    <p>벽 안에서 상자가 나왔다.<br>봉투 다섯 개가 들어 있다.</p>
+    <p>첫 번째 봉투에 손글씨로<br><b>"조용이"</b>라고 적혀 있다.</p>
+    <p style="font-size:.9rem;opacity:.7">봉투 안에는 사물함 열쇠 대신<br>메모 몇 장이 들어 있었다.</p>
+    <button class="btn" onclick="start()">봉투 열기</button>
+  </div>
+</section>
+
+<section id="s1" class="screen">
+    <div class="lock" id="lockbox">
+    <div class="ltitle">조용이의 사물함</div>
+    <div class="lq">조용이는 왜 말을 하지 않았을까</div>
+    <div class="lsub">단서에서 찾은 말을 적어 넣으세요</div>
+    <div class="lockrow">
+      <input id="code" maxlength="10" placeholder="○○" autocomplete="off" aria-label="답">
+      <button class="btn" onclick="tryLock()">열기</button>
+    </div>
+    <div class="lmsg" id="lmsg">봉투 안의 메모를 먼저 읽어 보세요.</div>
+  </div>
+
+  <div class="drawers" id="drawers">
+
+    <div class="drawer" id="d0">
+      <button class="dhead" onclick="toggle(0)">
+        <span class="ic">📱</span>
+        <span class="dt">메모장 앱<span class="dnote">조용이 휴대폰에 남아 있던 글</span></span>
+        <span class="dot" id="dot0"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner">
+        <div class="scrollbox" id="sb0">2026.05.13 / 날씨 흐림
+
+오늘 국어 또 그랬다
+
+선생님이 "질문 있어요?" 하셨을 때
+손 들까 말까 하다가 그냥 있었음
+
+수업 끝나고 선생님이 나 불렀어
+"혹시 잘 <b style="color:var(--err)">모르는</b> 거 있으면 말해도 돼"
+
+아니에요, 하고 웃었다
+
+…
+
+<b style="color:var(--accent-soft)">나 다 알고 있었는데</b></div>
+        <div class="scrollhint" id="sh0">↓ 아래로 더 있습니다</div>
+      </div></div>
+    </div>
+
+    <div class="drawer" id="d1">
+      <button class="dhead" onclick="toggle(1)">
+        <span class="ic">📄</span>
+        <span class="dt">지우다 만 포스트잇<span class="dnote">거의 다 지워졌다</span></span>
+        <span class="dot" id="dot1"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner">
+        <div class="hand" id="postit">
+          <span class="tapline" onclick="tapLine(this,0)">선생님한테 뭐라고 하지</span>
+          <span class="tapline" onclick="tapLine(this,1)">"저 사실 다 알아요" 이러면 이상한가</span>
+          <span class="tapline" onclick="tapLine(this,2)">그냥 고개 끄덕이면 되는 거 아닌가</span>
+          <span class="tapline" onclick="tapLine(this,3)">우리 집에서는 그게 예의라고 배웠는데</span>
+        </div>
+        <div class="found" id="found1">
+          <b>안 지워진 줄을 찾았습니다.</b><br>
+          "우리 집에서는 그게 <b style="color:var(--accent-soft)">예의</b>라고 배웠는데"<br><br>
+          조용이가 말을 하지 않은 이유는 이 말 안에 있습니다.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="drawer" id="d2">
+      <button class="dhead" onclick="toggle(2)">
+        <span class="ic">💬</span>
+        <span class="dt">같은 반 친구들 대화<span class="dnote">누군가 캡처해 둔 것</span></span>
+        <span class="dot" id="dot2"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner" id="chatbox"></div></div>
+    </div>
+
+  </div>
+
+  <div class="unseal" id="unseal">
+    <div class="u1">조용이는 그날 수업을 누구보다 열심히 들었습니다.
+
+조용이가 자란 집에서는
+어른이 말씀하실 때 조용히 듣는 것이
+가장 예의바른 태도였습니다.</div>
+    <div class="u2">선생님은 ‘모른다’, 친구들은 ‘부끄럽다’고 생각했습니다.<br>교실에서는 참여가 손들고 바로 답하는 모습으로만 보이고 있었을까요?</div>
+
+    <div class="gift" id="gift">
+      <div class="glabel">사물함 안쪽에 접혀 있던 종이</div>
+      <div class="ghand" id="gifthand"></div>
+    </div>
+
+    <div class="record">
+      <span>1방 기록</span>
+      <b id="recTime">00:00</b>
+    </div>
+    <div class="after" id="after">
+      <button class="btn" onclick="parent.postMessage({q:'done',room:1},'*')">두 번째 봉투로</button>
+    </div>
+  </div>
+
+  </section>
+
+</div>
+
+<script>
+/* ── 소리 ── */
+const SND={ctx:null,on:false,
+init(){if(!this.ctx||this.ctx.state==='closed'){try{this.ctx=new(window.AudioContext||window.webkitAudioContext)()}catch(e){this.on=false;return}}if(this.on&&this.ctx.state==='suspended'&&this.ctx.resume){this.ctx.resume().catch(()=>{})}},
+beep(f=880,d=.14,v=.06,type='sine'){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);
+  g.gain.linearRampToValueAtTime(v,t+.012);g.gain.exponentialRampToValueAtTime(.001,t+d);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+d+.05)},
+tap(){this.beep(1200,.05,.04,'square')},
+pick(){this.beep(900,.07,.045,'square')},
+msg(){this.beep(660,.18,.05,'triangle');setTimeout(()=>this.beep(880,.2,.045,'triangle'),80)},
+found(){this.beep(1046,.3,.06)},
+deny(){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type='sawtooth';o.frequency.setValueAtTime(180,t);o.frequency.exponentialRampToValueAtTime(92,t+.16);
+  g.gain.setValueAtTime(.06,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+.2)},
+unlock(){if(!this.on)return;this.init();if(!this.ctx)return;
+  this.beep(330,.1,.07,'square');setTimeout(()=>this.beep(494,.08,.06,'square'),90);
+  [523,659,784].forEach((f,i)=>setTimeout(()=>this.beep(f,.6,.055),260+i*90))},
+toggle(v){this.on=(v===undefined)?!this.on:!!v; if(this.on)this.init();}};
+
+/* ── 상태 ── */
+const S={opened:[false,false,false],foundLine:false,tries:0,t0:0,tick:null};
+
+function start(){
+  document.getElementById('s0').classList.remove('on');
+  document.getElementById('s1').classList.add('on');
+  S.t0=Date.now(); S.tick=setInterval(updTimer,1000);
+  window.scrollTo({top:0});
+  setTimeout(()=>document.getElementById('code').focus(),100);
+}
+function updTimer(){
+  const s=Math.floor((Date.now()-S.t0)/1000);
+  try{parent.postMessage({q:'tick',t:s},'*');}catch(e){}
+}
+
+/* ── 서랍 ── */
+function toggle(i){
+  const d=document.getElementById('d'+i);
+  const wasOpen=d.classList.contains('open');
+  d.classList.toggle('open');
+  if(!wasOpen){
+    SND.tap();
+    if(!S.opened[i]){
+      S.opened[i]=true;
+      document.getElementById('dot'+i).classList.add('seen');
+      if(i===2) playChat();
+    }
+    setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'nearest'}),120);
+  }
+  updateHint();
+}
+
+/* ── 포스트잇 ── */
+function tapLine(el,i){
+  if(S.foundLine||el.classList.contains('gone'))return;
+  if(i===3){
+    el.classList.add('picked'); S.foundLine=true; SND.found();
+    document.querySelectorAll('.tapline').forEach((x,n)=>{
+      if(n!==3) setTimeout(()=>x.classList.add('gone'),200+n*260);
+    });
+    setTimeout(()=>{ document.getElementById('found1').classList.add('on'); updateHint(); },1100);
+  }else{
+    el.classList.add('nope'); SND.deny();
+    setTimeout(()=>el.classList.remove('nope'),500);
+    document.getElementById('lmsg').textContent='그 줄은 지워져 있습니다. 끝까지 안 지워진 줄을 찾아보세요.';
+  }
+}
+
+/* ── 메시지 ── */
+const CHAT=[
+  ['친구A','야 조용이 왜 맨날 조용해'],
+  ['친구A','질문도 없고 발표도 없고'],
+  ['친구B','걍 부끄러워서 그런 거 아냐?'],
+  ['친구A','근데 시험은 잘 봄ㅋㅋ'],
+  ['친구B','ㅋㅋㅋ 신기하네'],
+  ['친구A','그니까 왜 그러는지 모르겠음'],
+];
+let chatDone=false;
+function playChat(){
+  if(chatDone)return; chatDone=true;
+  const box=document.getElementById('chatbox'); box.innerHTML='';
+  CHAT.forEach(([w,t],i)=>{
+    const el=document.createElement('div');
+    el.className='msg'; el.innerHTML='<b>'+w+'</b>  '+t;
+    box.appendChild(el);
+    setTimeout(()=>{ el.classList.add('in'); SND.msg(); },250+i*700);
+  });
+}
+
+/* ── 안내 ── */
+function updateHint(){
+  const m=document.getElementById('lmsg');
+  const n=S.opened.filter(Boolean).length;
+  if(S.foundLine){
+    m.innerHTML='포스트잇에서 찾은 그 말이 답입니다.';
+  }else if(n>=2){
+    m.textContent='포스트잇에서 끝까지 안 지워진 줄을 찾아 눌러 보세요.';
+  }else if(n>=1){
+    m.textContent='다른 메모도 열어 보세요.';
+  }
+}
+
+/* ── 자물쇠 ── */
+const HINTS=[
+  '열리지 않습니다. 메모를 더 읽어 보세요.',
+  '선생님은 "모른다"고 생각했지만, 조용이는 다 알고 있었습니다.',
+  '포스트잇의 마지막 줄을 다시 보세요. 조용이가 그 행동을 뭐라고 배웠는지 적혀 있습니다.',
+];
+const GIFT=\`사물함을 연 사람에게.
+
+그날 선생님이 물어본 건
+"이 문장에서 주어는?" 이었어.
+
+나는, 이라고
+말하려고 했는데.
+
+두 글자였는데
+입이 안 떨어졌어.\`;
+
+function tryLock(){
+  const raw=document.getElementById('code').value.trim();
+  const v=raw.replace(/\\s/g,'');
+  const m=document.getElementById('lmsg');
+  if(!v){ m.textContent='답을 적어 주세요.'; return; }
+
+  // 정답 — 예의 / 예의바름 / 예절 모두 인정
+  if((v.includes('예의')||v.includes('예절'))&&!/없|못|안|않/.test(v)){
+    SND.unlock();
+    clearInterval(S.tick);
+    const s=Math.floor((Date.now()-S.t0)/1000);
+    parent.postMessage({q:'time',room:1,t:s},'*');document.getElementById('recTime').textContent=
+      String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+    document.getElementById('lockbox').style.display='none';
+    document.getElementById('drawers').style.display='none';
+    const u=document.getElementById('unseal');
+    u.classList.add('on');
+    u.scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>{
+      const g=document.getElementById('gift');
+      g.classList.add('on');
+      typeGift();
+    },2400);
+    return;
+  }
+
+  S.tries++; SND.deny();
+  const box=document.getElementById('lockbox');
+  box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
+
+  // 오답별 반응
+  if(v.includes('모름')||v.includes('몰라')||v.includes('모르')){
+    m.textContent='그건 선생님이 생각한 이유였습니다. 조용이는 다 알고 있었습니다.';
+  }else if(v.includes('부끄')||v.includes('창피')||v.includes('소심')){
+    m.textContent='그건 친구들이 짐작한 이유였습니다. 포스트잇을 다시 보세요.';
+  }else if(v.includes('존중')||v.includes('배려')){
+    m.textContent='비슷합니다. 포스트잇에 적힌 말 그대로 넣어 보세요.';
+  }else if(v.includes('침묵')||v.includes('조용')||v.includes('말없')||v.includes('가만')||v.includes('듣기')||v.includes('안함')||v.includes('안했')){
+    m.textContent='조용이가 한 행동은 맞아요. 그런데 이 칸에는 "왜 그랬는지"를 적어요. 포스트잇에서 조용이가 그 행동을 뭐라고 배웠는지 찾아보세요.';
+  }else{
+    m.textContent=HINTS[Math.min(S.tries-1,HINTS.length-1)];
+  }
+  document.getElementById('code').select();
+}
+
+function typeGift(){
+  const el=document.getElementById('gifthand');
+  el.textContent='';
+  const next=()=>document.getElementById('after').classList.add('on');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+    el.textContent=GIFT;
+    setTimeout(next,500);
+    return;
+  }
+  // 편지 연출은 계속되지만 다음 봉투 버튼은 빠르게 제공한다.
+  setTimeout(next,1800);
+  let i=0;
+  (function t(){
+    if(i<=GIFT.length){
+      el.textContent=GIFT.slice(0,i); i++;
+      setTimeout(t, GIFT[i-1]==='\\n'?80:20);
+    }
+  })();
+}
+
+document.getElementById('code').addEventListener('keydown',e=>{if(e.key==='Enter')tryLock()});
+
+/* 스크롤 힌트 */
+const sb=document.getElementById('sb0');
+if(sb) sb.addEventListener('scroll',()=>{
+  if(sb.scrollTop+sb.clientHeight>=sb.scrollHeight-8){
+    const h=document.getElementById('sh0'); if(h) h.style.display='none';
+  }
+});
+
+window.addEventListener('message',e=>{
+  const d=e.data||{};
+  if(d.q==='sound') SND.toggle(d.on);
+});
+<\/script>
+</body>
+</html>
+`,
+`<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>205호 타임캡슐 — 2방</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1D3540; --fg:#DCE8EC; --paper:#EAF0F0; --paper-2:#CFDCDD;
+  --accent:#7FB3A8; --accent-soft:#A8D0C6; --line:#38596A; --ink:#1D3540;
+  --ok:#6FAE93; --err:#C97B6E;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:'Gowun Dodum',system-ui,sans-serif;
+  line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:560px;margin:0 auto;padding:20px 16px 90px}
+h1,h2,h3{font-family:'Gowun Batang',serif;font-weight:700;line-height:1.35;margin:0}
+button{font-family:inherit;cursor:pointer;border:0}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.screen{display:none}.screen.on{display:block}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;
+  padding:8px 0 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.room-id{font-size:.78rem;color:var(--accent-soft);font-weight:700;letter-spacing:.04em}
+.timer{font-size:.84rem;color:var(--accent-soft);font-variant-numeric:tabular-nums}
+.snd{background:rgba(255,255,255,.1);border:1px solid var(--line);color:#fff;
+  width:30px;height:30px;border-radius:8px;font-size:13px;margin-left:8px}
+.snd.off{opacity:.45}
+.topright{display:flex;align-items:center}
+
+.intro{text-align:center;padding:40px 6px}
+.intro .tag{display:inline-block;border:1px solid var(--accent);color:var(--accent-soft);
+  padding:5px 12px;font-size:.78rem;margin-bottom:22px}
+.intro h1{font-size:2rem;margin-bottom:10px}
+.intro .sub{font-family:'Gowun Batang',serif;color:var(--accent-soft);margin-bottom:28px}
+.intro p{font-size:1rem;line-height:1.95;margin-bottom:16px;opacity:.92}
+.btn{background:var(--accent);color:#10262E;padding:14px 26px;font-weight:700;font-size:1rem}
+.btn:hover{filter:brightness(1.12)}
+
+/* 자물쇠 */
+.lock{background:linear-gradient(160deg,#2E5565,#1C3B48);color:#fff;
+  padding:24px 20px;box-shadow:0 10px 26px rgba(0,0,0,.4);margin-bottom:20px;text-align:center;
+  border:1px solid #3E6B7C}
+.lock .ltitle{font-family:'Gowun Batang',serif;font-size:1.15rem;margin-bottom:4px}
+.lock .lq{font-size:1rem;margin-bottom:4px;color:#A8D0C6}
+.lock .lsub{font-size:.82rem;opacity:.72;margin-bottom:18px}
+.lockrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;align-items:center}
+.numrows{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.numrow{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:rgba(0,0,0,.22);padding:11px 14px;text-align:left}
+.nlabel{font-size:.86rem;flex:1;opacity:.9;line-height:1.4}
+.ninput{width:58px;padding:9px 4px;text-align:center;
+  font-family:'Gowun Batang',serif;font-size:1.4rem;font-weight:700;
+  background:#E6EFF0;color:#1D3540;border:0;border-bottom:3px solid #7FB3A8;flex-shrink:0}
+.ninput.ok{background:#C3E3DA;border-bottom-color:#4F8F7C}
+.ninput.no{background:#F0D6D1;border-bottom-color:#C97B6E}
+.nunit{font-size:.86rem;opacity:.75;width:30px;text-align:left;flex-shrink:0}
+@media(max-width:480px){.numrow{flex-wrap:wrap;row-gap:8px}.nlabel{flex:1 1 100%}.ninput{width:84px}}
+.sumline{display:none;font-family:'Gowun Batang',serif;font-size:1.05rem;line-height:1.95;
+  background:rgba(127,179,168,.16);border:1px solid #7FB3A8;padding:18px 16px;margin:4px 0 18px;
+  white-space:pre-line}
+.sumline.on{display:block;animation:rise .7s ease}
+.sumline b{color:#C9EDE1}
+.lock input{width:170px;padding:14px 10px;text-align:center;
+  font-family:'Gowun Batang',serif;font-size:1.5rem;font-weight:700;letter-spacing:.1em;
+  background:#E6EFF0;color:#1D3540;border:0;border-bottom:3px solid #7FB3A8}
+.lock input::placeholder{color:#8FA5AB;letter-spacing:.18em}
+.lock .btn{background:#7FB3A8;color:#10262E}
+.lmsg{min-height:22px;font-size:.88rem;margin-top:14px;color:#BFE0D6;line-height:1.6}
+.shake{animation:sh .4s}
+@keyframes sh{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+
+/* 서랍 */
+.drawers{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+.drawer{background:var(--paper);border:1px solid var(--line);
+  box-shadow:0 4px 12px rgba(0,0,0,.28);overflow:hidden}
+.dhead{width:100%;background:transparent;display:flex;align-items:center;gap:12px;
+  padding:16px;text-align:left;color:var(--ink);font-size:1rem}
+.dhead:hover{background:rgba(29,53,64,.07)}
+.dhead .ic{font-size:1.4rem;flex-shrink:0}
+.dhead .dt{flex:1;font-weight:700}
+.dhead .dnote{font-size:.76rem;opacity:.58;font-weight:400;display:block;margin-top:2px}
+.dhead .chev{font-size:.9rem;opacity:.5;transition:transform .25s}
+.drawer.open .chev{transform:rotate(90deg)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--err);flex-shrink:0}
+.dot.seen{background:var(--ok)}
+.dbody{display:none;padding:0 16px 18px;border-top:1px solid var(--paper-2)}
+.drawer.open .dbody{display:block;animation:slide .35s ease}
+@keyframes slide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.dbody .inner{padding-top:16px;white-space:pre-line;font-size:.97rem;line-height:1.75;color:var(--ink)}
+.hand{font-family:'Nanum Pen Script',cursive;font-size:1.5rem;line-height:1.5;color:#2A4A56}
+
+/* 탭해서 찾기 */
+.tapline{display:block;padding:7px 10px;margin:3px -10px;cursor:pointer;
+  border-radius:4px;transition:background .18s,opacity 1.1s ease}
+.tapline:hover{background:rgba(127,179,168,.3)}
+.tapline.gone{opacity:.35;text-decoration:line-through;cursor:default}
+.tapline.gone:hover{background:transparent}
+.tapline.picked{background:#A8D8CB;box-shadow:0 0 0 2px rgba(42,74,86,.4)}
+.tapline.nope{background:rgba(201,123,110,.22)}
+
+/* 배치도 — 좌석을 눌러 찾기 */
+.seatmap{background:#F4F8F8;border:1px solid var(--paper-2);padding:16px;margin-top:4px}
+.seatmap .board{background:#2A4A56;color:#DCE8EC;text-align:center;
+  padding:7px;font-size:.8rem;margin-bottom:14px}
+.seats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.seat{aspect-ratio:1.4;background:#DCE6E7;border:1px solid #BCCDCE;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.78rem;color:#4A6670;cursor:pointer;transition:all .18s}
+.seat:hover{background:#C6DCD9}
+.seat.win{position:relative}
+.seat.win::after{content:'창';position:absolute;top:2px;right:4px;font-size:.6rem;opacity:.5}
+.seat.found{background:#A8D8CB;border-color:#6FAE93;color:#1D3540;font-weight:700}
+.seat.nope{background:rgba(201,123,110,.3)}
+.seatnote{font-size:.78rem;opacity:.6;margin-top:10px;text-align:center}
+
+/* 메시지 */
+.msg{opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s;margin-bottom:9px}
+.msg.in{opacity:1;transform:none}
+.msg b{color:#2E6B7C}
+
+.scrollbox{max-height:200px;overflow-y:auto;border-left:2px solid var(--paper-2);padding-left:12px}
+.scrollhint{font-size:.74rem;opacity:.5;text-align:center;padding-top:6px}
+
+.found{margin-top:14px;padding:12px 14px;background:rgba(111,174,147,.16);
+  border-left:3px solid var(--ok);font-size:.92rem;display:none;color:var(--ink)}
+.found.on{display:block;animation:slide .4s ease}
+
+/* 해제 */
+.unseal{display:none;background:var(--paper);color:var(--ink);padding:24px 20px;
+  box-shadow:0 10px 26px rgba(0,0,0,.3);border-top:3px solid var(--ok)}
+.unseal.on{display:block;animation:rise .6s ease}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.unseal .u1{font-family:'Gowun Batang',serif;font-size:1.1rem;line-height:1.9;
+  white-space:pre-line;margin-bottom:16px}
+.unseal .u2{font-size:.93rem;line-height:1.8;opacity:.82;padding-top:14px;
+  border-top:1px solid var(--paper-2)}
+
+.gift{display:none;margin-top:20px;background:#F7FAF9;border:1px solid #CFDCDD;
+  padding:22px 20px;box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.gift.on{display:block;animation:rise .8s ease}
+.gift .glabel{font-size:.76rem;opacity:.55;margin-bottom:12px}
+.gift .ghand{font-family:'Nanum Pen Script',cursive;font-size:1.6rem;line-height:1.55;
+  color:#2A4A56;white-space:pre-line;min-height:8em}
+
+.record{display:flex;justify-content:space-between;align-items:center;
+  background:rgba(29,53,64,.08);padding:12px 14px;margin-top:16px;font-size:.9rem}
+.record b{color:#2E6B7C;font-variant-numeric:tabular-nums}
+.after{opacity:0;transition:opacity 1s;pointer-events:none;margin-top:18px;text-align:center}
+.after.on{opacity:1;pointer-events:auto}
+
+.note{margin-top:30px;padding:14px;border:1px dashed var(--line);
+  font-size:.8rem;line-height:1.8;opacity:.72}
+.note b{color:var(--accent-soft)}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="s0" class="screen on">
+  <div class="intro">
+    <span class="tag">2045년 · 리모델링 공사 기록</span>
+    <h1>205호 타임캡슐</h1>
+    <div class="sub">두 번째 봉투</div>
+    <p>모서리가 접힌 봉투.<br>겉면에 <b>"넓이"</b>라고 적혀 있다.</p>
+    <p>안에는 메모장 캡처와<br>손으로 그린 교실 배치도,<br>그리고 누군가의 메모가 들어 있다.</p>
+    <button class="btn" onclick="start()">봉투 열기</button>
+  </div>
+</section>
+
+<section id="s1" class="screen">
+    <div class="lock" id="lockbox">
+    <div class="ltitle">넓이의 서랍</div>
+
+    <!-- 1단계 — 숫자 자물쇠 -->
+    <div id="stage1">
+      <div class="lq">넓이가 이 교실에서 보낸 시간</div>
+      <div class="lsub">기록에서 굵게 표시된 숫자 세 개를 찾아 넣으세요</div>
+      <div class="numrows">
+        <div class="numrow">
+          <span class="nlabel">이 도시에 온 지</span>
+          <input class="ninput" id="n1" inputmode="numeric" maxlength="2" placeholder="?">
+          <span class="nunit">일째</span>
+        </div>
+        <div class="numrow">
+          <span class="nlabel">"조용히 해"라는 말을 들은 횟수</span>
+          <input class="ninput" id="n2" inputmode="numeric" maxlength="2" placeholder="?">
+          <span class="nunit">번</span>
+        </div>
+        <div class="numrow">
+          <span class="nlabel">시끄럽다는 말이 나온 모둠 활동</span>
+          <input class="ninput" id="n3" inputmode="numeric" maxlength="2" placeholder="?">
+          <span class="nunit">번</span>
+        </div>
+      </div>
+      <div class="lockrow">
+        <button class="btn" onclick="tryNums()">맞추기</button>
+      </div>
+    </div>
+
+    <!-- 숫자가 한 문장으로 모이는 자리 -->
+    <div class="sumline" id="sumline"></div>
+
+    <!-- 2단계 — 말 자물쇠 -->
+    <div id="stage2" style="display:none">
+      <div class="lq">넓이가 ‘관심’이라고 부른 행동은 무엇일까요?</div>
+      <div class="lsub">접힌 종이의 마지막 줄에서 그 말을 한 단어로 찾아보세요.</div>
+      <div class="lockrow">
+        <input id="code" maxlength="10" placeholder="○○○" autocomplete="off" aria-label="답">
+        <button class="btn" onclick="tryLock()">열기</button>
+      </div>
+    </div>
+
+    <div class="lmsg" id="lmsg">봉투 안의 기록을 먼저 읽어 보세요.</div>
+  </div>
+
+  <div class="drawers" id="drawers">
+
+    <div class="drawer" id="d0">
+      <button class="dhead" onclick="toggle(0)">
+        <span class="ic">📱</span>
+        <span class="dt">메모장 앱<span class="dnote">이사 온 뒤로 쓴 글</span></span>
+        <span class="dot" id="dot0"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner">
+        <div class="scrollbox" id="sb0">2026.09.03
+
+이 도시에 온 지 <b style="color:#2E6B7C;font-size:1.15em">14</b>일째
+
+교실이 너무 조용하다
+우리 동네는 수업 중에도
+다 같이 떠들고 웃었는데
+여기는 선생님이 말씀하실 때
+아무 소리도 안 남
+
+내가 맞장구치면 다 쳐다봄
+
+조용한 게 좀 이상함
+아무도 반응을 안 해서 말을 더 하게 된다</div>
+        <div class="scrollhint" id="sh0">↓ 아래로 더 있습니다</div>
+      </div></div>
+    </div>
+
+    <div class="drawer" id="d1">
+      <button class="dhead" onclick="toggle(1)">
+        <span class="ic">🗺️</span>
+        <span class="dt">손으로 그린 교실 배치도<span class="dnote">자리 하나에만 표시가 있다</span></span>
+        <span class="dot" id="dot1"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner">
+        <div class="seatmap">
+          <div class="board">칠판</div>
+          <div class="seats" id="seats"></div>
+          <div class="seatnote" id="seatnote">넓이가 표시해 둔 자리를 찾아 눌러 보세요.</div>
+        </div>
+        <div class="found" id="found1">
+          <b>표시된 자리를 찾았습니다.</b><br>
+          모둠 한가운데 자리. 그 옆에 작은 글씨가 있다.<br><br>
+          <span class="hand" style="font-size:1.35rem">신나서 얘기했는데 "조용히 해"라는 말을 <b style="color:#2E6B7C">3</b>번 들었음<br>
+          같이 얘기하는 건데 왜 그러지</span>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="drawer" id="d2">
+      <button class="dhead" onclick="toggle(2)">
+        <span class="ic">📝</span>
+        <span class="dt">같은 모둠 친구의 메모<span class="dnote">모둠 활동 기록</span></span>
+        <span class="dot" id="dot2"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner" id="chatbox"></div></div>
+    </div>
+
+    <div class="drawer" id="d3">
+      <button class="dhead" onclick="toggle(3)">
+        <span class="ic">📄</span>
+        <span class="dt">접힌 종이 한 장<span class="dnote">봉투 바닥에 깔려 있었다</span></span>
+        <span class="dot" id="dot3"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner">
+        <div class="hand" id="postit">
+          <span class="tapline" onclick="tapLine(this,0)">조용히 있으면 관심 없는 줄 알 텐데</span>
+          <span class="tapline" onclick="tapLine(this,1)">내가 먼저 반응해야 말하는 사람도 신나지</span>
+          <span class="tapline" onclick="tapLine(this,2)">근데 여기서는 내 목소리만 크다</span>
+          <span class="tapline" onclick="tapLine(this,3)">우리 동네에서는 맞장구가 관심이라고 했는데</span>
+        </div>
+        <div class="found" id="found2">
+          <b>안 지워진 줄을 찾았습니다.</b><br>
+          "우리 동네에서는 <b style="color:#2E6B7C">맞장구</b>가 관심이라고 했는데"
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="unseal" id="unseal">
+    <div class="u1">넓이는 방해하려던 게 아닙니다.
+
+넓이가 자란 곳에서는
+바로 반응하고 맞장구치는 것이
+상대에게 관심을 보이는 방식이었습니다.</div>
+    <div class="u2">모둠 친구들은 ‘시끄럽고 자기 말만 한다’고 생각했습니다.<br>넓이가 먼저 크게 반응해 준 덕분에 서먹하던 모둠에서 말문이 열렸고, 그 모둠은 의견을 가장 많이 냈습니다.<br>조용함만 좋은 참여라고 판단했다면, 넓이의 강점은 보이지 않았을 겁니다.</div>
+
+    <div class="gift" id="gift">
+      <div class="glabel">봉투 맨 아래, 두 달 뒤에 쓴 메모</div>
+      <div class="ghand" id="gifthand"></div>
+    </div>
+
+    <div class="record">
+      <span>2방 기록</span>
+      <b id="recTime">00:00</b>
+    </div>
+    <div class="after" id="after">
+      <button class="btn" onclick="parent.postMessage({q:'done',room:2},'*')">세 번째 봉투로</button>
+    </div>
+  </div>
+
+  </section>
+
+</div>
+
+<script>
+/* ── 소리 ── */
+const SND={ctx:null,on:false,
+init(){if(!this.ctx||this.ctx.state==='closed'){try{this.ctx=new(window.AudioContext||window.webkitAudioContext)()}catch(e){this.on=false;return}}if(this.on&&this.ctx.state==='suspended'&&this.ctx.resume){this.ctx.resume().catch(()=>{})}},
+beep(f=880,d=.14,v=.06,type='sine'){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);
+  g.gain.linearRampToValueAtTime(v,t+.012);g.gain.exponentialRampToValueAtTime(.001,t+d);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+d+.05)},
+tap(){this.beep(1200,.05,.04,'square')},
+msg(){this.beep(620,.18,.05,'triangle');setTimeout(()=>this.beep(830,.2,.045,'triangle'),80)},
+found(){this.beep(1046,.3,.06)},
+deny(){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type='sawtooth';o.frequency.setValueAtTime(180,t);o.frequency.exponentialRampToValueAtTime(92,t+.16);
+  g.gain.setValueAtTime(.06,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+.2)},
+unlock(){if(!this.on)return;this.init();if(!this.ctx)return;
+  this.beep(330,.1,.07,'square');setTimeout(()=>this.beep(494,.08,.06,'square'),90);
+  [523,659,784].forEach((f,i)=>setTimeout(()=>this.beep(f,.6,.055),260+i*90))},
+toggle(v){this.on=(v===undefined)?!this.on:!!v; if(this.on)this.init();}};
+
+const S={opened:[false,false,false,false],foundSeat:false,foundLine:false,tries:0,t0:0,tick:null};
+
+function start(){
+  document.getElementById('s0').classList.remove('on');
+  document.getElementById('s1').classList.add('on');
+  S.t0=Date.now(); S.tick=setInterval(updTimer,1000);
+  renderSeats();
+  window.scrollTo({top:0});
+  setTimeout(()=>document.getElementById('n1').focus(),100);
+}
+function updTimer(){
+  const s=Math.floor((Date.now()-S.t0)/1000);
+  try{parent.postMessage({q:'tick',t:s},'*');}catch(e){}
+}
+
+/* ── 좌석 배치도 ── */
+/* 4열 × 4행. 정답은 모둠 한가운데 자리 = 5 */
+const ANSWER_SEAT=5;
+function renderSeats(){
+  const g=document.getElementById('seats');
+  let html='';
+  for(let i=0;i<16;i++){
+    const isWin=false;
+    html+=\`<button class="seat\${isWin?' win':''}\${i===ANSWER_SEAT?' pen':''}" id="seat\${i}" onclick="tapSeat(\${i})">\${i+1}</button>\`;
+  }
+  g.innerHTML=html;
+}
+function tapSeat(i){
+  if(S.foundSeat)return;
+  const el=document.getElementById('seat'+i);
+  if(i===ANSWER_SEAT){
+    el.classList.add('found'); S.foundSeat=true; SND.found();
+    document.getElementById('seatnote').textContent='';
+    setTimeout(()=>{ document.getElementById('found1').classList.add('on'); updateHint(); },400);
+  }else{
+    el.classList.add('nope'); SND.tap();
+    setTimeout(()=>el.classList.remove('nope'),400);
+    const n=document.getElementById('seatnote');
+    if([1,4,6,9].includes(i)) n.textContent='가까워요. 모둠 한가운데 쪽을 보세요.';
+    else n.textContent='넓이는 친구들 사이, 모둠 한가운데에 앉아 있었습니다.';
+  }
+}
+
+/* ── 서랍 ── */
+function toggle(i){
+  const d=document.getElementById('d'+i);
+  const wasOpen=d.classList.contains('open');
+  d.classList.toggle('open');
+  if(!wasOpen){
+    SND.tap();
+    if(!S.opened[i]){
+      S.opened[i]=true;
+      document.getElementById('dot'+i).classList.add('seen');
+      if(i===2) playChat();
+    }
+    setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'nearest'}),120);
+  }
+  updateHint();
+}
+
+/* ── 접힌 종이 ── */
+function tapLine(el,i){
+  if(S.foundLine||el.classList.contains('gone'))return;
+  if(i===3){
+    el.classList.add('picked'); S.foundLine=true; SND.found();
+    document.querySelectorAll('.tapline').forEach((x,n)=>{
+      if(n!==3) setTimeout(()=>x.classList.add('gone'),200+n*260);
+    });
+    setTimeout(()=>{ document.getElementById('found2').classList.add('on'); updateHint(); },1100);
+  }else{
+    el.classList.add('nope'); SND.deny();
+    setTimeout(()=>el.classList.remove('nope'),500);
+    document.getElementById('lmsg').textContent='그 줄은 지워져 있습니다. 끝까지 안 지워진 줄을 찾아보세요.';
+  }
+}
+
+/* ── 모둠 친구 메모 ── */
+const CHAT=[
+  ['09/21','모둠 활동 1차. 넓이가 내 말 중간에 계속 끼어듦'],
+  ['10/05','모둠 활동 <b style="color:#2E6B7C;font-size:1.15em">2</b>차. 이번에도 똑같음'],
+  ['10/05','목소리가 너무 커서 집중이 안 됨'],
+  ['10/05','그냥 자기 말만 하고 싶은가 봄'],
+];
+let chatDone=false;
+function playChat(){
+  if(chatDone)return; chatDone=true;
+  const box=document.getElementById('chatbox'); box.innerHTML='';
+  CHAT.forEach(([d,t],i)=>{
+    const el=document.createElement('div');
+    el.className='msg'; el.innerHTML='<b>'+d+'</b>  '+t;
+    box.appendChild(el);
+    setTimeout(()=>{ el.classList.add('in'); SND.msg(); },250+i*700);
+  });
+}
+
+/* ── 안내 ── */
+function updateHint(){
+  const m=document.getElementById('lmsg');
+  const n=S.opened.filter(Boolean).length;
+  if(S.foundLine){
+    m.innerHTML='접힌 종이에서 찾은 그 말이 답입니다.';
+  }else if(S.foundSeat && n>=3){
+    m.textContent='봉투 바닥의 접힌 종이를 열어 보세요.';
+  }else if(n>=2){
+    m.textContent='배치도에서 넓이가 표시해 둔 자리를 찾아보세요.';
+  }else if(n>=1){
+    m.textContent='다른 기록도 열어 보세요.';
+  }
+}
+
+/* ── 1단계: 숫자 자물쇠 ── */
+const NUMS={n1:'14',n2:'3',n3:'2'};
+let numTries=0;
+function tryNums(){
+  const m=document.getElementById('lmsg');
+  const got={};
+  let blank=false;
+  ['n1','n2','n3'].forEach(k=>{
+    const el=document.getElementById(k);
+    got[k]=el.value.trim();
+    if(!got[k]) blank=true;
+    el.classList.remove('ok','no');
+  });
+  if(blank){ m.textContent='세 칸을 모두 채워 주세요.'; return; }
+
+  let wrong=[];
+  ['n1','n2','n3'].forEach(k=>{
+    const el=document.getElementById(k);
+    if(got[k]===NUMS[k]) el.classList.add('ok');
+    else { el.classList.add('no'); wrong.push(k); }
+  });
+
+  if(wrong.length===0){
+    SND.found();
+    document.getElementById('stage1').style.display='none';
+    showSum();
+    return;
+  }
+
+  numTries++; SND.deny();
+  const box=document.getElementById('lockbox');
+  box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
+
+  const where={n1:'메모장 첫 줄에 적혀 있습니다.',
+               n2:'배치도에서 표시된 자리를 찾으면 보입니다.',
+               n3:'모둠 친구의 메모를 보세요.'};
+  if(wrong.length===3){
+    m.textContent='세 숫자 모두 기록 안에 있습니다. 서랍을 열어 보세요.';
+  }else{
+    m.textContent='틀린 칸 — '+wrong.map(k=>where[k]).join(' ');
+  }
+}
+
+const SUM=\`14일 동안,
+"조용히 해"라는 말을 3번 듣고,
+2번의 모둠 활동에서 시끄럽다는 말이 나왔습니다.
+
+넓이는 방해하려던 게 아닙니다.
+같이 얘기하고 싶었습니다.\`;
+
+function showSum(){
+  const el=document.getElementById('sumline');
+  el.classList.add('on');
+  el.textContent='';
+  const done=()=>{
+    document.getElementById('stage2').style.display='block';
+    document.getElementById('lmsg').textContent='그렇다면, 왜 멈췄을까요.';
+    setTimeout(()=>document.getElementById('code').focus(),200);
+  };
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ el.textContent=SUM; done(); return; }
+  let i=0;
+  (function t(){
+    if(i<=SUM.length){ el.textContent=SUM.slice(0,i); i++; setTimeout(t, SUM[i-1]==='\\n'?130:38); }
+    else setTimeout(done,700);
+  })();
+}
+
+/* ── 2단계: 말 자물쇠 ── */
+const HINTS=[
+  '열리지 않습니다. 기록을 더 읽어 보세요.',
+  '모둠 친구들은 "자기 말만 하고 싶은 줄" 알았지만, 넓이는 다르게 생각하고 있었습니다.',
+  '접힌 종이의 마지막 줄을 보세요. "우리 동네에서는 ○○○가 관심이라고 했는데" 빈칸에 들어갈 말이 답입니다.',
+];
+const GIFT=\`2026.11.09
+
+오늘 토의 활동 했음
+
+애들이 첫 말을 못 꺼내서
+한참 조용했음
+
+내가 먼저 얘기를 꺼냄
+우리 동네에서 늘 그렇게 했으니까
+
+선생님이 넓이 덕분에
+분위기가 열렸다고 하셨음
+우리 모둠이 의견을 제일 많이 냄
+
+내 방식이 틀린 게 아니었음\`;
+
+function tryLock(){
+  const raw=document.getElementById('code').value.trim();
+  const v=raw.replace(/\\s/g,'');
+  const m=document.getElementById('lmsg');
+  if(!v){ m.textContent='답을 적어 주세요.'; return; }
+
+  if(v.includes('장구')&&!/없|못|안|않/.test(v)){
+    SND.unlock();
+    clearInterval(S.tick);
+    const s=Math.floor((Date.now()-S.t0)/1000);
+    parent.postMessage({q:'time',room:2,t:s},'*');document.getElementById('recTime').textContent=
+      String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+    document.getElementById('lockbox').style.display='none';
+    document.getElementById('drawers').style.display='none';
+    const u=document.getElementById('unseal');
+    u.classList.add('on');
+    u.scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>{ document.getElementById('gift').classList.add('on'); typeGift(); },2400);
+    return;
+  }
+
+  S.tries++; SND.deny();
+  const box=document.getElementById('lockbox');
+  box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
+
+  if(v.includes('시끄')||v.includes('떠들')||v.includes('자기')||v.includes('싫')){
+    m.textContent='그건 모둠 친구들이 짐작한 이유였습니다. 넓이 기록을 다시 보세요.';
+  }else if(v.includes('관심')){
+    m.textContent='"관심"은 넓이가 그 행동에 붙인 뜻이에요. 접힌 종이의 마지막 줄에서 "관심" 바로 앞에 있는 말을 찾아보세요.';
+  }else if(v.includes('끼어')||v.includes('큰')||v.includes('크게')||v.includes('반응')||v.includes('존중')||v.includes('배려')){
+    m.textContent='비슷합니다. 접힌 종이의 마지막 줄에 적힌 말을 그대로 넣어 보세요.';
+  }else{
+    m.textContent=HINTS[Math.min(S.tries-1,HINTS.length-1)];
+  }
+  document.getElementById('code').select();
+}
+
+function typeGift(){
+  const el=document.getElementById('gifthand');
+  el.textContent='';
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+    el.textContent=GIFT;
+    setTimeout(()=>document.getElementById('after').classList.add('on'),300);
+    return;
+  }
+  let i=0;
+  (function t(){
+    if(i<=GIFT.length){ el.textContent=GIFT.slice(0,i); i++; setTimeout(t, GIFT[i-1]==='\\n'?150:42); }
+    else setTimeout(()=>document.getElementById('after').classList.add('on'),600);
+  })();
+}
+
+document.getElementById('code').addEventListener('keydown',e=>{if(e.key==='Enter')tryLock()});
+['n1','n2','n3'].forEach((k,i)=>{
+  document.getElementById(k).addEventListener('keydown',e=>{
+    if(e.key==='Enter'){
+      if(i<2) document.getElementById(['n1','n2','n3'][i+1]).focus();
+      else tryNums();
+    }
+  });
+});
+
+const sb=document.getElementById('sb0');
+if(sb) sb.addEventListener('scroll',()=>{
+  if(sb.scrollTop+sb.clientHeight>=sb.scrollHeight-8){
+    const h=document.getElementById('sh0'); if(h) h.style.display='none';
+  }
+});
+
+window.addEventListener('message',e=>{
+  const d=e.data||{};
+  if(d.q==='sound') SND.toggle(d.on);
+});
+<\/script>
+</body>
+</html>
+`,
+`<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>205호 타임캡슐 — 3방</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080A0E; --fg:#C9D2DA; --paper:#1A2028; --paper-2:#2A323C;
+  --accent:#7E93A8; --accent-soft:#B6C6D6; --line:#232B34; --ink:#C9D2DA;
+  --ok:#6B9E86; --err:#B06B60;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:'Gowun Dodum',system-ui,sans-serif;
+  line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:560px;margin:0 auto;padding:20px 16px 90px}
+h1,h2,h3{font-family:'Gowun Batang',serif;font-weight:700;line-height:1.35;margin:0}
+button{font-family:inherit;cursor:pointer;border:0}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.screen{display:none}.screen.on{display:block}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;
+  padding:8px 0 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.room-id{font-size:.78rem;color:var(--accent-soft);font-weight:700;letter-spacing:.04em}
+.timer{font-size:.84rem;color:var(--accent-soft);font-variant-numeric:tabular-nums}
+.snd{background:rgba(255,255,255,.07);border:1px solid var(--line);color:#fff;
+  width:30px;height:30px;border-radius:8px;font-size:13px;margin-left:8px}
+.snd.off{opacity:.45}
+.topright{display:flex;align-items:center}
+
+.intro{text-align:center;padding:40px 6px}
+.intro .tag{display:inline-block;border:1px solid var(--accent);color:var(--accent-soft);
+  padding:5px 12px;font-size:.78rem;margin-bottom:22px}
+.intro h1{font-size:2rem;margin-bottom:10px}
+.intro .sub{font-family:'Gowun Batang',serif;color:var(--accent-soft);margin-bottom:28px}
+.intro p{font-size:1rem;line-height:1.95;margin-bottom:16px;opacity:.9}
+.btn{background:var(--accent);color:#0E1318;padding:14px 26px;font-weight:700;font-size:1rem}
+.btn:hover{filter:brightness(1.16)}
+
+/* 자물쇠 */
+.lock{background:linear-gradient(160deg,#1C242E,#12181F);color:#fff;
+  padding:24px 20px;box-shadow:0 10px 30px rgba(0,0,0,.6);margin-bottom:20px;text-align:center;
+  border:1px solid #2C3744}
+.lock .ltitle{font-family:'Gowun Batang',serif;font-size:1.15rem;margin-bottom:4px}
+.lock .lq{font-size:1rem;margin-bottom:4px;color:#B6C6D6}
+.lock .lsub{font-size:.82rem;opacity:.7;margin-bottom:18px}
+.lockrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;align-items:center}
+.lock input{padding:12px 8px;text-align:center;
+  font-family:'Gowun Batang',serif;font-weight:700;
+  background:#DEE6EC;color:#12181F;border:0;border-bottom:3px solid #7E93A8}
+#code{width:170px;font-size:1.5rem;letter-spacing:.1em}
+.lock input::placeholder{color:#8795A0;letter-spacing:.14em}
+.lock .btn{background:#7E93A8;color:#0E1318}
+.lmsg{min-height:22px;font-size:.88rem;margin-top:14px;color:#AFC4D4;line-height:1.6}
+.shake{animation:sh .4s}
+@keyframes sh{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+
+/* 시각 입력 */
+.timerows{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.timerow{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  background:rgba(0,0,0,.4);padding:11px 13px;text-align:left}
+.tlabel{font-size:.84rem;flex:1;opacity:.88;line-height:1.4}
+.tinput{width:46px;font-size:1.25rem}
+.tinput.ok{background:#BCDCCB;border-bottom-color:#4F8F6B}
+.tinput.no{background:#E8CCC6;border-bottom-color:#B06B60}
+.tcolon{opacity:.6;font-size:1.1rem}
+
+.sumline{display:none;font-family:'Gowun Batang',serif;font-size:1.04rem;line-height:1.95;
+  background:rgba(126,147,168,.14);border:1px solid #4A5C70;padding:18px 16px;margin:4px 0 18px;
+  white-space:pre-line}
+.sumline.on{display:block;animation:rise .7s ease}
+
+/* 서랍 */
+.drawers{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+.drawer{background:var(--paper);border:1px solid var(--line);
+  box-shadow:0 4px 16px rgba(0,0,0,.5);overflow:hidden}
+.dhead{width:100%;background:transparent;display:flex;align-items:center;gap:12px;
+  padding:16px;text-align:left;color:var(--ink);font-size:1rem}
+.dhead:hover{background:rgba(255,255,255,.05)}
+.dhead .ic{font-size:1.4rem;flex-shrink:0}
+.dhead .dt{flex:1;font-weight:700}
+.dhead .dnote{font-size:.76rem;opacity:.55;font-weight:400;display:block;margin-top:2px}
+.dhead .chev{font-size:.9rem;opacity:.5;transition:transform .25s}
+.drawer.open .chev{transform:rotate(90deg)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--err);flex-shrink:0}
+.dot.seen{background:var(--ok)}
+.dbody{display:none;padding:0 16px 18px;border-top:1px solid var(--paper-2)}
+.drawer.open .dbody{display:block;animation:slide .35s ease}
+@keyframes slide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.dbody .inner{padding-top:16px;white-space:pre-line;font-size:.97rem;line-height:1.75}
+.hand{font-family:'Nanum Pen Script',cursive;font-size:1.5rem;line-height:1.5;color:#B6C6D6}
+
+/* 손전등 영역 */
+#torchzone{position:relative;padding:6px 2px;margin-top:4px}
+.torchhint{font-size:.8rem;opacity:.6;margin-bottom:12px;text-align:center}
+.cards{display:flex;flex-direction:column;gap:9px}
+.card{
+  background:#10161C;border:1px solid #1C242C;padding:14px 15px;
+  color:#4E5A66;transition:color .25s,background-color .25s,border-color .25s;
+  position:relative;cursor:default;
+}
+.card .lines{filter:blur(3.4px);opacity:.45;transition:filter .28s,opacity .28s;line-height:1.7}
+.card.lit{background:#222C36;border-color:#5C748A;color:#E4EDF4;
+  box-shadow:0 0 36px rgba(150,190,225,.18)}
+.card.lit .lines{filter:none;opacity:1}
+.card .ctime{font-family:'Gowun Batang',serif;font-weight:700;color:#8FB4CE;margin-right:8px}
+.card.del .cmark{display:inline-block;font-size:.78rem;opacity:.7;
+  border:1px dashed currentColor;padding:1px 7px;margin-top:6px}
+#torch{position:absolute;width:240px;height:240px;border-radius:50%;
+  left:0;top:0;transform:translate(-50%,-50%);pointer-events:none;opacity:0;
+  background:radial-gradient(circle,rgba(190,220,245,.22),rgba(190,220,245,.07) 45%,transparent 70%);
+  transition:opacity .3s;z-index:3}
+#torch.on{opacity:1}
+#torchzone.revealed .card .lines{filter:none;opacity:1}
+#torchzone.revealed .card{color:#CFDAE3}
+
+/* 탭해서 찾기 */
+.tapline{display:block;padding:7px 10px;margin:3px -10px;cursor:pointer;
+  border-radius:4px;transition:background .18s,opacity 1.1s ease}
+.tapline:hover{background:rgba(126,147,168,.22)}
+.tapline.gone{opacity:.3;text-decoration:line-through;cursor:default}
+.tapline.gone:hover{background:transparent}
+.tapline.picked{background:rgba(143,180,206,.3);box-shadow:0 0 0 2px rgba(143,180,206,.5)}
+.tapline.nope{background:rgba(176,107,96,.25)}
+
+.found{margin-top:14px;padding:12px 14px;background:rgba(107,158,134,.16);
+  border-left:3px solid var(--ok);font-size:.92rem;display:none}
+.found.on{display:block;animation:slide .4s ease}
+
+/* 해제 */
+.unseal{display:none;background:var(--paper);padding:24px 20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);border-top:3px solid var(--ok)}
+.unseal.on{display:block;animation:rise .6s ease}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.unseal .u1{font-family:'Gowun Batang',serif;font-size:1.1rem;line-height:1.9;
+  white-space:pre-line;margin-bottom:16px}
+.unseal .u2{font-size:.93rem;line-height:1.8;opacity:.8;padding-top:14px;
+  border-top:1px solid var(--paper-2)}
+
+.gift{display:none;margin-top:20px;background:#141B22;border:1px solid #2A343E;
+  padding:22px 20px}
+.gift.on{display:block;animation:rise .8s ease}
+.gift .glabel{font-size:.76rem;opacity:.55;margin-bottom:12px}
+.gift .ghand{font-family:'Nanum Pen Script',cursive;font-size:1.6rem;line-height:1.55;
+  color:#C9DCE8;white-space:pre-line;min-height:8em}
+
+.record{display:flex;justify-content:space-between;align-items:center;
+  background:rgba(255,255,255,.05);padding:12px 14px;margin-top:16px;font-size:.9rem}
+.record b{color:var(--accent-soft);font-variant-numeric:tabular-nums}
+.after{opacity:0;transition:opacity 1s;pointer-events:none;margin-top:18px;text-align:center}
+.after.on{opacity:1;pointer-events:auto}
+
+.note{margin-top:30px;padding:14px;border:1px dashed var(--line);
+  font-size:.8rem;line-height:1.8;opacity:.68}
+.note b{color:var(--accent-soft)}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  #torchzone .card .lines{filter:none;opacity:1}
+  #torchzone .card{color:#CFDAE3}
+  #torch{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="s0" class="screen on">
+  <div class="intro">
+    <span class="tag">2045년 · 리모델링 공사 기록</span>
+    <h1>205호 타임캡슐</h1>
+    <div class="sub">세 번째 봉투</div>
+    <p>테이프로 여러 번 다시 붙인 자국이 있는 봉투.<br>겉면에 <b>"신중이"</b>라고 적혀 있다.</p>
+    <p>안을 들여다보니 어둡다.<br>휴대폰 캡처 몇 장이 겹쳐 있는데<br>글씨가 잘 보이지 않는다.</p>
+    <button class="btn" onclick="start()">봉투 열기</button>
+  </div>
+</section>
+
+<section id="s1" class="screen">
+    <div class="lock" id="lockbox">
+    <div class="ltitle">신중이의 휴대폰</div>
+
+    <div id="stage1">
+      <div class="lq">신중이가 지운 메시지의 시각</div>
+      <div class="lsub">삭제된 메시지 세 줄의 시각을 24시간제로 적으세요 (예: 오후 9시 5분 → 21 : 05)</div>
+      <div class="timerows">
+        <div class="timerow">
+          <span class="tlabel">발표 이틀 전 밤 (11/18)</span>
+          <input class="tinput" id="h1" inputmode="numeric" maxlength="2" placeholder="--">
+          <span class="tcolon">:</span>
+          <input class="tinput" id="m1" inputmode="numeric" maxlength="2" placeholder="--">
+        </div>
+        <div class="timerow">
+          <span class="tlabel">발표 하루 전 아침 (11/19)</span>
+          <input class="tinput" id="h2" inputmode="numeric" maxlength="2" placeholder="--">
+          <span class="tcolon">:</span>
+          <input class="tinput" id="m2" inputmode="numeric" maxlength="2" placeholder="--">
+        </div>
+        <div class="timerow">
+          <span class="tlabel">발표 당일 새벽 (11/20)</span>
+          <input class="tinput" id="h3" inputmode="numeric" maxlength="2" placeholder="--">
+          <span class="tcolon">:</span>
+          <input class="tinput" id="m3" inputmode="numeric" maxlength="2" placeholder="--">
+        </div>
+      </div>
+      <div class="lockrow">
+        <button class="btn" onclick="tryTimes()">맞추기</button>
+      </div>
+    </div>
+
+    <div class="sumline" id="sumline"></div>
+
+    <div id="stage2" style="display:none">
+      <div class="lq">그런데 신중이는 왜 다 지웠을까</div>
+      <div class="lsub">단서에서 찾은 말을 적어 넣으세요</div>
+      <div class="lockrow">
+        <input id="code" maxlength="10" placeholder="○○" autocomplete="off" aria-label="답">
+        <button class="btn" onclick="tryLock()">열기</button>
+      </div>
+    </div>
+
+    <div class="lmsg" id="lmsg">봉투 안이 어둡습니다. 기록을 꺼내 보세요.</div>
+  </div>
+
+  <div class="drawers" id="drawers">
+
+    <div class="drawer" id="d0">
+      <button class="dhead" onclick="toggle(0)">
+        <span class="ic">🔦</span>
+        <span class="dt">모둠 단톡방 캡처<span class="dnote">어둡다. 빛을 비춰야 읽힌다</span></span>
+        <span class="dot" id="dot0"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner">
+        <div class="torchhint" id="thint">화면 위에서 손가락이나 마우스를 움직여 보세요.</div>
+        <div id="torchzone">
+          <div class="cards" id="cards"></div>
+          <div id="torch"></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="drawer" id="d1">
+      <button class="dhead" onclick="toggle(1)">
+        <span class="ic">📊</span>
+        <span class="dt">발표 자료 수정 기록<span class="dnote">누가 언제 고쳤는지 남아 있다</span></span>
+        <span class="dot" id="dot1"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner" id="verbox"></div></div>
+    </div>
+
+    <div class="drawer" id="d2">
+      <button class="dhead" onclick="toggle(2)">
+        <span class="ic">📄</span>
+        <span class="dt">자료 봉투에 접혀 있던 쪽지<span class="dnote">발표 다음 날 나왔다</span></span>
+        <span class="dot" id="dot2"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner">
+        <div class="hand" id="postit">
+          <span class="tapline" onclick="tapLine(this,0)">숫자가 틀린 걸 나만 알고 있었다</span>
+          <span class="tapline" onclick="tapLine(this,1)">말하면 모둠장이 애들 앞에서 민망할 텐데</span>
+          <span class="tapline" onclick="tapLine(this,2)">썼다가 지웠다 또 썼다가 지웠다</span>
+          <span class="tapline" onclick="tapLine(this,3)">우리 집에서는 그게 배려라고 배웠는데</span>
+        </div>
+        <div class="found" id="found1">
+          <b>안 지워진 줄을 찾았습니다.</b><br>
+          "우리 집에서는 그게 <b style="color:#8FB4CE">배려</b>라고 배웠는데"
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="unseal" id="unseal">
+    <div class="u1">신중이는 몰랐던 게 아닙니다.
+
+세 번이나 말하려고 했습니다.</div>
+    <div class="u2">신중이는 이 학교를 6년 다녔고, 이 나라에서 나고 자랐습니다.<br><br>신중이네 집에서는 친구가 틀려도 여러 사람 앞에서 바로 지적하지 않습니다. 그건 친구를 망신 주는 일이라고 배웠습니다. 나중에 둘이 있을 때 조용히 말해주는 것이 배려입니다.<br><br>신중이는 문제를 외면한 게 아니라, 말할 자리와 방식을 고르고 있었습니다. 공개된 자리와 둘만 있는 자리에서 같은 말은 어떻게 다르게 들릴까요?</div>
+
+    <div class="gift" id="gift">
+      <div class="glabel">선생님이 "왜 말 안 했어?"라고 물은 날, 신중이가 쓴 메모</div>
+      <div class="ghand" id="gifthand"></div>
+    </div>
+
+    <div class="record">
+      <span>3방 기록</span>
+      <b id="recTime">00:00</b>
+    </div>
+    <div class="after" id="after">
+      <button class="btn" onclick="parent.postMessage({q:'done',room:3},'*')">네 번째 봉투로</button>
+    </div>
+  </div>
+
+  </section>
+
+</div>
+
+<script>
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ── 소리 ── */
+const SND={ctx:null,on:false,
+init(){if(!this.ctx||this.ctx.state==='closed'){try{this.ctx=new(window.AudioContext||window.webkitAudioContext)()}catch(e){this.on=false;return}}if(this.on&&this.ctx.state==='suspended'&&this.ctx.resume){this.ctx.resume().catch(()=>{})}},
+beep(f=880,d=.14,v=.06,type='sine'){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);
+  g.gain.linearRampToValueAtTime(v,t+.012);g.gain.exponentialRampToValueAtTime(.001,t+d);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+d+.05)},
+tap(){this.beep(1200,.05,.04,'square')},
+found(){this.beep(1046,.3,.06)},
+deny(){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type='sawtooth';o.frequency.setValueAtTime(180,t);o.frequency.exponentialRampToValueAtTime(92,t+.16);
+  g.gain.setValueAtTime(.06,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+.2)},
+unlock(){if(!this.on)return;this.init();if(!this.ctx)return;
+  this.beep(330,.1,.07,'square');setTimeout(()=>this.beep(494,.08,.06,'square'),90);
+  [523,659,784].forEach((f,i)=>setTimeout(()=>this.beep(f,.6,.055),260+i*90))},
+toggle(v){this.on=(v===undefined)?!this.on:!!v; if(this.on)this.init();}};
+
+const S={opened:[false,false,false],foundLine:false,tries:0,t0:0,tick:null,torchMoved:false};
+
+function start(){
+  document.getElementById('s0').classList.remove('on');
+  document.getElementById('s1').classList.add('on');
+  S.t0=Date.now(); S.tick=setInterval(updTimer,1000);
+  renderCards(); renderVersions();
+  window.scrollTo({top:0});
+  setTimeout(()=>document.getElementById('h1').focus(),100);
+}
+function updTimer(){
+  const s=Math.floor((Date.now()-S.t0)/1000);
+  try{parent.postMessage({q:'tick',t:s},'*');}catch(e){}
+}
+
+/* ── 단톡방 카드 (손전등) ── */
+const CARDS=[
+  {d:'11/18 (수)',t:'21:12',who:'모둠장',txt:'3번 슬라이드 그래프 넣었어! 24%로 함',del:false},
+  {d:'11/18 (수)',t:'21:15',who:'민호',txt:'ㅇㅋ 수고~',del:false},
+  {d:'11/18 (수)',t:'23:47',who:'신중이',txt:'',del:true},
+  {d:'11/19 (목)',t:'07:12',who:'신중이',txt:'',del:true},
+  {d:'11/20 (금)',t:'05:33',who:'신중이',txt:'',del:true},
+  {d:'11/20 (금)',t:'12:40',who:'모둠장',txt:'발표 끝~ 근데 숫자 하나 틀렸다고 하심 ㅠ',del:false},
+  {d:'11/20 (금)',t:'12:41',who:'민호',txt:'몰라 그냥 넘어가자',del:false},
+];
+function renderCards(){
+  const box=document.getElementById('cards');
+  box.innerHTML=CARDS.map((c,i)=>
+    \`<div class="card\${c.del?' del':''}" id="card\${i}"><div class="lines">\`+
+    \`<span class="ctime">\${c.t}</span><b>\${c.who}</b>\`+
+    (c.del ? \`<br><span class="cmark">삭제된 메시지입니다</span>\`
+           : \`<br>\${c.txt}\`)+
+    \`<div style="font-size:.76rem;opacity:.5;margin-top:5px">\${c.d}</div>\`+
+    \`</div></div>\`).join('');
+}
+
+/* ── 발표 자료 수정 기록 ── */
+const VERS=[
+  ['11/15 16:00','신중이','자료 조사 페이지 작성'],
+  ['11/18 21:10','모둠장','3번 슬라이드 그래프 삽입 (24%)'],
+  ['11/18 23:48','신중이','3번 슬라이드 수정 (24 → 42) · <b style="color:#B06B60">1분 뒤 되돌림</b>'],
+  ['11/19 07:13','신중이','3번 슬라이드 수정 (24 → 42) · <b style="color:#B06B60">1분 뒤 되돌림</b>'],
+  ['11/20 05:34','신중이','3번 슬라이드 열람 · <b style="color:#B06B60">수정 없음</b>'],
+  ['11/20 08:30','모둠장','발표용 최종 저장'],
+];
+function renderVersions(){
+  const box=document.getElementById('verbox');
+  box.innerHTML=VERS.map(([t,w,x])=>
+    \`<div style="display:grid;grid-template-columns:118px 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--paper-2);font-size:.88rem;line-height:1.6">\`+
+    \`<div style="color:#8FB4CE;font-weight:700">\${t}</div><div><b>\${w}</b> \${x}</div></div>\`).join('');
+}
+
+/* ── 서랍 ── */
+function toggle(i){
+  const d=document.getElementById('d'+i);
+  const wasOpen=d.classList.contains('open');
+  d.classList.toggle('open');
+  if(!wasOpen){
+    SND.tap();
+    if(!S.opened[i]){
+      S.opened[i]=true;
+      document.getElementById('dot'+i).classList.add('seen');
+      if(i===0) torchNudge();
+    }
+    setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'nearest'}),120);
+  }
+  updateHint();
+}
+
+/* ── 손전등 ── */
+(function(){
+  const zone=document.getElementById('torchzone'), torch=document.getElementById('torch');
+  if(!zone||reduce)return;
+  function move(x,y){
+    S.torchMoved=true;
+    const r=zone.getBoundingClientRect();
+    torch.classList.add('on');
+    torch.style.left=(x-r.left)+'px'; torch.style.top=(y-r.top)+'px';
+    zone.querySelectorAll('.card').forEach(c=>{
+      const b=c.getBoundingClientRect();
+      const cx=Math.max(b.left,Math.min(x,b.right));
+      const cy=Math.max(b.top,Math.min(y,b.bottom));
+      c.classList.toggle('lit', Math.hypot(x-cx,y-cy)<100);
+    });
+  }
+  zone.addEventListener('mousemove',e=>move(e.clientX,e.clientY));
+  zone.addEventListener('touchmove',e=>{const t=e.touches[0];move(t.clientX,t.clientY);},{passive:true});
+  zone.addEventListener('touchstart',e=>{const t=e.touches[0];move(t.clientX,t.clientY);},{passive:true});
+  zone.addEventListener('mouseleave',()=>{torch.classList.remove('on');
+    zone.querySelectorAll('.card').forEach(c=>c.classList.remove('lit'));});
+})();
+let nudged=false;
+function torchNudge(){
+  if(reduce||nudged)return;
+  setTimeout(()=>{
+    if(S.torchMoved)return;
+    nudged=true;
+    document.getElementById('torchzone').classList.add('revealed');
+    document.getElementById('thint').textContent='(빛이 잘 안 움직였네요. 불을 켜 두었습니다.)';
+  },7000);
+}
+
+/* ── 쪽지 ── */
+function tapLine(el,i){
+  if(S.foundLine||el.classList.contains('gone'))return;
+  if(i===3){
+    el.classList.add('picked'); S.foundLine=true; SND.found();
+    document.querySelectorAll('.tapline').forEach((x,n)=>{
+      if(n!==3) setTimeout(()=>x.classList.add('gone'),200+n*260);
+    });
+    setTimeout(()=>{ document.getElementById('found1').classList.add('on'); updateHint(); },1100);
+  }else{
+    el.classList.add('nope'); SND.deny();
+    setTimeout(()=>el.classList.remove('nope'),500);
+    document.getElementById('lmsg').textContent='그 줄은 지워져 있습니다. 끝까지 안 지워진 줄을 찾아보세요.';
+  }
+}
+
+/* ── 안내 ── */
+function updateHint(){
+  const m=document.getElementById('lmsg');
+  const n=S.opened.filter(Boolean).length;
+  if(stage===2){
+    if(S.foundLine) m.textContent='쪽지에서 찾은 그 말이 답입니다.';
+    else m.textContent='봉투에 접혀 있던 쪽지를 열어 보세요.';
+    return;
+  }
+  if(n>=2) m.textContent='단톡방 캡처에 삭제된 메시지 세 개가 있습니다. 시각을 읽어 보세요.';
+  else if(n>=1) m.textContent='다른 기록도 열어 보세요.';
+}
+
+/* ── 1단계: 시각 자물쇠 ── */
+const TIMES={h1:'23',m1:'47',h2:'07',m2:'12',h3:'05',m3:'33'};
+let stage=1, timeTries=0;
+function tryTimes(){
+  const m=document.getElementById('lmsg');
+  const keys=['h1','m1','h2','m2','h3','m3'];
+  let blank=false;
+  keys.forEach(k=>{
+    const el=document.getElementById(k);
+    el.classList.remove('ok','no');
+    if(!el.value.trim()) blank=true;
+  });
+  if(blank){ m.textContent='여섯 칸을 모두 채워 주세요.'; return; }
+
+  let wrongRow=[];
+  [['h1','m1',0],['h2','m2',1],['h3','m3',2]].forEach(([h,mm,idx])=>{
+    const hv=document.getElementById(h).value.trim().padStart(2,'0');
+    const mv=document.getElementById(mm).value.trim().padStart(2,'0');
+    const ok=(hv===TIMES[h]&&mv===TIMES[mm]);
+    document.getElementById(h).classList.add(ok?'ok':'no');
+    document.getElementById(mm).classList.add(ok?'ok':'no');
+    if(!ok) wrongRow.push(idx);
+  });
+
+  if(wrongRow.length===0){
+    SND.found(); stage=2;
+    document.getElementById('stage1').style.display='none';
+    showSum();
+    return;
+  }
+  timeTries++; SND.deny();
+  const box=document.getElementById('lockbox');
+  box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
+  if(wrongRow.length===3){
+    m.textContent='세 시각 모두 단톡방 캡처에 있습니다. 어두우니 빛을 비춰 보세요. 시각은 캡처에 적힌 24시간제 그대로 적어요.';
+  }else{
+    const nm=['첫 번째','두 번째','세 번째'];
+    m.textContent=wrongRow.map(i=>nm[i]).join(', ')+' 줄을 다시 보세요. 삭제된 메시지의 시각입니다. (24시간제로 적어요. 예: 오후 11시 → 23)';
+  }
+}
+
+const SUM=\`밤 11시 47분에 한 번,
+다음 날 아침 7시 12분에 한 번,
+발표 날 새벽 5시 33분에 한 번.
+
+세 번 다 썼다가, 세 번 다 지웠습니다.\`;
+
+function showSum(){
+  const el=document.getElementById('sumline');
+  el.classList.add('on'); el.textContent='';
+  const done=()=>{
+    document.getElementById('stage2').style.display='block';
+    document.getElementById('lmsg').textContent='그렇다면, 왜 지웠을까요.';
+    setTimeout(()=>document.getElementById('code').focus(),200);
+  };
+  if(reduce){ el.textContent=SUM; done(); return; }
+  let i=0;
+  (function t(){
+    if(i<=SUM.length){ el.textContent=SUM.slice(0,i); i++; setTimeout(t, SUM[i-1]==='\\n'?130:38); }
+    else setTimeout(done,700);
+  })();
+}
+
+/* ── 2단계: 말 자물쇠 ── */
+const HINTS=[
+  '열리지 않습니다. 기록을 더 읽어 보세요.',
+  '신중이는 틀린 걸 알았습니다. 그런데도 말하지 않았습니다.',
+  '쪽지의 마지막 줄을 보세요. "우리 집에서는 그게 ○○라고 배웠는데"',
+];
+const GIFT=\`선생님이 물었다.
+
+"알고 있었어?"
+"왜 말 안 했어?"
+
+할 말이 없었다.
+
+거짓말한 거 아닌데
+거짓말한 것 같았다.
+
+우리 집에서는
+남 앞에서 지적하면 안 된다고 했는데
+
+여기서는
+말 안 하면 모르는 애가 된다\`;
+
+function tryLock(){
+  const raw=document.getElementById('code').value.trim();
+  const v=raw.replace(/\\s/g,'');
+  const m=document.getElementById('lmsg');
+  if(!v){ m.textContent='답을 적어 주세요.'; return; }
+
+  if(v.includes('배려')&&!/없|못|안|않/.test(v)){
+    SND.unlock();
+    clearInterval(S.tick);
+    const s=Math.floor((Date.now()-S.t0)/1000);
+    parent.postMessage({q:'time',room:3,t:s},'*');document.getElementById('recTime').textContent=
+      String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+    document.getElementById('lockbox').style.display='none';
+    document.getElementById('drawers').style.display='none';
+    const u=document.getElementById('unseal');
+    u.classList.add('on');
+    u.scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>{ document.getElementById('gift').classList.add('on'); typeGift(); },2400);
+    return;
+  }
+
+  S.tries++; SND.deny();
+  const box=document.getElementById('lockbox');
+  box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
+
+  if(v.includes('몰라')||v.includes('모름')||v.includes('모르')){
+    m.textContent='신중이는 알고 있었습니다. 발표 이틀 전부터요.';
+  }else if(v.includes('거짓')||v.includes('속')){
+    m.textContent='신중이도 그렇게 느꼈습니다. 하지만 거짓말을 한 건 아니었습니다.';
+  }else if(v.includes('용기')||v.includes('소심')||v.includes('겁')){
+    m.textContent='용기가 없어서가 아닙니다. 세 번이나 썼다가 지웠으니까요.';
+  }else if(v.includes('예의')||v.includes('존중')){
+    m.textContent='비슷합니다. 쪽지에 적힌 말 그대로 넣어 보세요.';
+  }else{
+    m.textContent=HINTS[Math.min(S.tries-1,HINTS.length-1)];
+  }
+  document.getElementById('code').select();
+}
+
+function typeGift(){
+  const el=document.getElementById('gifthand');
+  el.textContent='';
+  if(reduce){ el.textContent=GIFT; setTimeout(()=>document.getElementById('after').classList.add('on'),300); return; }
+  let i=0;
+  (function t(){
+    if(i<=GIFT.length){ el.textContent=GIFT.slice(0,i); i++; setTimeout(t, GIFT[i-1]==='\\n'?150:42); }
+    else setTimeout(()=>document.getElementById('after').classList.add('on'),600);
+  })();
+}
+
+/* 입력 편의 */
+document.getElementById('code').addEventListener('keydown',e=>{if(e.key==='Enter')tryLock()});
+['h1','m1','h2','m2','h3','m3'].forEach((k,i,arr)=>{
+  const el=document.getElementById(k);
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter'){ if(i<arr.length-1) document.getElementById(arr[i+1]).focus(); else tryTimes(); }
+  });
+  el.addEventListener('input',e=>{
+    if(e.target.value.length===2 && i<arr.length-1) document.getElementById(arr[i+1]).focus();
+  });
+});
+
+window.addEventListener('message',e=>{
+  const d=e.data||{};
+  if(d.q==='sound') SND.toggle(d.on);
+});
+<\/script>
+</body>
+</html>
+`,
+`<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>205호 타임캡슐 — 4방</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFF3E2; --fg:#3A2A20; --paper:#FFFFFF; --paper-2:#F3DCC4;
+  --accent:#B8481A; --accent-soft:#8F3510; --line:#E0A87A; --ink:#3A2A20;
+  --ok:#3F7A58; --err:#A33A2A;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:'Gowun Dodum',system-ui,sans-serif;
+  line-height:1.7;-webkit-text-size-adjust:100%;transition:filter 1.8s ease}
+body.drained{filter:saturate(.08) contrast(1.05)}
+.wrap{max-width:560px;margin:0 auto;padding:20px 16px 90px}
+h1,h2,h3{font-family:'Gowun Batang',serif;font-weight:700;line-height:1.35;margin:0}
+button{font-family:inherit;cursor:pointer;border:0}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.screen{display:none}.screen.on{display:block}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;
+  padding:8px 0 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.room-id{font-size:.78rem;color:var(--accent-soft);font-weight:700;letter-spacing:.04em}
+.timer{font-size:.84rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.snd{background:rgba(255,255,255,.6);border:1px solid var(--line);
+  width:30px;height:30px;border-radius:8px;font-size:13px;margin-left:8px}
+.snd.off{opacity:.45}
+.topright{display:flex;align-items:center}
+
+.intro{text-align:center;padding:40px 6px}
+.intro .tag{display:inline-block;border:1px solid var(--accent);color:var(--accent);
+  padding:5px 12px;font-size:.78rem;margin-bottom:22px}
+.intro h1{font-size:2rem;margin-bottom:10px}
+.intro .sub{font-family:'Gowun Batang',serif;color:var(--accent-soft);margin-bottom:28px}
+.intro p{font-size:1rem;line-height:1.95;margin-bottom:16px;opacity:.9}
+.btn{background:var(--accent);color:#fff;padding:14px 26px;font-weight:700;font-size:1rem}
+.btn:hover{filter:brightness(1.12)}
+
+/* 자물쇠 */
+.lock{background:linear-gradient(160deg,#C9561F,#9A3C12);color:#fff;
+  padding:24px 20px;box-shadow:0 10px 26px rgba(0,0,0,.25);margin-bottom:20px;text-align:center}
+.lock .ltitle{font-family:'Gowun Batang',serif;font-size:1.15rem;margin-bottom:4px}
+.lock .lq{font-size:1rem;margin-bottom:4px;color:#FFE0C4}
+.lock .lsub{font-size:.82rem;opacity:.78;margin-bottom:18px}
+.lockrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;align-items:center}
+.lock input{padding:12px 8px;text-align:center;font-family:'Gowun Batang',serif;font-weight:700;
+  background:#FFF4E8;color:#3A2A20;border:0;border-bottom:3px solid #FFC08A}
+#code{width:170px;font-size:1.5rem;letter-spacing:.1em}
+.lock input::placeholder{color:#B59A82;letter-spacing:.14em}
+.lock .btn{background:#FFC08A;color:#5A2A0A}
+.lmsg{min-height:22px;font-size:.88rem;margin-top:14px;color:#FFE0C4;line-height:1.6}
+.shake{animation:sh .4s}
+@keyframes sh{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+
+
+
+/* 서랍 */
+.drawers{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+.drawer{background:var(--paper);border:1px solid var(--line);
+  box-shadow:0 4px 12px rgba(0,0,0,.12);overflow:hidden}
+.dhead{width:100%;background:transparent;display:flex;align-items:center;gap:12px;
+  padding:16px;text-align:left;color:var(--ink);font-size:1rem}
+.dhead:hover{background:rgba(184,72,26,.06)}
+.dhead .ic{font-size:1.4rem;flex-shrink:0}
+.dhead .dt{flex:1;font-weight:700}
+.dhead .dnote{font-size:.76rem;opacity:.58;font-weight:400;display:block;margin-top:2px}
+.dhead .chev{font-size:.9rem;opacity:.5;transition:transform .25s}
+.drawer.open .chev{transform:rotate(90deg)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--err);flex-shrink:0}
+.dot.seen{background:var(--ok)}
+.dbody{display:none;padding:0 16px 18px;border-top:1px solid var(--paper-2)}
+.drawer.open .dbody{display:block;animation:slide .35s ease}
+@keyframes slide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.dbody .inner{padding-top:16px;white-space:pre-line;font-size:.97rem;line-height:1.75}
+.hand{font-family:'Nanum Pen Script',cursive;font-size:1.5rem;line-height:1.5;color:#5A4030}
+
+/* SNS 피드 */
+.igp{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.pav{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,#FFB347,#F0763C 55%,#D6249F);color:#fff;font-weight:700;font-size:.9rem;flex:none}
+.pav.lg{width:56px;height:56px;font-size:1.2rem}
+.igp b{font-size:1rem}
+.igp .pstat{font-size:.78rem;color:#9A7A5C}
+.igrid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.gt{position:relative;aspect-ratio:1/1;padding:0;border:0;overflow:hidden;cursor:pointer;background:#eee}
+.gt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.gt.on{box-shadow:0 0 0 3px var(--accent)}
+.pimg{position:relative;width:100%;height:100%;overflow:hidden;display:flex;align-items:center;justify-content:center;filter:saturate(1.3) contrast(1.05)}
+.pimg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,transparent 45%,rgba(0,0,0,.22) 100%);pointer-events:none}
+.pimg .m{font-size:4.2rem;line-height:1;filter:drop-shadow(0 4px 6px rgba(0,0,0,.25))}
+.pimg .s{position:absolute;font-size:1.5rem;opacity:.9}
+.pimg.big{aspect-ratio:1/1;height:auto}
+.pimg.big .m{font-size:6rem}
+.gt .gd{position:absolute;left:6px;bottom:6px;background:rgba(0,0,0,.45);color:#fff;font-size:.68rem;padding:1px 7px;border-radius:9px}
+.pd{margin-top:10px;background:#fff;border:1px solid #F0D8BC}
+.pdh{display:flex;align-items:center;gap:9px;padding:9px 12px;font-size:.9rem}
+.pdh .pdd{margin-left:auto;font-size:.76rem;color:#9A7A5C}
+.pdx{background:none;border:0;font-size:1rem;color:#9A7A5C;padding:2px 6px;cursor:pointer}
+.pact{padding:8px 12px 0;font-size:1.25rem;letter-spacing:.4em}
+.pd .plike{font-size:.8rem;font-weight:700;color:var(--ink);margin:4px 12px 0}
+.pd .pcap{font-size:.95rem;line-height:1.55;padding:4px 12px 10px}
+.pd .pcap b{margin-right:5px}
+.pd .pcmt{margin:0 12px 12px}
+.pdempty{font-size:.78rem;opacity:.6;text-align:center;margin-top:8px}
+.care{margin-top:16px;padding:12px 14px;font-size:.9rem;line-height:1.75;background:rgba(184,72,26,.08);border-left:3px solid #B8481A}
+.pcmt{margin-top:8px;padding-top:8px;border-top:1px dashed #E8CFB2;font-size:.86rem;color:#7A5A3C}
+
+/* 짝 맞추기 */
+.matchzone{margin-top:4px}
+.mrow{display:flex;gap:9px;margin-bottom:9px;align-items:stretch}
+.mleft{flex:1;background:#FFF8F0;border:1px solid #F0D8BC;padding:11px 13px;
+  font-size:.9rem;line-height:1.5}
+.mleft .md{font-size:.74rem;color:#9A7A5C;margin-bottom:4px}
+.mright{flex:1;background:#F7F2EC;border:2px dashed #D8BEA0;padding:11px 13px;
+  font-size:.88rem;line-height:1.5;cursor:pointer;display:flex;align-items:center;
+  color:#A89078;transition:all .2s;white-space:pre-line}
+.mright:hover{border-color:var(--accent)}
+.mright.filled{border-style:solid;border-color:var(--ok);background:#EFF6F1;color:var(--ink)}
+.mpool{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+.mopt{background:#FFF;border:1px solid #E0C8A8;padding:11px 13px;font-size:.88rem;
+  line-height:1.5;text-align:left;color:var(--ink);transition:all .18s;white-space:pre-line}
+.mopt:hover{background:#FFF4E8;border-color:var(--accent)}
+.mopt.sel{border-color:var(--accent);border-width:2px;background:#FFF0E0}
+.mopt.used{opacity:.25;pointer-events:none}
+.mhint{font-size:.78rem;opacity:.65;margin-top:10px;text-align:center}
+
+/* 탭해서 찾기 */
+.tapline{display:block;padding:7px 10px;margin:3px -10px;cursor:pointer;
+  border-radius:4px;transition:background .18s,opacity 1.1s ease}
+.tapline:hover{background:rgba(255,192,138,.4)}
+.tapline.gone{opacity:.35;text-decoration:line-through;cursor:default}
+.tapline.gone:hover{background:transparent}
+.tapline.picked{background:#FFD6A8;box-shadow:0 0 0 2px rgba(184,72,26,.4)}
+.tapline.nope{background:rgba(163,58,42,.18)}
+
+.found{margin-top:14px;padding:12px 14px;background:rgba(63,122,88,.12);
+  border-left:3px solid var(--ok);font-size:.92rem;display:none}
+.found.on{display:block;animation:slide .4s ease}
+
+/* 해제 */
+.unseal{display:none;background:var(--paper);padding:24px 20px;
+  box-shadow:0 10px 26px rgba(0,0,0,.16);border-top:3px solid var(--ok)}
+.unseal.on{display:block;animation:rise .6s ease}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.unseal .u1{font-family:'Gowun Batang',serif;font-size:1.1rem;line-height:1.9;
+  white-space:pre-line;margin-bottom:16px}
+.unseal .u2{font-size:.93rem;line-height:1.8;opacity:.82;padding-top:14px;
+  border-top:1px solid var(--paper-2)}
+
+/* 선물 — 3초 스토리 */
+.gift{display:none;margin-top:20px;background:#121212;border:1px solid #2A2A2A;
+  padding:22px 20px;border-radius:14px}
+.gift.on{display:block;animation:rise .8s ease}
+.gift .gbar{height:3px;background:#3A3A3A;border-radius:2px;margin-bottom:14px;overflow:hidden}
+.gift .gbar i{display:block;height:100%;width:0;background:#fff;animation:fill 3s linear forwards}
+@keyframes fill{to{width:100%}}
+.gift .gwho{font-size:.78rem;color:#9A9A9A;margin-bottom:20px}
+.gift .ghand{font-family:'Nanum Pen Script',cursive;font-size:1.6rem;line-height:1.55;
+  color:#E8E8E8;white-space:pre-line;min-height:9em}
+
+.record{display:flex;justify-content:space-between;align-items:center;
+  background:rgba(184,72,26,.08);padding:12px 14px;margin-top:16px;font-size:.9rem}
+.record b{color:var(--accent);font-variant-numeric:tabular-nums}
+.after{opacity:0;transition:opacity 1s;pointer-events:none;margin-top:18px;text-align:center}
+.after.on{opacity:1;pointer-events:auto}
+
+.note{margin-top:30px;padding:14px;border:1px dashed var(--line);
+  font-size:.8rem;line-height:1.8;opacity:.72}
+.note b{color:var(--accent-soft)}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="s0" class="screen on">
+  <div class="intro">
+    <span class="tag">2045년 · 리모델링 공사 기록</span>
+    <h1>205호 타임캡슐</h1>
+    <div class="sub">네 번째 봉투</div>
+    <p>스티커가 잔뜩 붙은 봉투.<br>겉면에 <b>"밝음이"</b>라고 적혀 있다.</p>
+    <p>안에는 SNS 게시물을 인쇄한 종이와<br>손으로 쓴 일기 조각이<br>섞여 들어 있다.</p>
+    <button class="btn" onclick="start()">봉투 열기</button>
+  </div>
+</section>
+
+<section id="s1" class="screen">
+    <div class="lock" id="lockbox">
+    <div class="ltitle">밝음이의 다이어리</div>
+
+    <div class="lq">밝음이는 왜 매일 웃었을까</div>
+    <div class="lsub">단서에서 찾은 말을 적어 넣으세요</div>
+    <div class="lockrow">
+      <input id="code" maxlength="10" placeholder="○○" autocomplete="off" aria-label="답">
+      <button class="btn" onclick="tryLock()">열기</button>
+    </div>
+
+    <div class="lmsg" id="lmsg">봉투 안의 기록을 먼저 읽어 보세요.</div>
+  </div>
+
+  <div class="drawers" id="drawers">
+
+    <div class="drawer" id="d0">
+      <button class="dhead" onclick="toggle(0)">
+        <span class="ic">📸</span>
+        <span class="dt">SNS 게시물<span class="dnote">4월에 올린 사진 네 장</span></span>
+        <span class="dot" id="dot0"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner"><div class="feed" id="feed"></div></div></div>
+    </div>
+
+    <div class="drawer" id="d1">
+      <button class="dhead" onclick="toggle(1)">
+        <span class="ic">📓</span>
+        <span class="dt">찢어진 일기 조각<span class="dnote">같은 날짜의 다른 기록</span></span>
+        <span class="dot" id="dot1"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner">
+        <div class="mhint" style="margin-bottom:12px;margin-top:0">
+          SNS 글과 일기에는 <b>같은 사건</b>이 적혀 있습니다.<br>
+          체육대회, 급식, 점심시간, 모둠 발표.<br><br>
+          아래에서 일기를 하나 고르고, 위 칸을 누르면 들어갑니다.
+        </div>
+        <div class="matchzone" id="matchzone"></div>
+        <div class="mpool" id="mpool"></div>
+        <div class="mhint" id="mhint">0 / 4</div>
+        <div class="found" id="found1">
+          <b>네 날이 모두 짝지어졌습니다.</b><br>
+          같은 날인데 완전히 다른 하루가 두 개씩 있었습니다.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="drawer" id="d2">
+      <button class="dhead" onclick="toggle(2)">
+        <span class="ic">📄</span>
+        <span class="dt">다이어리 맨 뒷장<span class="dnote">거의 다 지워졌다</span></span>
+        <span class="dot" id="dot2"></span>
+        <span class="chev">▶</span>
+      </button>
+      <div class="dbody"><div class="inner">
+        <div class="hand" id="postit">
+          <span class="tapline" onclick="tapLine(this,0)">오늘도 웃는 사진 올렸다</span>
+          <span class="tapline" onclick="tapLine(this,1)">애들이 걱정하면 미안하니까</span>
+          <span class="tapline" onclick="tapLine(this,2)">괜찮냐고 물어보면 괜찮다고 해야지</span>
+          <span class="tapline" onclick="tapLine(this,3)">우리 집에서는 웃는 게 버팀이라고 했는데</span>
+        </div>
+        <div class="found" id="found2">
+          <b>안 지워진 줄을 찾았습니다.</b><br>
+          "우리 집에서는 웃는 게 <b style="color:#B8481A">버팀</b>이라고 했는데"
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="unseal" id="unseal">
+    <div class="u1">밝음이는 매일 두 개의 하루를 살았습니다.
+
+보이는 하루, 그리고 보이지 않는 하루.</div>
+    <div class="u2">밝음이가 자란 집에서는 힘들어도 웃는 것이 가족을 걱정시키지 않는 방법이었습니다. 그게 밝음이가 배운 '버팀'이었습니다. 이건 존중받아야 할 다름입니다.<br><br>
+    <b style="color:#B8481A;font-size:1.02rem">하지만 모든 일이 '다름' 때문은 아니었습니다.</b><br>
+    혼자 밥을 먹은 날들, 줄다리기 팀을 짤 때 마지막까지 남은 일, 아무도 듣지 않은 모둠 발표.
+    이건 문화가 달라서 생긴 일이 아닙니다. 누군가 밝음이를 빼놓은 일이었습니다.<br><br>
+    친구들은 "쟤는 걱정이 없다"고 생각했습니다.<br>
+    밝은 사람에게는 아무도 "괜찮아?"를 두 번 묻지 않았습니다.</div>
+    <div class="care">웃는다고 늘 괜찮은 건 아니에요. 걱정되는 친구가 있다면 다정하게 안부를 묻고, 필요하면 함께 믿을 만한 어른에게 도움을 요청해도 괜찮아요. 나도 혼자 감당하기 어렵다면 담임이나 상담 선생님에게 말해도 됩니다. 도움을 요청하는 건 약한 게 아니에요.</div>
+
+    <div class="gift" id="gift">
+      <div class="gbar"><i></i></div>
+      <div class="gwho">4월 12일 밤 11시 58분 · 올렸다가 3초 만에 지운 글</div>
+      <div class="ghand" id="gifthand"></div>
+    </div>
+
+    <div class="record">
+      <span>4방 기록</span>
+      <b id="recTime">00:00</b>
+    </div>
+    <div class="after" id="after">
+      <button class="btn" onclick="parent.postMessage({q:'done',room:4},'*')">마지막 봉투로</button>
+    </div>
+  </div>
+
+  </section>
+
+</div>
+
+<script>
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ── 소리 ── */
+const SND={ctx:null,on:false,
+init(){if(!this.ctx||this.ctx.state==='closed'){try{this.ctx=new(window.AudioContext||window.webkitAudioContext)()}catch(e){this.on=false;return}}if(this.on&&this.ctx.state==='suspended'&&this.ctx.resume){this.ctx.resume().catch(()=>{})}},
+beep(f=880,d=.14,v=.06,type='sine'){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);
+  g.gain.linearRampToValueAtTime(v,t+.012);g.gain.exponentialRampToValueAtTime(.001,t+d);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+d+.05)},
+tap(){this.beep(1200,.05,.04,'square')},
+pair(){this.beep(880,.16,.05);setTimeout(()=>this.beep(1174,.2,.045),90)},
+found(){this.beep(1046,.3,.06)},
+deny(){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type='sawtooth';o.frequency.setValueAtTime(180,t);o.frequency.exponentialRampToValueAtTime(92,t+.16);
+  g.gain.setValueAtTime(.06,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+.2)},
+unlock(){if(!this.on)return;this.init();if(!this.ctx)return;
+  this.beep(330,.1,.07,'square');setTimeout(()=>this.beep(494,.08,.06,'square'),90);
+  [523,659,784].forEach((f,i)=>setTimeout(()=>this.beep(f,.6,.055),260+i*90))},
+toggle(v){this.on=(v===undefined)?!this.on:!!v; if(this.on)this.init();}};
+
+const S={opened:[false,false,false],foundLine:false,tries:0,t0:0,tick:null,matched:0};
+
+function start(){
+  document.getElementById('s0').classList.remove('on');
+  document.getElementById('s1').classList.add('on');
+  S.t0=Date.now(); S.tick=setInterval(updTimer,1000);
+  renderFeed(); renderMatch();
+  window.scrollTo({top:0});
+  setTimeout(()=>document.getElementById('code').focus(),100);
+}
+function updTimer(){
+  const s=Math.floor((Date.now()-S.t0)/1000);
+  try{parent.postMessage({q:'tick',t:s},'*');}catch(e){}
+}
+
+/* ── SNS 피드 ── */
+const POSTS=[
+  {d:'4/5', e:'🌸',t:'체육대회 연습 ㅋㅋ 우리 반 진짜 최고다',like:'좋아요 24'},
+  {d:'4/9', e:'🍜',t:'오늘 급식 대박 맛있었음 ㅎㅎ 또 나왔으면',like:'좋아요 31',c:'같은 반 친구 · 요즘 살쪘다ㅋㅋ 밥은 먹고 다녀?'},
+  {d:'4/12',e:'😊',t:'점심시간 순삭 ㅋㅋ 벌써 5교시라니',like:'좋아요 42'},
+  {d:'4/15',e:'🎉',t:'모둠 발표 끝!! 우리 조 분위기 좋았어',like:'좋아요 28'},
+];
+var PHO=[
+  {g:'linear-gradient(160deg,#6EC6FF 0%,#8FE3A0 100%)',m:'🏃',s:[['🪢','left:12%;bottom:14%'],['☀️','right:10%;top:8%'],['👏','left:14%;top:12%']]},
+  {g:'linear-gradient(150deg,#FFD36E 0%,#FF8A5C 100%)',m:'🍜',s:[['🥢','right:14%;bottom:16%'],['✨','left:12%;top:12%'],['😋','right:12%;top:10%']]},
+  {g:'linear-gradient(160deg,#FFB3D1 0%,#FFE29A 100%)',m:'😊',s:[['🍱','left:12%;bottom:14%'],['⏰','right:12%;top:10%'],['🌸','left:12%;top:10%']]},
+  {g:'linear-gradient(150deg,#B39DFF 0%,#6EC6FF 100%)',m:'🎉',s:[['📊','right:12%;bottom:14%'],['🙌','left:12%;top:12%'],['⭐','right:14%;top:10%']]}
+];
+function photoHTML(i,big){
+  var p=PHO[i];
+  var s=p.s.map(function(x){return '<span class="s" style="'+x[1]+'">'+x[0]+'</span>';}).join('');
+  return '<div class="pimg'+(big?' big':'')+'" style="background:'+p.g+'">'+s+'<span class="m">'+p.m+'</span></div>';
+}
+var openIdx=-1;
+function renderFeed(){
+  var grid=POSTS.map(function(p,i){
+    return '<button class="gt" id="gt'+i+'" onclick="openPost('+i+')" aria-label="밝음이 게시물 '+p.d+'">'+photoHTML(i,false)+'<span class="gd">'+p.d+'</span></button>';
+  }).join('');
+  document.getElementById('feed').innerHTML=
+    '<div class="igp"><span class="pav lg">밝</span><div><b>밝음이</b><div class="pstat">게시물 4 · 4월</div></div></div>'+
+    '<div class="igrid">'+grid+'</div><div id="pdetail"></div><div class="pdempty" id="pdempty">사진을 눌러 게시물을 열어 보세요.</div>';
+}
+function openPost(i){
+  var box=document.getElementById('pdetail');
+  if(openIdx===i){ closePost(); return; }
+  openIdx=i; SND.tap();
+  var p=POSTS[i];
+  document.querySelectorAll('.gt').forEach(function(g,n){ g.classList.toggle('on',n===i); });
+  box.innerHTML='<div class="pd"><div class="pdh"><span class="pav">밝</span><b>밝음이</b><span class="pdd">'+p.d+'</span><button class="pdx" onclick="closePost()" aria-label="닫기">✕</button></div>'+
+    photoHTML(i,true)+
+    '<div class="pact">♡ 💬 ➤</div><div class="plike">'+p.like+'</div>'+
+    '<div class="pcap"><b>밝음이</b>'+p.t+'</div>'+(p.c?'<div class="pcmt">💬 '+p.c+'</div>':'')+'</div>';
+  document.getElementById('pdempty').style.display='none';
+  setTimeout(function(){ box.scrollIntoView({behavior:'smooth',block:'nearest'}); },60);
+}
+function closePost(){
+  openIdx=-1;
+  document.getElementById('pdetail').innerHTML='';
+  document.querySelectorAll('.gt').forEach(function(g){ g.classList.remove('on'); });
+  document.getElementById('pdempty').style.display='block';
+}
+
+/* ── 짝 맞추기 ── */
+const PAIRS=[
+  {d:'4/5',  out:'🌸 체육대회 연습 ㅋㅋ 우리 반 진짜 최고다',
+             ins:'체육대회 연습. 줄다리기 팀 짤 때 마지막까지 남았다.'},
+  {d:'4/9',  out:'🍜 오늘 급식 대박 맛있었음 ㅎㅎ 또 나왔으면',
+             ins:'급식이 너무 매웠다. 근데 맛있다고 했다.'},
+  {d:'4/12', out:'😊 점심시간 순삭 ㅋㅋ 벌써 5교시라니',
+             ins:'점심시간에 혼자 밥 먹었다. 며칠째인지 세다가 그만뒀다.'},
+  {d:'4/15', out:'🎉 모둠 발표 끝!! 우리 조 분위기 좋았어',
+             ins:'모둠에서 내 말 아무도 안 들었다. 그냥 웃었다.'},
+];
+let slots=[null,null,null,null], sel=null, shuffled=[];
+function renderMatch(){
+  if(!shuffled.length) shuffled=PAIRS.map((_,i)=>i).sort(()=>Math.random()-.5);
+  document.getElementById('matchzone').innerHTML=PAIRS.map((p,i)=>{
+    const v=slots[i];
+    return \`<div class="mrow">
+      <div class="mleft"><div class="md">\${p.d}</div>\${p.out}</div>
+      <div class="mright\${v!==null?' filled':''}" onclick="drop(\${i})">\${v!==null?PAIRS[v].ins:'여기 눌러 넣기'}</div>
+    </div>\`;
+  }).join('');
+  document.getElementById('mpool').innerHTML=shuffled.map(i=>
+    \`<button class="mopt\${slots.includes(i)?' used':''}\${sel===i?' sel':''}" onclick="pick(\${i})">📓 \${PAIRS[i].ins}</button>\`).join('');
+  document.getElementById('mhint').textContent=S.matched+' / 4';
+}
+function pick(i){ sel=i; SND.tap(); renderMatch(); }
+function drop(slot){
+  if(sel===null){ document.getElementById('mhint').textContent='아래에서 일기 조각을 먼저 고르세요.'; return; }
+  if(sel!==slot){
+    SND.deny();
+    sel=null; renderMatch();
+    document.getElementById('mhint').textContent='짝이 아닙니다. SNS 글과 일기에 같은 사건, 같은 단어가 나오는 것을 찾아보세요. ('+S.matched+' / 4)';
+    return;
+  }
+  slots[slot]=sel; sel=null; S.matched++;
+  SND.pair(); renderMatch();
+  if(S.matched===4){
+    setTimeout(()=>{
+      document.body.classList.add('drained');
+      document.getElementById('found1').classList.add('on');
+      updateHint();
+    }, reduce?100:600);
+  }
+}
+
+/* ── 서랍 ── */
+function toggle(i){
+  const d=document.getElementById('d'+i);
+  const wasOpen=d.classList.contains('open');
+  d.classList.toggle('open');
+  if(!wasOpen){
+    SND.tap();
+    if(!S.opened[i]){ S.opened[i]=true; document.getElementById('dot'+i).classList.add('seen'); }
+    setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'nearest'}),120);
+  }
+  updateHint();
+}
+
+/* ── 맨 뒷장 ── */
+function tapLine(el,i){
+  if(S.foundLine||el.classList.contains('gone'))return;
+  if(i===3){
+    el.classList.add('picked'); S.foundLine=true; SND.found();
+    document.querySelectorAll('.tapline').forEach((x,n)=>{
+      if(n!==3) setTimeout(()=>x.classList.add('gone'),200+n*260);
+    });
+    setTimeout(()=>{ document.getElementById('found2').classList.add('on'); updateHint(); },1100);
+  }else{
+    el.classList.add('nope'); SND.deny();
+    setTimeout(()=>el.classList.remove('nope'),500);
+    document.getElementById('lmsg').textContent='그 줄은 지워져 있습니다. 끝까지 안 지워진 줄을 찾아보세요.';
+  }
+}
+
+/* ── 안내 ── */
+function updateHint(){
+  const m=document.getElementById('lmsg');
+  const n=S.opened.filter(Boolean).length;
+  if(S.foundLine){ m.textContent='맨 뒷장에서 찾은 그 말이 답입니다.'; return; }
+  if(S.matched===4) m.textContent='다이어리 맨 뒷장을 열어 보세요.';
+  else if(n>=2) m.textContent='SNS 게시물과 일기 조각을 같은 사건끼리 짝지어 보세요.';
+  else if(n>=1) m.textContent='다른 기록도 열어 보세요.';
+}
+
+/* ── 자물쇠 ── */
+const HINTS=[
+  '열리지 않습니다. 기록을 더 읽어 보세요.',
+  '밝음이는 기분이 좋아서 웃은 게 아니었습니다.',
+  '맨 뒷장의 마지막 줄을 보세요. "우리 집에서는 웃는 게 ○○이라고 했는데"',
+];
+const GIFT=\`오늘 급식 혼자 먹었어.
+며칠째인지 세다가 그만뒀어.
+
+근데 사진은 웃는 걸로 올려야지.
+다들 내가 그런 줄 알아야
+편하니까.
+
+밝은 애한테는
+아무도 두 번 안 물어보더라.
+
+…아니다. 지우자.\`;
+
+function tryLock(){
+  const raw=document.getElementById('code').value.trim();
+  const v=raw.replace(/\\s/g,'');
+  const m=document.getElementById('lmsg');
+  if(!v){ m.textContent='답을 적어 주세요.'; return; }
+
+  if((v.includes('버팀')||v.includes('버티')||v.includes('버텨')||v.includes('버텼'))&&!/없|못|안|않/.test(v)){
+    SND.unlock();
+    clearInterval(S.tick);
+    const s=Math.floor((Date.now()-S.t0)/1000);
+    parent.postMessage({q:'time',room:4,t:s},'*');document.getElementById('recTime').textContent=
+      String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+    document.getElementById('lockbox').style.display='none';
+    document.getElementById('drawers').style.display='none';
+    const u=document.getElementById('unseal');
+    u.classList.add('on');
+    u.scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>{ document.getElementById('gift').classList.add('on'); typeGift(); },2400);
+    return;
+  }
+
+  S.tries++; SND.deny();
+  const box=document.getElementById('lockbox');
+  box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
+
+  if(v.includes('행복')||v.includes('기분')||v.includes('좋아')){
+    m.textContent='그건 친구들이 본 모습이었습니다. 일기를 다시 보세요.';
+  }else if(v.includes('거짓')||v.includes('가짜')||v.includes('연기')){
+    m.textContent='밝음이는 속이려던 게 아니었습니다. 맨 뒷장을 보세요.';
+  }else if(v.includes('배려')||v.includes('예의')||v.includes('참')){
+    m.textContent='비슷합니다. 맨 뒷장에 적힌 말 그대로 넣어 보세요.';
+  }else{
+    m.textContent=HINTS[Math.min(S.tries-1,HINTS.length-1)];
+  }
+  document.getElementById('code').select();
+}
+
+function typeGift(){
+  const el=document.getElementById('gifthand');
+  el.textContent='';
+  if(reduce){ el.textContent=GIFT; setTimeout(()=>document.getElementById('after').classList.add('on'),300); return; }
+  let i=0;
+  (function t(){
+    if(i<=GIFT.length){ el.textContent=GIFT.slice(0,i); i++; setTimeout(t, GIFT[i-1]==='\\n'?150:42); }
+    else setTimeout(()=>document.getElementById('after').classList.add('on'),600);
+  })();
+}
+
+document.getElementById('code').addEventListener('keydown',e=>{if(e.key==='Enter')tryLock()});
+
+
+window.addEventListener('message',e=>{
+  const d=e.data||{};
+  if(d.q==='sound') SND.toggle(d.on);
+});
+<\/script>
+</body>
+</html>
+`,
+`<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>205호 타임캡슐 — 5방</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Pen+Script&family=Gaegu:wght@400;700&family=Hi+Melody&family=Single+Day&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#2A2320; --fg:#EFE2D2; --paper:#F2E6D6; --paper-2:#DECBB4;
+  --accent:#C98A4B; --accent-soft:#E3AE74; --line:#4A3D34; --ink:#2A2320;
+  --ok:#7A9E72; --err:#B06B60;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:'Gowun Dodum',system-ui,sans-serif;
+  line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:560px;margin:0 auto;padding:20px 16px 90px}
+h1,h2,h3{font-family:'Gowun Batang',serif;font-weight:700;line-height:1.35;margin:0}
+button{font-family:inherit;cursor:pointer;border:0}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.screen{display:none}.screen.on{display:block}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;
+  padding:8px 0 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.room-id{font-size:.78rem;color:var(--accent-soft);font-weight:700;letter-spacing:.04em}
+.timer{font-size:.84rem;color:var(--accent-soft);font-variant-numeric:tabular-nums}
+.snd{background:rgba(255,255,255,.08);border:1px solid var(--line);color:#fff;
+  width:30px;height:30px;border-radius:8px;font-size:13px;margin-left:8px}
+.snd.off{opacity:.45}
+.topright{display:flex;align-items:center}
+
+.intro{text-align:center;padding:40px 6px}
+.intro .tag{display:inline-block;border:1px solid var(--accent);color:var(--accent-soft);
+  padding:5px 12px;font-size:.78rem;margin-bottom:22px}
+.intro h1{font-size:2rem;margin-bottom:10px}
+.intro .sub{font-family:'Gowun Batang',serif;color:var(--accent-soft);margin-bottom:28px}
+.intro p{font-size:1rem;line-height:1.95;margin-bottom:16px;opacity:.9}
+.intro .nolabel{display:inline-block;background:rgba(201,138,75,.14);
+  border:1px dashed var(--accent);padding:14px 20px;margin:10px 0 24px;
+  font-family:'Nanum Pen Script',cursive;font-size:1.5rem;color:var(--accent-soft)}
+.btn{background:var(--accent);color:#2A2320;padding:14px 26px;font-weight:700;font-size:1rem}
+.btn:hover{filter:brightness(1.14)}
+.btn:disabled{opacity:.3;cursor:default;filter:none}
+
+/* 기준 손글씨 */
+.marks{background:var(--paper);color:var(--ink);padding:20px;margin-bottom:18px;
+  box-shadow:0 8px 22px rgba(0,0,0,.35);border-left:4px solid var(--accent)}
+.marks .mlabel{font-size:.78rem;opacity:.6;margin-bottom:12px}
+.marks .mline{font-family:'Nanum Pen Script',cursive;font-size:1.5rem;line-height:1.65;
+  transform:rotate(-.7deg);margin-bottom:6px}
+.marks .mfrom{font-size:.7rem;opacity:.45;font-family:'Gowun Dodum',sans-serif;
+  margin-left:8px;display:inline-block;transform:none}
+
+/* 스크래치 안내 */
+.guide{background:rgba(201,138,75,.1);border:1px solid var(--line);
+  padding:14px 16px;margin-bottom:16px;font-size:.9rem;line-height:1.7;text-align:center}
+.guide b{color:var(--accent-soft)}
+.progress{font-size:.82rem;color:var(--accent-soft);margin-top:8px}
+
+/* 먼지 덮인 종이 */
+.papers{display:flex;flex-direction:column;gap:12px;margin-bottom:18px}
+.scratch{position:relative;background:var(--paper);overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);border:1px solid #BFA98C}
+.scratch .plabel{position:absolute;left:12px;top:8px;z-index:1;
+  font-size:.72rem;color:#8A7A66;font-family:'Gowun Dodum',sans-serif}
+.scratch .ptext{position:relative;z-index:1;padding:30px 16px 18px;
+  color:#3A3028;min-height:92px;display:flex;align-items:center}
+.scratch canvas{position:absolute;inset:0;z-index:2;touch-action:none;cursor:grab}
+.scratch canvas:active{cursor:grabbing}
+.scratch.done canvas{display:none}
+.scratch.done{border-color:var(--ok);box-shadow:0 6px 18px rgba(122,158,114,.3)}
+.scratch .pdone{position:absolute;right:10px;top:8px;z-index:3;font-size:.72rem;
+  color:var(--ok);font-weight:700;opacity:0;transition:opacity .4s}
+.scratch.done .pdone{opacity:1}
+
+/* 네 가지 서로 다른 필체 */
+.f-jo{font-family:'Single Day',cursive;font-size:1.5rem;line-height:1.5}
+.f-neo{font-family:'Gowun Dodum',sans-serif;font-size:1.02rem;line-height:1.6}
+.f-jun{font-family:'Nanum Pen Script',cursive;font-size:1.5rem;line-height:1.55}
+.f-bal{font-family:'Gaegu',cursive;font-size:1.3rem;line-height:1.6}
+
+/* 선택 */
+.choose{background:linear-gradient(160deg,#3A3028,#2A2320);border:1px solid #4A3D34;
+  padding:22px 18px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.4);display:none}
+.choose.on{display:block;animation:rise .6s ease}
+.choose .cq{font-family:'Gowun Batang',serif;font-size:1.08rem;color:var(--accent-soft);
+  margin-bottom:16px;text-align:center;line-height:1.6}
+.opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.05);
+  color:var(--fg);border:1px solid var(--line);padding:13px 15px;margin-bottom:9px;
+  font-size:.92rem;transition:all .18s}
+.opt:hover{border-color:var(--accent);background:rgba(201,138,75,.1)}
+.opt.right{border-color:var(--ok);border-width:2px}
+.opt.wrong{border-color:var(--err);opacity:.5}
+.feedback{margin-top:14px;padding:13px 15px;border-left:3px solid var(--accent);
+  display:none;font-size:.9rem;line-height:1.7;background:rgba(255,255,255,.04)}
+.feedback.on{display:block}
+.feedback.bad{border-color:var(--err)}
+
+/* 겹침 연출 */
+#overlay{position:fixed;inset:0;background:#0A0806;z-index:70;display:none;
+  align-items:center;justify-content:center;padding:28px}
+#overlay.on{display:flex}
+.ov-inner{max-width:600px;width:100%;text-align:center}
+.ov-stack{position:relative;height:160px;margin-bottom:28px}
+.ov-line{position:absolute;left:0;right:0;top:50%;
+  font-family:'Nanum Pen Script',cursive;font-size:2rem;color:#D8C9B4;
+  opacity:0;transition:opacity .9s ease,transform 1.1s ease}
+.ov-line.a{transform:translateY(-50%) translateX(-130px) rotate(-2.2deg)}
+.ov-line.b{transform:translateY(-50%) translateX(130px) rotate(2.2deg)}
+.ov-line.show{opacity:.92}
+.ov-line.merge{transform:translateY(-50%) translateX(0) rotate(-1deg)}
+.ov-line.b.merge{opacity:.6;color:#E3AE74}
+.ov-msg{font-family:'Gowun Batang',serif;font-size:1.15rem;color:#9A8C7A;
+  opacity:0;transition:opacity 1s ease}
+.ov-msg.show{opacity:1}
+
+/* 준의 말 재생 */
+.echo{position:fixed;inset:0;background:#070605;z-index:72;display:none;
+  align-items:center;justify-content:center;padding:30px}
+.echo.on{display:flex}
+.echo-wrap{max-width:620px;width:100%;text-align:center}
+.echo-line{font-size:1.26rem;line-height:1.85;color:#A99C8C;
+  opacity:0;transition:opacity .7s ease;margin-bottom:6px;min-height:1.9em}
+.echo-line.show{opacity:1}
+.echo-line .who{font-size:.72em;opacity:.45;margin-left:10px}
+.echo-final{margin-top:32px;font-family:'Gowun Batang',serif;font-size:1.28rem;line-height:2;
+  color:#EFE2D2;opacity:0;transition:opacity 1.2s ease;white-space:pre-line}
+.echo-final.show{opacity:1}
+.echo-name{margin-top:20px;font-family:'Gowun Batang',serif;font-size:2.4rem;font-weight:700;
+  color:#E3AE74;opacity:0;transform:scale(.92);
+  transition:opacity 1.4s ease,transform 1.4s ease}
+.echo-name.show{opacity:1;transform:scale(1)}
+
+/* 해제 */
+.unseal{display:none;background:var(--paper);color:var(--ink);padding:24px 20px;
+  box-shadow:0 10px 28px rgba(0,0,0,.4);border-top:3px solid var(--accent)}
+.unseal.on{display:block;animation:rise .6s ease}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.unseal .u1{font-family:'Gowun Batang',serif;font-size:1.1rem;line-height:1.9;
+  white-space:pre-line;margin-bottom:16px}
+.unseal .u2{font-size:.93rem;line-height:1.8;opacity:.82;padding-top:14px;
+  border-top:1px solid var(--paper-2)}
+
+.why{display:none;margin-top:20px;border:2px solid var(--accent);padding:20px;
+  background:rgba(201,138,75,.07)}
+.why.on{display:block;animation:rise .7s ease}
+.why h3{font-family:'Gowun Batang',serif;font-size:1.05rem;color:#8A5A2A;margin-bottom:10px}
+.why p{font-size:.95rem;line-height:1.8;margin-bottom:14px}
+.wopt{display:block;width:100%;text-align:left;background:#FFF;color:var(--ink);
+  border:1px solid var(--paper-2);padding:13px 15px;margin-bottom:9px;font-size:.93rem;
+  transition:all .18s}
+.wopt:hover{border-color:var(--accent);background:#FBF5EC}
+.wopt.picked{border-color:var(--accent);border-width:2px;background:#FBF0E2}
+.wfb{margin-top:12px;padding:13px 15px;background:rgba(201,138,75,.12);
+  border-left:3px solid var(--accent);font-size:.92rem;line-height:1.75;display:none;white-space:pre-line}
+.wfb.on{display:block;animation:slide .4s ease}
+@keyframes slide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+.gift{display:none;margin-top:20px;background:#FBF6EE;border:1px solid var(--paper-2);
+  padding:22px 20px}
+.gift.on{display:block;animation:rise .8s ease}
+.gift .glabel{font-size:.76rem;opacity:.55;margin-bottom:12px}
+.gift .ghand{font-family:'Nanum Pen Script',cursive;font-size:1.6rem;line-height:1.55;
+  color:#3A3028;white-space:pre-line;min-height:9em}
+
+.record{display:flex;justify-content:space-between;align-items:center;
+  background:rgba(42,35,32,.08);padding:12px 14px;margin-top:16px;font-size:.9rem}
+.record b{color:#8A5A2A;font-variant-numeric:tabular-nums}
+.after{opacity:0;transition:opacity 1s;pointer-events:none;margin-top:18px;text-align:center}
+.after.on{opacity:1;pointer-events:auto}
+
+.note{margin-top:30px;padding:14px;border:1px dashed var(--line);
+  font-size:.8rem;line-height:1.8;opacity:.7}
+.note b{color:var(--accent-soft)}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="s0" class="screen on">
+  <div class="intro">
+    <span class="tag">2045년 · 리모델링 공사 기록</span>
+    <h1>205호 타임캡슐</h1>
+    <div class="sub">마지막 봉투</div>
+    <p>네 봉투에는 별명이 적혀 있었다.<br>조용이, 넓이, 신중이, 밝음이.</p>
+    <p>그런데 마지막 하나에는<br>별명이 없다.</p>
+    <div class="nolabel">이 상자를 만든 사람</div>
+    <p style="font-size:.9rem;opacity:.72">봉투 안에 종이 네 장이 더 들어 있다.<br>벽 속에 있던 터라 흙먼지가 두껍게 앉았다.</p>
+    <button class="btn" onclick="start()">봉투 열기</button>
+  </div>
+</section>
+
+<section id="s1" class="screen">
+    <div class="marks">
+    <div class="mlabel">앞의 네 봉투 안쪽에서 발견된 손글씨 — 전부 같은 사람이 썼다</div>
+    <div class="mline">미안. 이건 내가 몰랐던 거야.</div>
+    <div class="mline">말 못 한 게 아니라 내가 못 들은 거였어.<span class="mfrom">신중이 봉투</span></div>
+  </div>
+
+  <div class="guide">
+    아래 종이 네 장은 앞의 방에서 나왔던 기록이다.<br>
+    <b>손가락이나 마우스로 문질러</b> 먼지를 걷어내 보자.
+    <div class="progress" id="prog">0 / 4 걷어냄</div>
+  </div>
+
+  <div class="papers" id="papers"></div>
+
+  <div class="choose" id="choose">
+    <div class="cq">위 손글씨와 <b>같은 필체</b>로 쓰인 종이는?</div>
+    <div id="opts"></div>
+    <div class="feedback" id="fb"></div>
+  </div>
+
+  <div class="unseal" id="unseal">
+    <div class="u1">이 사람은 나쁜 사람이 아니었습니다.
+밝음이도 예민한 게 아니었습니다.
+
+둘은 자란 자리가 달랐고
+그 다름을 몰랐습니다.
+
+하지만 몰랐다고 해서
+아프지 않은 건 아니었습니다.</div>
+    <div class="u2">네 사람의 기록을 모은 사람은,<br>
+    네 사람을 가장 몰랐던 사람이었습니다.</div>
+
+    <div class="why" id="why">
+      <h3>마지막 질문</h3>
+      <p>이 사람은 자기 봉투에만 별명을 쓰지 않았습니다.<br><br>
+      이 사람은 왜 이 상자를 만들었을까요?</p>
+      <div id="wopts"></div>
+      <div class="wfb" id="wfb"></div>
+    </div>
+
+    <div class="gift" id="gift">
+      <div class="glabel">봉투 맨 아래 접혀 있던 종이 — 마지막 장에 이름이 있다</div>
+      <div class="ghand" id="gifthand"></div>
+    </div>
+
+    <div class="record">
+      <span>마지막 봉투 기록</span>
+      <b id="recTime">00:00</b>
+    </div>
+    <div class="after" id="after">
+      <button class="btn" onclick="parent.postMessage({q:'done',room:5},'*')">최종 미션으로</button>
+    </div>
+  </div>
+
+  </section>
+
+</div>
+
+<div id="overlay">
+  <div class="ov-inner">
+    <div class="ov-stack">
+      <div class="ov-line a" id="ovA">미안. 이건 내가 몰랐던 거야.</div>
+      <div class="ov-line b" id="ovB">내가 뭘 잘못한 거지</div>
+    </div>
+    <div class="ov-msg" id="ovMsg">같은 손글씨입니다.</div>
+  </div>
+</div>
+
+<div class="echo" id="echo">
+  <div class="echo-wrap">
+    <div class="echo-line" id="ec0"></div>
+    <div class="echo-line" id="ec1"></div>
+    <div class="echo-line" id="ec2"></div>
+    <div class="echo-line" id="ec3"></div>
+    <div class="echo-final" id="ecFinal"></div>
+    <div class="echo-name" id="ecName"></div>
+  </div>
+</div>
+
+<script>
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ── 소리 ── */
+const SND={ctx:null,on:false,last:0,
+init(){if(!this.ctx||this.ctx.state==='closed'){try{this.ctx=new(window.AudioContext||window.webkitAudioContext)()}catch(e){this.on=false;return}}if(this.on&&this.ctx.state==='suspended'&&this.ctx.resume){this.ctx.resume().catch(()=>{})}},
+beep(f=880,d=.14,v=.06,type='sine'){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);
+  g.gain.linearRampToValueAtTime(v,t+.012);g.gain.exponentialRampToValueAtTime(.001,t+d);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+d+.05)},
+tap(){this.beep(1200,.05,.04,'square')},
+found(){this.beep(1046,.3,.06)},
+low(){this.beep(220,.5,.05)},
+/* 문지르는 소리 — 너무 자주 울리지 않게 */
+rub(){
+  if(!this.on)return; this.init(); if(!this.ctx)return;
+  const now=Date.now(); if(now-this.last<140)return; this.last=now;
+  const t=this.ctx.currentTime, dur=.09, rate=this.ctx.sampleRate;
+  const buf=this.ctx.createBuffer(1,Math.floor(rate*dur),rate);
+  const d=buf.getChannelData(0);
+  for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,1.6);
+  const s=this.ctx.createBufferSource(); s.buffer=buf;
+  const f=this.ctx.createBiquadFilter(); f.type='bandpass'; f.frequency.value=2600;
+  const g=this.ctx.createGain(); g.gain.value=.045;
+  s.connect(f); f.connect(g); g.connect(this.ctx.destination); s.start(t);
+},
+deny(){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type='sawtooth';o.frequency.setValueAtTime(180,t);o.frequency.exponentialRampToValueAtTime(92,t+.16);
+  g.gain.setValueAtTime(.06,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+.2)},
+unlock(){if(!this.on)return;this.init();if(!this.ctx)return;
+  this.beep(330,.1,.07,'square');setTimeout(()=>this.beep(494,.08,.06,'square'),90);
+  [523,659,784].forEach((f,i)=>setTimeout(()=>this.beep(f,.7,.05),260+i*100))},
+toggle(v){this.on=(v===undefined)?!this.on:!!v; if(this.on)this.init();}};
+
+const S={t0:0,tick:null,cleared:0,tries:0};
+
+/* ── 종이 네 장 ── */
+const PAPERS=[
+  { id:'jo',  from:'조용이 포스트잇에서',        cls:'f-jo',  txt:'저 사실 다 알아요',
+    ok:false, fb:'조용이 글씨는 각이 지고 반듯합니다. 기준 손글씨는 흘려 썼습니다.' },
+  { id:'neo', from:'넓이 휴대폰 메모장에서',  cls:'f-neo', txt:'아무도 반응을 안 해서 말을 더 하게 된다',
+    ok:false, fb:'이건 손글씨가 아니라 휴대폰에 입력한 글입니다.' },
+  { id:'jun', from:'카톡 캡처 옆에 적어둔 메모에서', cls:'f-jun', txt:'내가 뭘 잘못한 거지',
+    ok:true,  fb:'' },
+  { id:'bal', from:'밝음이 다이어리에서',     cls:'f-bal', txt:'…아니다. 지우자.',
+    ok:false, fb:'밝음이 글씨는 둥글고 통통합니다. 기준 손글씨는 끝이 뾰족합니다.' },
+];
+let order=[];
+
+function start(){
+  document.getElementById('s0').classList.remove('on');
+  document.getElementById('s1').classList.add('on');
+  S.t0=Date.now(); S.tick=setInterval(updTimer,1000);
+  order=PAPERS.map((_,i)=>i).sort(()=>Math.random()-.5);
+  renderPapers();
+  window.scrollTo({top:0});
+}
+function updTimer(){
+  const s=Math.floor((Date.now()-S.t0)/1000);
+  try{parent.postMessage({q:'tick',t:s},'*');}catch(e){}
+}
+
+function renderPapers(){
+  const box=document.getElementById('papers');
+  box.innerHTML=order.map(i=>{
+    const p=PAPERS[i];
+    return \`<div class="scratch" id="sc-\${p.id}">
+      <span class="plabel">\${p.from}</span>
+      <span class="pdone">걷어냄 ✓</span>
+      <div class="ptext"><span class="\${p.cls}">\${p.txt}</span></div>
+      <canvas id="cv-\${p.id}"></canvas>
+    </div>\`;
+  }).join('');
+  // 캔버스 초기화는 레이아웃이 잡힌 뒤
+  requestAnimationFrame(()=>order.forEach(i=>initScratch(PAPERS[i])));
+}
+
+/* ── 스크래치 ── */
+function initScratch(p){
+  const wrap=document.getElementById('sc-'+p.id);
+  const cv=document.getElementById('cv-'+p.id);
+  if(!wrap||!cv)return;
+  const w=wrap.clientWidth, h=wrap.clientHeight;
+  const dpr=Math.min(window.devicePixelRatio||1, 2);
+  cv.width=w*dpr; cv.height=h*dpr;
+  cv.style.width=w+'px'; cv.style.height=h+'px';
+  const ctx=cv.getContext('2d');
+  ctx.scale(dpr,dpr);
+
+  // 흙먼지
+  const g=ctx.createLinearGradient(0,0,w,h);
+  g.addColorStop(0,'#8A7A62'); g.addColorStop(.5,'#6E6150'); g.addColorStop(1,'#7E7060');
+  ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+  // 얼룩
+  for(let i=0;i<90;i++){
+    ctx.fillStyle='rgba(60,52,42,'+(Math.random()*.22)+')';
+    const r=4+Math.random()*22;
+    ctx.beginPath();
+    ctx.arc(Math.random()*w,Math.random()*h,r,0,Math.PI*2);
+    ctx.fill();
+  }
+  ctx.globalCompositeOperation='destination-out';
+
+  let drawing=false, last=null;
+  const pos=e=>{
+    const r=cv.getBoundingClientRect();
+    const t=e.touches?e.touches[0]:e;
+    return {x:t.clientX-r.left, y:t.clientY-r.top};
+  };
+  const brush=(x,y)=>{
+    ctx.lineWidth=36; ctx.lineCap='round'; ctx.lineJoin='round';
+    if(last){ ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(x,y); ctx.stroke(); }
+    ctx.beginPath(); ctx.arc(x,y,18,0,Math.PI*2); ctx.fill();
+    last={x,y};
+  };
+  const down=e=>{ drawing=true; last=null; const q=pos(e); brush(q.x,q.y); SND.rub(); e.preventDefault(); };
+  const move=e=>{ if(!drawing)return; const q=pos(e); brush(q.x,q.y); SND.rub(); check(); e.preventDefault(); };
+  const up=()=>{ if(!drawing)return; drawing=false; last=null; check(); };
+
+  cv.addEventListener('mousedown',down);
+  cv.addEventListener('mousemove',move);
+  window.addEventListener('mouseup',up);
+  cv.addEventListener('touchstart',down,{passive:false});
+  cv.addEventListener('touchmove',move,{passive:false});
+  cv.addEventListener('touchend',up);
+
+  let done=false;
+  function check(){
+    if(done)return;
+    const img=ctx.getImageData(0,0,cv.width,cv.height).data;
+    let clear=0, total=0;
+    for(let i=3;i<img.length;i+=4*40){ total++; if(img[i]<40) clear++; }
+    if(clear/total>0.55){
+      done=true;
+      wrap.classList.add('done');
+      S.cleared++; SND.found();
+      document.getElementById('prog').textContent=S.cleared+' / 4 걷어냄';
+      if(S.cleared===4) setTimeout(openChoose, reduce?100:600);
+    }
+  }
+
+  // 모션 최소화 설정이면 바로 드러냄
+  if(reduce){
+    ctx.clearRect(0,0,w,h);
+    wrap.classList.add('done');
+    S.cleared++;
+    document.getElementById('prog').textContent=S.cleared+' / 4 걷어냄';
+    if(S.cleared===4) setTimeout(openChoose,100);
+  }
+}
+
+/* ── 선택 ── */
+function openChoose(){
+  const c=document.getElementById('choose');
+  c.classList.add('on');
+  const box=document.getElementById('opts');
+  if(box.children.length)return;
+  order.forEach(i=>{
+    const p=PAPERS[i];
+    const b=document.createElement('button');
+    b.className='opt';
+    b.innerHTML=p.from.replace('에서','')+' — <span class="'+p.cls+'">'+p.txt+'</span>';
+    b.onclick=()=>choose(b,p);
+    box.appendChild(b);
+  });
+  c.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'});
+}
+function choose(btn,p){
+  if(p.ok){
+    btn.classList.add('right');
+    document.querySelectorAll('.opt').forEach(x=>x.disabled=true);
+    document.getElementById('fb').className='feedback';
+    SND.found();
+    setTimeout(playMatch, reduce?200:600);
+  }else{
+    btn.classList.add('wrong'); btn.disabled=true; S.tries++;
+    const f=document.getElementById('fb');
+    f.textContent=p.fb; f.className='feedback on bad';
+    SND.deny();
+  }
+}
+
+/* ── 겹침 ── */
+function playMatch(){
+  const ov=document.getElementById('overlay');
+  const a=document.getElementById('ovA'), b=document.getElementById('ovB'), m=document.getElementById('ovMsg');
+  ov.classList.add('on');
+  a.className='ov-line a'; b.className='ov-line b'; m.className='ov-msg';
+  const T = reduce ? [40,100,220,380,620] : [300,1100,2200,3400,5200];
+  setTimeout(()=>a.classList.add('show'), T[0]);
+  setTimeout(()=>b.classList.add('show'), T[1]);
+  setTimeout(()=>{ a.classList.add('merge'); b.classList.add('merge'); SND.low(); }, T[2]);
+  setTimeout(()=>m.classList.add('show'), T[3]);
+  setTimeout(()=>{ ov.classList.remove('on'); playEcho(); }, T[4]);
+}
+
+/* ── 준의 말 ── */
+const ECHO=[
+  { t:'"야 조용이 왜 맨날 조용해"', w:'조용이 방에서' },
+  { t:'"목소리가 너무 커서 집중이 안 됨"', w:'넓이 방에서' },
+  { t:'"숫자 하나 틀렸다고 하심 ㅠ"', w:'신중이 방에서' },
+  { t:'"요즘 살쪘다ㅋㅋ 밥은 먹고 다녀?"', w:'밝음이 방에서' },
+];
+function playEcho(){
+  const e=document.getElementById('echo');
+  e.classList.add('on');
+  ECHO.forEach((x,i)=>{
+    const el=document.getElementById('ec'+i);
+    el.className='echo-line';
+    el.innerHTML=x.t+'<span class="who">'+x.w+'</span>';
+  });
+  const fin=document.getElementById('ecFinal'), nm=document.getElementById('ecName');
+  fin.className='echo-final'; fin.textContent='';
+  nm.className='echo-name'; nm.textContent='';
+  const gap = reduce ? 150 : 1400;
+  ECHO.forEach((x,i)=>{
+    setTimeout(()=>{ document.getElementById('ec'+i).classList.add('show'); SND.tap(); }, 700+i*gap);
+  });
+  const after = 700 + ECHO.length*gap;
+  setTimeout(()=>{
+    fin.textContent='네 사람을 이상하다고 말한 사람은';
+    fin.classList.add('show');
+  }, after + (reduce?120:700));
+  setTimeout(()=>{
+    nm.textContent='전부 같은 사람이었다.'; nm.classList.add('show'); SND.low();
+  }, after + (reduce?260:3000));
+  setTimeout(()=>{
+    fin.classList.remove('show');
+    setTimeout(()=>{
+      fin.textContent='그리고\\n그 사람이\\n이 상자를 만들었다.';
+      fin.classList.add('show');
+    }, reduce?60:900);
+  }, after + (reduce?380:5400));
+  setTimeout(()=>{ e.classList.remove('on'); openRoom(); }, after + (reduce?700:9600));
+}
+
+/* ── 해제 ── */
+function openRoom(){
+  clearInterval(S.tick);
+  const s=Math.floor((Date.now()-S.t0)/1000);
+  parent.postMessage({q:'time',room:5,t:s},'*');document.getElementById('recTime').textContent=
+    String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+  document.querySelector('.marks').style.display='none';
+  document.querySelector('.guide').style.display='none';
+  document.getElementById('papers').style.display='none';
+  document.getElementById('choose').style.display='none';
+  const u=document.getElementById('unseal');
+  u.classList.add('on');
+  u.scrollIntoView({behavior:'smooth',block:'start'});
+  SND.unlock();
+  setTimeout(()=>{ document.getElementById('why').classList.add('on'); renderWhy(); }, reduce?300:2200);
+}
+
+/* ── 마지막 질문 ── */
+const WHY=[
+  ['자기가 한 일을 숨기지 않고 남기려고',
+   '그랬을 수도 있습니다.\\n숨기면 없던 일이 되니까요.'],
+  ['언젠가 누가 알아줬으면 해서',
+   '상자 겉면에는 이런 문장이 적혀 있었습니다.\\n"우리가 여기 있었다는 걸 누군가 알아줬으면 해서."\\n하지만 준이 왜 이 상자를 만들었는지는 어디에도 적혀 있지 않습니다.'],
+  ['미안하다는 말을 못 해서 대신',
+   '그랬을 수도 있습니다.\\n말 대신 자기 자리를 남긴 것일지도 모릅니다.'],
+  ['모르겠다',
+   '괜찮습니다. 그 사람도 몰랐을 수 있습니다.\\n그냥 그렇게 했을 뿐일지도 모릅니다.'],
+];
+function renderWhy(){
+  const box=document.getElementById('wopts');
+  if(box.children.length)return;
+  WHY.forEach(([t,fb])=>{
+    const b=document.createElement('button');
+    b.className='wopt'; b.textContent=t;
+    b.onclick=()=>{
+      document.querySelectorAll('.wopt').forEach(x=>{x.classList.remove('picked');x.disabled=true});
+      b.classList.add('picked');
+      const f=document.getElementById('wfb');
+      f.textContent=fb+'\\n\\n정답은 없습니다. 준은 이유를 적어두지 않았으니까요.';
+      f.classList.add('on'); SND.found();
+      setTimeout(()=>{ document.getElementById('gift').classList.add('on'); typeGift(); }, reduce?300:2000);
+    };
+    box.appendChild(b);
+  });
+}
+
+const GIFT=\`2026.12.01
+
+밝음이한테 미안하다고 못 했음
+
+처음엔 내가 왜
+미안해야 하는지도 몰랐음
+
+우리 집에서 살쪘다 말랐다 하는 거
+그게 반가움이거든
+
+근데 밝음이한테는 아니었나봄
+
+반가워서 한 말이어도
+몸에 대한 말은
+듣는 사람한테 아플 수 있다는 거
+
+그리고
+밝음이 혼자 밥 먹는 거
+나도 봤음
+그냥 지나갔음
+그건 문화 차이가 아니었음
+
+내가 당연하게 하는 게
+누군가한테는 이상하게 보일 수 있다는 거
+
+낯설었음
+
+내일 말해야겠음
+미안하다고
+그리고 같이 먹자고
+
+
+
+— 준\`;
+
+function typeGift(){
+  const el=document.getElementById('gifthand');
+  el.textContent='';
+  if(reduce){ el.textContent=GIFT; setTimeout(()=>document.getElementById('after').classList.add('on'),300); return; }
+  let i=0;
+  (function t(){
+    if(i<=GIFT.length){ el.textContent=GIFT.slice(0,i); i++; setTimeout(t, GIFT[i-1]==='\\n'?150:42); }
+    else setTimeout(()=>document.getElementById('after').classList.add('on'),700);
+  })();
+}
+
+/* 창 크기가 바뀌면 캔버스 다시 — 이미 걷어낸 건 유지 */
+window.addEventListener('resize',()=>{
+  document.querySelectorAll('.scratch:not(.done) canvas').forEach(cv=>{
+    const wrap=cv.parentElement;
+    const w=wrap.clientWidth,h=wrap.clientHeight;
+    if(cv.style.width!==w+'px'){ cv.style.width=w+'px'; cv.style.height=h+'px'; }
+  });
+});
+
+window.addEventListener('message',e=>{
+  const d=e.data||{};
+  if(d.q==='sound') SND.toggle(d.on);
+});
+<\/script>
+</body>
+</html>
+`,
+`<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>205호 타임캡슐 — 최종 미션</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#101820; --fg:#E9E3D4; --paper:#E9E3D4; --paper-2:#D4CCB8;
+  --accent:#B0803A; --accent-soft:#D9B575; --line:#3A4B58; --ink:#20262B;
+  --ok:#6B9E7E; --err:#A4574B;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:'Gowun Dodum',system-ui,sans-serif;
+  line-height:1.75;-webkit-text-size-adjust:100%}
+.wrap{max-width:600px;margin:0 auto;padding:24px 18px 90px}
+h1,h2,h3{font-family:'Gowun Batang',serif;font-weight:700;line-height:1.35;margin:0}
+button{font-family:inherit;cursor:pointer;border:0}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.btn{background:var(--accent);color:#1A1206;padding:14px 26px;font-weight:700;font-size:1rem}
+.btn:hover{filter:brightness(1.14)}
+.btn:disabled{opacity:.3;cursor:default;filter:none}
+.btn.ghost{background:transparent;color:var(--accent-soft);border:1px solid var(--line)}
+
+/* 상단 — 다섯 봉투 */
+.seals{display:flex;gap:8px;justify-content:center;margin-bottom:10px;flex-wrap:wrap}
+.seal{display:flex;flex-direction:column;align-items:center;gap:5px;opacity:0;
+  transition:opacity .6s ease}
+.seal.in{opacity:1}
+.seal .wax{width:30px;height:30px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#5B4038,#3A2721);
+  clip-path:polygon(0 0,42% 0,50% 22%,58% 0,100% 0,100% 100%,58% 100%,50% 78%,42% 100%,0 100%)}
+.seal .nm{font-size:.7rem;color:var(--accent-soft);font-family:'Gowun Batang',serif}
+.sealnote{text-align:center;font-size:.8rem;opacity:.55;margin-bottom:26px}
+
+.head{text-align:center;margin-bottom:28px}
+.head .kicker{font-size:.8rem;color:var(--accent-soft);letter-spacing:.08em;margin-bottom:8px}
+.head h1{font-size:1.9rem;margin-bottom:10px}
+.head p{font-family:'Gowun Batang',serif;font-size:1.02rem;line-height:2;opacity:.88}
+
+/* 단계 */
+.step{background:rgba(255,255,255,.05);border:1px solid var(--line);
+  padding:22px 20px;margin-bottom:16px;display:none}
+.step.on{display:block;animation:rise .6s ease}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.step .sno{font-size:.76rem;color:var(--accent-soft);font-weight:700;letter-spacing:.06em;margin-bottom:8px}
+.step h3{font-size:1.12rem;margin-bottom:10px}
+.step .sdesc{font-size:.93rem;line-height:1.8;opacity:.82;margin-bottom:14px}
+.egs{background:rgba(176,128,58,.1);border-left:2px solid var(--accent);
+  padding:10px 14px;margin-bottom:14px;font-size:.82rem;line-height:1.85;opacity:.78}
+.step.done{border-color:var(--ok);background:rgba(107,158,126,.07)}
+.step.done .sno::after{content:' ✓';color:var(--ok)}
+
+/* 들은 말 목록 */
+.heard{background:rgba(0,0,0,.25);border-left:3px solid var(--accent);
+  padding:16px 18px;margin-bottom:20px}
+.hrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;
+  padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.1)}
+.hrow:last-child{border-bottom:0}
+.hwho{font-family:'Gowun Batang',serif;font-size:.84rem;color:var(--accent-soft);
+  width:48px;flex-shrink:0}
+.hsay{font-family:'Nanum Pen Script',cursive;font-size:1.32rem;flex:1;line-height:1.4}
+.hfrom{font-size:.72rem;opacity:.45;flex-shrink:0}
+.sq{font-family:'Gowun Batang',serif;font-size:1.04rem;color:var(--accent-soft);
+  margin-bottom:14px;text-align:center}
+
+/* 선택지 */
+.opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.05);
+  color:var(--fg);border:1px solid var(--line);padding:14px 16px;margin-bottom:9px;
+  font-size:.96rem;transition:all .18s}
+.opt:hover{border-color:var(--accent);background:rgba(176,128,58,.12)}
+.opt.right{border-color:var(--ok);border-width:2px;background:rgba(107,158,126,.14)}
+.opt.wrong{border-color:var(--err);opacity:.5}
+.fb{margin-top:14px;padding:14px 16px;border-left:3px solid var(--accent);
+  display:none;font-size:.94rem;line-height:1.85;background:rgba(255,255,255,.04);white-space:pre-line}
+.fb.on{display:block}
+.fb.bad{border-color:var(--err)}
+
+/* 입력 */
+textarea{width:100%;background:var(--paper);color:var(--ink);border:0;
+  padding:14px;font-family:'Gowun Dodum',sans-serif;font-size:1rem;line-height:1.7;
+  resize:vertical;min-height:72px}
+textarea::placeholder{color:#8A8475}
+.cnt{font-size:.78rem;opacity:.55;margin-top:7px;text-align:right}
+.cnt.ok{color:var(--ok);opacity:.9}
+
+/* 완성된 종이 */
+.result{display:none;margin-top:8px}
+.result.on{display:block;animation:rise .8s ease}
+.capsule{background:var(--paper);color:var(--ink);padding:30px 26px;
+  box-shadow:0 14px 36px rgba(0,0,0,.5);position:relative;
+  background-image:repeating-linear-gradient(180deg,transparent 0 27px,#C9D8E6 27px 28px)}
+.capsule::before{content:"";position:absolute;left:30px;top:0;bottom:0;width:1px;background:#E7A9A9}
+.capsule .ctop{font-family:'Gowun Batang',serif;font-size:.82rem;color:#6A6F66;
+  margin-bottom:18px;padding-left:14px}
+.capsule .cline{font-family:'Nanum Pen Script',cursive;font-size:1.55rem;line-height:28px;
+  padding-left:14px;margin-bottom:16px;white-space:pre-line}
+.capsule .clabel{font-family:'Gowun Dodum',sans-serif;font-size:.74rem;color:#8A8475;
+  padding-left:14px;margin-bottom:2px}
+.capsule .csign{font-family:'Nanum Pen Script',cursive;font-size:1.3rem;
+  text-align:right;color:#5A5550;margin-top:22px;padding-right:6px}
+
+.subbtns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.copied{color:var(--ok);font-size:.9rem;margin-top:12px;text-align:center;display:none}
+.copied.on{display:block}
+.savenote{font-size:.86rem;opacity:.8;margin-top:10px;text-align:center;line-height:1.7}
+
+/* 마지막 말 */
+.closing{display:none;margin-top:30px;text-align:center}
+.closing.on{display:block;animation:rise 1s ease}
+.closing p{font-family:'Gowun Batang',serif;font-size:1.05rem;line-height:2.1;
+  opacity:.9;margin-bottom:14px;white-space:pre-line}
+.closing .big{font-size:1.2rem;color:var(--accent-soft)}
+
+.credit{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);
+  text-align:center;opacity:.7}
+.credit .brand{display:inline-block;background:#E6F2E8;color:#386A43;
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:1.08rem;
+  padding:8px 18px;border-radius:999px}
+.credit .csub{font-size:.72rem;color:var(--accent-soft);margin-top:7px;font-style:italic}
+.credit .cline2{font-size:.76rem;line-height:1.9;margin-top:12px;opacity:.8}
+
+@media print{
+  body{background:#fff;color:#000}
+  .step,.subbtns,.credit,.seals,.sealnote,.head,.closing{display:none!important}
+  .capsule{box-shadow:none;border:1px solid #999}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.shbox{display:none;margin-top:22px;padding:18px 18px;border:1px solid var(--line);background:rgba(255,255,255,.05);text-align:left}
+.shbox h3{font-size:1.05rem;margin-bottom:8px}.shbox .shd{font-size:.88rem;line-height:1.75;opacity:.85;margin-bottom:12px}
+.shbox label{display:block;font-size:.82rem;margin:10px 0 4px;opacity:.85}
+.shbox input[type=text]{width:100%;padding:10px 12px;font:inherit;font-size:1rem;background:rgba(255,255,255,.08);border:1px solid var(--line);color:var(--fg)}
+.shbox .shhp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.shmsg{margin-top:10px;font-size:.92rem;min-height:1.4em}.shmsg.ok{color:#8FD3A8}.shmsg.no{color:#E49A8E}
+.shrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.shlist{margin-top:14px;display:grid;gap:10px}.shcard{background:var(--paper);color:var(--ink);padding:12px 14px;font-size:.95rem;line-height:1.7}
+.shcard .l{font-size:.72rem;opacity:.6;margin-top:6px}.shcard .l:first-child{margin-top:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="seals" id="seals"></div>
+  <div class="sealnote">다섯 봉투가 모두 열렸습니다.</div>
+
+  <div class="head">
+    <div class="kicker">최종 미션</div>
+    <h1>205호에 남길 한 장</h1>
+    <p>2026년의 다섯 사람은 벽에 기록을 남겼습니다.<br>
+    2045년의 당신은 그것을 읽었습니다.<br><br>
+    이제 당신이 남길 차례입니다.</p>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step on" id="st1">
+    <div class="sno">STEP 1</div>
+    <h3>네 사람이 들은 말</h3>
+    <div class="sdesc">다섯 봉투에서 이런 말들이 나왔습니다.</div>
+
+    <div class="heard">
+      <div class="hrow"><span class="hwho">조용이</span>
+        <span class="hsay">"잘 모르는 거 있으면 말해도 돼"</span><span class="hfrom">선생님이</span></div>
+      <div class="hrow"><span class="hwho">넓이</span>
+        <span class="hsay">"그냥 자기 말만 하고 싶은가 봄"</span><span class="hfrom">모둠 친구가</span></div>
+      <div class="hrow"><span class="hwho">신중이</span>
+        <span class="hsay">"알고 있었어? 왜 말 안 했어?"</span><span class="hfrom">선생님이</span></div>
+      <div class="hrow"><span class="hwho">밝음이</span>
+        <span class="hsay">"쟤는 걱정이 없어"</span><span class="hfrom">친구들이</span></div>
+    </div>
+
+    <div class="sq">이 말들의 공통점은 무엇일까요?</div>
+    <div id="opts1"></div>
+    <div class="fb" id="fb1"></div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step" id="st2">
+    <div class="sno">STEP 2</div>
+    <h3>나도 낯선 순간이 있었다</h3>
+    <div class="sdesc">
+      마지막 봉투의 그 사람은 이 교실에서 다수였습니다.<br>
+      이 나라에서 나고 자랐고, 모두와 같은 말을 썼습니다.<br>
+      그래서 자기가 기준인 줄 알았습니다.<br><br>
+      그런데 자기가 반가워서 한 말이 밝음이에게 상처였다는 걸 안 날,
+      <b style="color:var(--accent-soft)">그 사람도 처음으로 낯선 사람이 됐습니다.</b><br><br>
+      당신이 낯선 사람이 됐던 순간은 언제였나요?
+    </div>
+    <div class="egs">
+      아무도 모르는 곳에 처음 갔을 때 · 나만 모르는 이야기를 다들 할 때<br>
+      당연하다고 믿었던 게 통하지 않았을 때 · 내 방식이 이상하다는 말을 들었을 때
+    </div>
+    <textarea id="a2" maxlength="150" placeholder="예) 전학 온 첫날, 다들 아는 이야기를 나만 몰랐다" oninput="chk(2)"></textarea>
+    <div class="cnt" id="c2">0 / 10자 이상</div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step" id="st3">
+    <div class="sno">STEP 3</div>
+    <h3>내일 나는</h3>
+    <div class="sdesc">
+      누군가 나와 다르게 행동할 때,<br>
+      <b style="color:var(--accent-soft)">"왜 저러지" 대신 내가 할 수 있는 것</b> 하나를 적어 주세요.<br><br>
+      다짐 말고 행동입니다. 말 한마디여도 괜찮습니다.
+    </div>
+    <div class="egs">
+      "뭐 하고 있었어?" 하고 한 번 물어보기 · 급식 때 옆에 앉아 보기<br>
+      모둠에서 아직 말 안 한 사람에게 먼저 묻기
+    </div>
+    <textarea id="a3" maxlength="150" placeholder="예) 급식 때 혼자 앉은 친구 옆에 앉아 본다" oninput="chk(3)"></textarea>
+    <div class="cnt" id="c3">0 / 10자 이상</div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step" id="st4">
+    <div class="sno">STEP 4</div>
+    <h3>우리 반이 다음 주에 해볼 것</h3>
+    <div class="sdesc">
+      우리 반이 <b style="color:var(--accent-soft)">다음 주에 해볼 한 가지</b>를 제안해 주세요.
+    </div>
+    <textarea id="a4" maxlength="150" placeholder="예) 모둠 역할은 순서표를 붙여 돌아가며 맡는다" oninput="chk(4)"></textarea>
+    <div class="cnt" id="c4">0 / 10자 이상</div>
+    <div style="text-align:center;margin-top:18px">
+      <button class="btn" id="finBtn" onclick="finish()" disabled>내 기록 완성하기</button>
+    </div>
+  </div>
+
+  <!-- 완성 -->
+  <div class="result" id="result">
+    <div class="capsule" id="capsule">
+      <div class="ctop">2045년 · 205호에 남길 기록</div>
+      <div class="clabel">내가 낯선 사람이었던 순간</div>
+      <div class="cline" id="r2"></div>
+      <div class="clabel">내일 내가 할 것</div>
+      <div class="cline" id="r3"></div>
+      <div class="clabel">우리 반이 다음 주에 할 것</div>
+      <div class="cline" id="r4"></div>
+      <div class="csign" id="rsign"></div>
+    </div>
+
+    <div class="subbtns">
+      <button class="btn" onclick="copyAll()">내 문장 복사하기</button>
+      <button class="btn ghost" onclick="window.print()">인쇄 · PDF로 저장</button>
+    </div>
+    <div class="copied" id="copied">복사했습니다. 선생님이 안내한 곳에 붙여넣으세요.</div>
+    <div class="savenote">이 화면은 입력한 내용을 저장하지 않습니다.<br>복사하거나 인쇄해서 선생님이 안내한 곳에 남겨 주세요.</div>
+
+    <div class="shbox" id="shareBox">
+      <h3>우리 반에 보내기</h3>
+      <div class="shd">STEP 3과 STEP 4 문장만, <b>이름 없이</b> 선생님께 보내요. 선생님이 읽고 고른 글만 우리 반 게시판에 올라가요. STEP 2(낯선 순간)는 보내지 않아요.</div>
+      <label for="shCode">반 코드 (선생님이 알려 준 코드)</label>
+      <input type="text" id="shCode" maxlength="30" autocomplete="off" placeholder="예) 2반">
+      <input type="text" class="shhp" id="shHp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="shrow"><button class="btn" id="shSend" onclick="shareSend()">우리 반에 보내기</button><button class="btn ghost" onclick="boardLoad()">우리 반 게시판 보기</button></div>
+      <div class="shmsg" id="shMsg" aria-live="polite"></div>
+      <div class="shlist" id="shList"></div>
+    </div>
+
+    <div class="closing" id="closing">
+      <p>조용이는 자기가 배운 예의를 지켰습니다.
+넓이는 자기가 배운 방식으로 크게 반응했습니다.
+신중이는 자기가 배운 배려로 말을 아꼈습니다.
+밝음이는 자기가 배운 방법으로 버텼습니다.
+그리고 한 사람은 자기가 당연한 줄 알았습니다.</p>
+      <p class="big">다르게 행동했다고 틀린 사람은 없었습니다.
+다만 자란 자리가 달랐습니다.</p>
+      <p style="font-size:.98rem">그래도 누군가를 혼자 두는 일은 다름이 아닙니다.
+그건 우리가 내일 바꿀 수 있는 일입니다.</p>
+      <p style="font-size:.98rem;opacity:.85">낯섦은 어디에서 오지 않습니다.
+자리가 바뀌면, 누구나 낯선 사람이 됩니다.</p>
+      <p style="font-size:.95rem;opacity:.72">이 네 사람은 한 교실의 이야기일 뿐,<br>어떤 나라나 집단이 모두 그렇다는 뜻은 아닙니다.<br>같은 곳에서 자라도 사람마다 다릅니다.</p>
+    </div>
+  </div>
+
+  <div class="credit">
+    <div class="brand">205호 타임캡슐</div>
+    <div class="csub">made in Minty Lab</div>
+    <div class="cline2">
+      기획 · 시나리오 &nbsp;Minty.E<br>
+      개발 &nbsp;Minty Lab<br>
+      학교 현장에서 자유롭게 사용 · 복사 · 배포할 수 있습니다.
+    </div>
+  </div>
+
+</div>
+
+<script>
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ── 소리 ── */
+const SND={ctx:null,on:false,
+init(){if(!this.ctx||this.ctx.state==='closed'){try{this.ctx=new(window.AudioContext||window.webkitAudioContext)()}catch(e){this.on=false;return}}if(this.on&&this.ctx.state==='suspended'&&this.ctx.resume){this.ctx.resume().catch(()=>{})}},
+beep(f=880,d=.14,v=.055,type='sine'){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);
+  g.gain.linearRampToValueAtTime(v,t+.012);g.gain.exponentialRampToValueAtTime(.001,t+d);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+d+.05)},
+ok(){this.beep(1046,.26,.05)},
+deny(){if(!this.on)return;this.init();if(!this.ctx)return;
+  const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+  o.type='sawtooth';o.frequency.setValueAtTime(180,t);o.frequency.exponentialRampToValueAtTime(92,t+.16);
+  g.gain.setValueAtTime(.055,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);
+  o.connect(g);g.connect(this.ctx.destination);o.start(t);o.stop(t+.2)},
+seal(){this.beep(330,.1,.06,'square');setTimeout(()=>this.beep(523,.5,.045),140)}};
+
+/* ── 봉인 다섯 개 ── */
+const SEALS=['조용이','넓이','신중이','밝음이','이름 없음'];
+(function(){
+  const box=document.getElementById('seals');
+  box.innerHTML=SEALS.map((n,i)=>
+    \`<div class="seal" id="sl\${i}"><div class="wax"></div><div class="nm">\${n}</div></div>\`).join('');
+  SEALS.forEach((n,i)=>setTimeout(()=>{
+    document.getElementById('sl'+i).classList.add('in');
+  }, reduce?0:200+i*220));
+})();
+
+/* ── STEP 1 ── */
+const OPTS=[
+  { t:'전부 그 사람을 미워해서 한 말이다', ok:false,
+    fb:'아닙니다. 선생님도 친구들도 나쁜 마음으로 한 말이 아니었습니다.\\n그래서 더 어려운 문제입니다.' },
+  { t:'전부 겉으로 보이는 것만 보고 한 말이다', ok:true, fb:'' },
+  { t:'전부 선생님이 한 말이다', ok:false,
+    fb:'다시 읽어 보세요. 모둠 친구가 한 말도, 반 친구들이 한 말도 있습니다.' },
+  { t:'전부 그 사람 앞에서 직접 한 말이다', ok:false,
+    fb:'다시 읽어 보세요. 뒤에서 한 말도 있습니다.\\n"쟤는 걱정이 없어"는 밝음이가 듣지 못한 말이었습니다.' },
+];
+const FB_OK=\`맞습니다.
+
+네 사람의 기록에는 예의·맞장구·배려·버팀이라는 말이 남아 있습니다. 하지만 같은 어려움을 겪은 것은 아닙니다.
+
+조용이 — 답을 알고도 말로 드러내기 어려웠습니다.
+넓이 — 먼저 반응해 모둠의 말문을 여는 방식으로 기여했습니다.
+신중이 — 공개 지적보다 사적인 대화를 배려로 여겼습니다.
+밝음이 — 웃음 뒤에 힘듦을 감추었고, 실제로 교실에서 배제되기도 했습니다.
+
+다름을 존중하는 일과, 배제를 바꾸는 일은 함께 필요합니다.\`;
+
+(function(){
+  const box=document.getElementById('opts1');
+  OPTS.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=o.t;
+    b.onclick=()=>{
+      if(o.ok){
+        b.classList.add('right');
+        document.querySelectorAll('#opts1 .opt').forEach(x=>x.disabled=true);
+        const f=document.getElementById('fb1');
+        f.textContent=FB_OK; f.className='fb on';
+        document.getElementById('st1').classList.add('done');
+        SND.ok();
+        setTimeout(()=>{
+          document.getElementById('st2').classList.add('on');
+          document.getElementById('st2').scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'});
+        }, reduce?200:1800);
+      }else{
+        b.classList.add('wrong'); b.disabled=true;
+        const f=document.getElementById('fb1');
+        f.textContent=o.fb; f.className='fb on bad';
+        SND.deny();
+      }
+    };
+    box.appendChild(b);
+  });
+})();
+
+/* ── 입력 확인 ── */
+function chk(n){
+  const v=document.getElementById('a'+n).value.trim();
+  const c=document.getElementById('c'+n);
+  const enough=v.length>=10;
+  c.textContent = enough ? '✓ 좋습니다' : v.length+' / 10자 이상';
+  c.className = enough ? 'cnt ok' : 'cnt';
+
+  if(n===2 && enough && !document.getElementById('st3').classList.contains('on')){
+    document.getElementById('st2').classList.add('done');
+    document.getElementById('st3').classList.add('on'); SND.ok();
+    setTimeout(()=>document.getElementById('st3').scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'}),300);
+  }
+  if(n===3 && enough && !document.getElementById('st4').classList.contains('on')){
+    document.getElementById('st3').classList.add('done');
+    document.getElementById('st4').classList.add('on'); SND.ok();
+    setTimeout(()=>document.getElementById('st4').scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'}),300);
+  }
+  if(n===4){
+    document.getElementById('finBtn').disabled=!enough;
+    if(enough) document.getElementById('st4').classList.add('done');
+    else document.getElementById('st4').classList.remove('done');
+  }
+}
+
+/* ── 공유판: 우리 반에 보내기 ── */
+var SHARE_URL='https://script.google.com/macros/s/AKfycbzdy6SeAe3sUBxgdR1f8oOSTnVDKFkXAceG1jrCjCC5SdCDQZnBet_60tuAGar2fbMY/exec';
+var shSent=false;
+function shMsg(t,cls){var m=document.getElementById('shMsg');m.textContent=t;m.className='shmsg'+(cls?' '+cls:'');}
+function shareInit(){
+  if(!SHARE_URL) return;
+  document.getElementById('shareBox').style.display='block';
+  var sn=document.querySelector('.savenote');
+  if(sn) sn.innerHTML='STEP 2(낯선 순간)는 어디에도 저장되지 않아요.<br>STEP 3·4는 아래 「우리 반에 보내기」를 눌러야만 선생님께 전달돼요.';
+  try{var c=new URLSearchParams(parent.location.search).get('c'); if(c) document.getElementById('shCode').value=c;}catch(e){}
+}
+function shareSend(){
+  if(shSent) return;
+  var code=document.getElementById('shCode').value.trim();
+  var s3=document.getElementById('a3').value.trim(), s4=document.getElementById('a4').value.trim();
+  if(!code){shMsg('반 코드를 적어 주세요.','no');return;}
+  if(s3.length<10||s4.length<10){shMsg('STEP 3과 STEP 4를 10자 이상 적은 뒤에 보낼 수 있어요.','no');return;}
+  var btn=document.getElementById('shSend'); btn.disabled=true; shMsg('보내는 중…','');
+  fetch(SHARE_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({code:code,step3:s3,step4:s4,hp:document.getElementById('shHp').value})})
+  .then(function(r){return r.json();})
+  .then(function(j){
+    if(j&&j.ok){shSent=true;shMsg('보냈어요! 선생님이 확인하면 우리 반 게시판에 올라가요.','ok');}
+    else{btn.disabled=false;shMsg(j&&j.error==='code'?'반 코드를 다시 확인해 주세요.':(j&&j.error==='full'?'이 반은 더 받을 수 없어요. 선생님께 알려 주세요.':'보내지 못했어요. 잠시 뒤 다시 눌러 주세요.'),'no');}
+  })
+  .catch(function(){btn.disabled=false;shMsg('연결이 불안정해요. 잠시 뒤 다시 눌러 주세요.','no');});
+}
+function boardLoad(){
+  var code=document.getElementById('shCode').value.trim();
+  if(!code){shMsg('반 코드를 적어 주세요.','no');return;}
+  shMsg('불러오는 중…','');
+  fetch(SHARE_URL+'?action=board&code='+encodeURIComponent(code))
+  .then(function(r){return r.json();})
+  .then(function(j){
+    var box=document.getElementById('shList'); box.textContent='';
+    if(!j||!j.ok){shMsg(j&&j.error==='code'?'반 코드를 다시 확인해 주세요.':'불러오지 못했어요.','no');return;}
+    if(!j.items.length){shMsg('아직 올라온 글이 없어요. 선생님이 고르면 여기에 보여요.','');return;}
+    shMsg('우리 반 글 '+j.items.length+'개','ok');
+    j.items.forEach(function(it){
+      var d=document.createElement('div'); d.className='shcard';
+      var a=document.createElement('div'); a.className='l'; a.textContent='내일 내가 할 것';
+      var b=document.createElement('div'); b.textContent=it.s3;
+      var c=document.createElement('div'); c.className='l'; c.textContent='우리 반이 다음 주에 해볼 것';
+      var e=document.createElement('div'); e.textContent=it.s4;
+      d.appendChild(a);d.appendChild(b);d.appendChild(c);d.appendChild(e); box.appendChild(d);
+    });
+  })
+  .catch(function(){shMsg('연결이 불안정해요. 잠시 뒤 다시 눌러 주세요.','no');});
+}
+shareInit();
+
+/* ── 완성 ── */
+function finish(){
+  const a2=document.getElementById('a2').value.trim();
+  const a3=document.getElementById('a3').value.trim();
+  const a4=document.getElementById('a4').value.trim();
+  if(a2.length<10||a3.length<10||a4.length<10)return;
+
+  document.getElementById('r2').textContent=a2;
+  document.getElementById('r3').textContent=a3;
+  document.getElementById('r4').textContent=a4;
+  const d=new Date();
+  document.getElementById('rsign').textContent=
+    d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일';
+
+  document.getElementById('st4').style.display='none';
+  const r=document.getElementById('result');
+  r.classList.add('on');
+  r.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  SND.seal();
+  setTimeout(()=>document.getElementById('closing').classList.add('on'), reduce?300:2200);
+  try{parent.postMessage({q:'final'},'*');}catch(e){}
+}
+
+/* ── 복사 ── */
+function answersText(){
+  const a2=document.getElementById('a2').value.trim();
+  const a3=document.getElementById('a3').value.trim();
+  const a4=document.getElementById('a4').value.trim();
+  return '[205호 타임캡슐 · 내 기록]\\n'
+    +'내가 낯선 사람이었던 순간: '+a2+'\\n'
+    +'내일 내가 할 것: '+a3+'\\n'
+    +'우리 반이 다음 주에 할 것: '+a4;
+}
+function copyAll(){
+  const txt=answersText();
+  const done=()=>{const c=document.getElementById('copied');
+    c.classList.add('on');setTimeout(()=>c.classList.remove('on'),4500);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(done).catch(()=>fallback(txt,done));
+  }else fallback(txt,done);
+}
+function fallback(txt,cb){
+  const ta=document.createElement('textarea');
+  ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{document.execCommand('copy');cb();}catch(e){alert(txt);}
+  document.body.removeChild(ta);
+}
+
+/* 소리는 첫 상호작용에서 켠다 */
+document.body.addEventListener('click',()=>{ if(!SND.on){SND.on=true;SND.init();} },{once:true});
+<\/script>
+</body>
+</html>
+`
+];
+
+
+const ENVS=[
+ {n:1,cls:'e1',name:'조용이',hint:'겉면에 손글씨로 적힌 별명',extra:''},
+ {n:2,cls:'e2',name:'넓이',hint:'모서리가 접혀 있다',extra:'<span class="fold"></span>'},
+ {n:3,cls:'e3',name:'신중이',hint:'테이프를 여러 번 다시 붙였다',
+  extra:'<span class="tape t1"></span><span class="tape t2"></span><span class="tape t3"></span>'},
+ {n:4,cls:'e4',name:'밝음이',hint:'스티커가 붙어 있다',
+  extra:'<span class="stk s1"></span><span class="stk s2"></span><span class="stk s3"></span>'},
+ {n:5,cls:'e5',name:'이 상자를 만든 사람',hint:'별명이 없다. 이 한 줄만 적혀 있다',extra:''},
+];
+const RNAME=['','1방 · 조용이','2방 · 넓이','3방 · 신중이','4방 · 밝음이','마지막 봉투','최종 미션'];
+const WORDS=['','예의','맞장구','배려','버팀','—'];
+
+let opened=[], times={}, finalDone=false, soundOn=false, curRoom=0;
+
+/* ── 저장 ── */
+const KEY='room205_hub';
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify({opened,times,finalDone,t:Date.now()})); }catch(e){} }
+function load(){ try{ const r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function clearSave(){ try{ localStorage.removeItem(KEY); }catch(e){}
+  document.getElementById('resume').classList.remove('on'); }
+function doResume(){
+  const d=load(); if(!d)return;
+  opened=d.opened||[]; times=d.times||{}; finalDone=!!d.finalDone;
+  document.getElementById('resume').classList.remove('on');
+  toHub();
+}
+(function(){
+  const d=load();
+  if(d&&d.opened&&d.opened.length){
+    document.getElementById('resumetxt').textContent='봉투 '+d.opened.length+'개까지 연 기록이 있습니다.';
+    document.getElementById('resume').classList.add('on');
+  }
+})();
+
+/* ── 전환 ── */
+function fadeTo(fn){
+  if(reduce){ fn(); return; }
+  const f=document.getElementById('fade');
+  f.classList.add('on');
+  setTimeout(()=>{ fn(); setTimeout(()=>f.classList.remove('on'),60); }, 460);
+}
+function show(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.getElementById('room').classList.remove('on');
+  document.getElementById(id).classList.add('on');
+  window.scrollTo({top:0});
+  drawProg();
+}
+function toDig(){ show('dig'); }
+function toHub(){ curRoom=0; show('hub'); renderEnvs(); }
+function toSummary(){ show('summary'); renderSummary(); }
+
+/* ── 발굴 ── */
+function puff(){
+  const d=document.getElementById('dust'); d.innerHTML=''; d.classList.add('on');
+  for(let i=0;i<26;i++){
+    const m=document.createElement('span'); m.className='mote';
+    m.style.left=(30+Math.random()*40)+'%'; m.style.top=(38+Math.random()*30)+'%';
+    m.style.setProperty('--dx',(Math.random()*160-80)+'px');
+    m.style.setProperty('--dy',(-40-Math.random()*120)+'px');
+    m.style.animationDelay=(Math.random()*.5)+'s';
+    d.appendChild(m);
+  }
+  setTimeout(()=>d.classList.remove('on'),3600);
+}
+function pullCrate(){
+  const btn=document.getElementById('pullbtn'), crate=document.getElementById('crate');
+  btn.style.display='none';
+  document.getElementById('digguide').textContent='낡은 골판지 상자가 딸려 나왔다.';
+  if(!reduce) puff();
+  crate.classList.add('out');
+  setTimeout(()=>{ crate.classList.add('clean');
+    document.getElementById('digsub').textContent='겉면에 테이프로 붙인 종이가 있다.'; }, reduce?0:900);
+  setTimeout(()=>crate.classList.add('read'), reduce?0:1500);
+  setTimeout(()=>document.getElementById('digbtn').classList.add('on'), reduce?200:4200);
+}
+
+/* ── 허브 ── */
+function fmt(s){ return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'); }
+function renderEnvs(){
+  const box=document.getElementById('envbox'); box.innerHTML='';
+  const next=ENVS.find(e=>!opened.includes(e.n));
+  ENVS.forEach(e=>{
+    const done=opened.includes(e.n);
+    const isNext=next&&next.n===e.n;
+    const b=document.createElement('button');
+    b.className='env '+e.cls+(done?' opened clean':(isNext?' clean':' locked'));
+    const label=(done||isNext)?e.name:'???';
+    const state=done?'열림 · 다시 볼 수 있다':(isNext?e.hint:'아직 흙먼지에 덮여 있다');
+    b.innerHTML=(done||isNext?e.extra:'')+
+      '<span class="wax"></span><span class="name">'+label+'</span>'+
+      '<span class="state">'+state+'</span>'+
+      (done&&times[e.n]!=null?'<span class="rt">'+fmt(times[e.n])+'</span>':'');
+    b.onclick=()=>{
+      if(done||isNext) openRoom(e.n);
+      else { b.classList.add('shake'); setTimeout(()=>b.classList.remove('shake'),450); }
+    };
+    box.appendChild(b);
+  });
+  const sub=document.getElementById('hubsub');
+  sub.textContent = opened.length===0 ? '봉투 다섯 개가 흙먼지에 덮여 있다.'
+    : opened.length<5 ? '봉투 '+opened.length+'개를 열었다. 다음 봉투의 먼지가 걷히고 있다.'
+    : '다섯 봉투가 모두 열렸다.';
+  document.getElementById('floor').classList.toggle('on', opened.length===5);
+  if(opened.length===5){
+    const fp=document.getElementById('floorpaper');
+    fp.innerHTML = finalDone
+      ? '최종 미션을 마쳤습니다.<br>이 화면은 기록을 저장하지 않습니다. 복사하거나 인쇄해서 남겨 두었는지 확인해 주세요.'
+        +'<div style="margin-top:16px;display:flex;gap:9px;justify-content:center;flex-wrap:wrap">'
+        +'<button class="btn" onclick="toSummary()">조사 결과 보기</button>'
+        +'<button class="btn" style="background:transparent;color:#5A5440;border:1px solid rgba(0,0,0,.2)" onclick="openRoom(6)">최종 미션 다시 하기</button></div>'
+      : '다섯 봉투가 모두 열렸습니다.<br>상자 바닥에 빈 종이 한 장이 깔려 있습니다.'
+        +'<div style="margin-top:16px"><button class="btn" onclick="openRoom(6)">종이를 꺼내기</button></div>';
+  }
+  drawProg();
+}
+
+/* ── 요약 ── */
+function renderSummary(){
+  const g=document.getElementById('sumgrid');
+  g.innerHTML=ENVS.map(e=>{
+    const t=times[e.n]!=null?fmt(times[e.n]):'—';
+    const w=e.n<=4?WORDS[e.n]:'이름 없음';
+    return '<div class="sumrow"><div class="sw">'+e.name.replace('이 상자를 만든 사람','마지막')+
+      '</div><div class="sk">'+w+'</div><div class="st">'+t+'</div></div>';
+  }).join('');
+  const total=Object.values(times).reduce((a,b)=>a+b,0);
+  document.getElementById('sumtotal').innerHTML=
+    '다섯 봉투를 여는 데 <b>'+fmt(total)+'</b> 걸렸습니다.';
+}
+
+/* ── 방 ── */
+function show(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  const rm=document.getElementById('room'); if(rm) rm.classList.remove('on');
+  const target=document.getElementById(id);
+  if(target) target.classList.add('on');
+  window.scrollTo({top:0});
+  if(typeof drawProg==='function') drawProg();
+}
+function toDig(){ show('dig'); }
+function toHub(){ curRoom=0; show('hub'); if(typeof renderEnvs==='function') renderEnvs(); }
+function puff(){
+  const d=document.getElementById('dust'); if(!d) return;
+  d.innerHTML=''; d.classList.add('on');
+  for(let i=0;i<26;i++){
+    const m=document.createElement('span'); m.className='mote';
+    m.style.left=(30+Math.random()*40)+'%'; m.style.top=(38+Math.random()*30)+'%';
+    m.style.setProperty('--dx',(Math.random()*160-80)+'px'); m.style.setProperty('--dy',(-40-Math.random()*120)+'px');
+    m.style.animationDelay=(Math.random()*.5)+'s'; d.appendChild(m);
+  }
+  setTimeout(()=>d.classList.remove('on'),3600);
+}
+function pullCrate(){
+  const btn=document.getElementById('pullbtn'), crate=document.getElementById('crate'); if(!btn||!crate) return;
+  btn.style.display='none';
+  const guide=document.getElementById('digguide'); if(guide) guide.textContent='낡은 골판지 상자가 딸려 나왔다.';
+  if(!reduce) puff(); crate.classList.add('out');
+  setTimeout(()=>{crate.classList.add('clean'); const sub=document.getElementById('digsub'); if(sub) sub.textContent='겉면에 테이프로 붙인 종이가 있다.';},reduce?0:900);
+  setTimeout(()=>crate.classList.add('read'),reduce?0:1500);
+  setTimeout(()=>{const digbtn=document.getElementById('digbtn'); if(digbtn) digbtn.classList.add('on');},reduce?200:4200);
+}
+
+const ROOM_EXTRA_CSS='<style>.tapline:not([onclick*="this,3)"]):not(.picked){opacity:.42;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(0,0,0,.35)}.tapline[onclick*="this,3)"]{font-weight:700}.seat.pen{position:relative;box-shadow:inset 0 0 0 2px rgba(46,107,124,.75)}.seat.pen::before{content:"✎";position:absolute;left:6px;top:2px;font-size:.9rem;color:#2E6B7C}</style>';
+function openRoom(n){
+  fadeTo(()=>{
+    curRoom=n;
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+    document.getElementById('room').classList.add('on');
+    document.getElementById('rname').textContent=RNAME[n];
+    document.getElementById('rtime').textContent = (n===6?'':'00:00');
+    document.getElementById('rtime').style.display = (n===6?'none':'');
+    const f=document.getElementById('frame');
+    f.srcdoc=ROOMS[n-1].replace('</head>',ROOM_EXTRA_CSS+'</head>');
+    f.onload=()=>{ try{ f.contentWindow.postMessage({q:'sound',on:soundOn},'*'); }catch(e){}
+      try{ const w=f.contentWindow, S2=w.eval('SND'); if(S2&&S2.unlock&&!S2.__w){ const o=S2.unlock.bind(S2); S2.unlock=function(){ try{ w.parent.postMessage({q:'unlock'},'*'); }catch(e){} return o(); }; S2.__w=1; } }catch(e){} };
+    window.scrollTo({top:0});
+    drawProg();
+  });
+}
+function backToHub(){
+  fadeTo(()=>{ document.getElementById('frame').srcdoc=''; curRoom=0; show('hub'); renderEnvs(); });
+}
+function toggleSound(){
+  soundOn=!soundOn;
+  const b=document.getElementById('sndBtn');
+  b.textContent=soundOn?'🔊':'🔇';
+  b.classList.toggle('off',!soundOn);
+  const f=document.getElementById('frame');
+  try{ f.contentWindow.postMessage({q:'sound',on:soundOn},'*'); }catch(e){}
+}
+
+/* ── 방에서 오는 신호 ── */
+window.addEventListener('message',e=>{
+  const d=e.data||{};
+  if(d.q==='tick' && curRoom>=1 && curRoom<=5){
+    document.getElementById('rtime').textContent=fmt(d.t);
+  }
+  if(d.q==='time' && d.room){ times[d.room]=d.t; save(); }
+  if(d.q==='final'){ finalDone=true; save(); }
+  if(d.q==='done'){
+    const n=d.room;
+    if(n>=1&&n<=5&&!opened.includes(n)){ opened.push(n); save(); }
+    fadeTo(()=>{
+      document.getElementById('frame').srcdoc=''; curRoom=0;
+      show('hub'); renderEnvs();
+      if(n < 5){
+        setTimeout(()=>openRoom(n+1),450);
+      }
+    });
+  }
+});
+
+/* ── 진행 ── */
+function drawProg(){
+  const p=document.getElementById('prog');
+  p.innerHTML='<span style="margin-right:8px;opacity:.72">봉투</span>';
+  for(let i=1;i<=5;i++){
+    const d=document.createElement('span');
+    d.className='dot'+(opened.includes(i)?' done':'');
+    p.appendChild(d);
+  }
+  const t=document.createElement('span');
+  t.style.marginLeft='10px'; t.style.opacity='.72';
+  t.textContent=opened.length+' / 5';
+  p.appendChild(t);
+}
+drawProg();
+</script>
+<script>
+/* ── 배경음악(브라우저 합성, 파일 없음) · 시간 표시 · 해제 연출 ── */
+(function(){
+  if(new URLSearchParams(location.search).has('timer')) document.body.classList.add('showtimer');
+  let musicOn=true, ctx=null, master=null, fx=null, an=null, cur=null, curName=null;
+  const mtof=m=>440*Math.pow(2,(m-69)/12);
+  const SCENES={
+    hub:{pad:[50,57,62],    notes:[62,64,66,69,71,74], gap:[3.2,5.2], vol:.9,  wave:'sine'},
+    r1: {pad:[45,52,57],    notes:[57,60,62,64,67,69], gap:[4.5,7.5], vol:.8,  wave:'sine'},
+    r2: {pad:[48,55,60],    notes:[72,74,76,79,81,84], gap:[2.2,3.8], vol:.85, wave:'triangle'},
+    r3: {pad:[38,45,50],    notes:[50,53,55,57,60,62], gap:[3.6,6.2], vol:.8,  wave:'sine'},
+    r4: {pad:[41,48,53,56], notes:[65,68,70,72,75],    gap:[4.2,7],   vol:.6,  wave:'sine'},
+    r5: {pad:[36,43],       notes:[],                  gap:[0,0],     vol:.45, wave:'sine'},
+    end:{pad:[48,55,60,64], notes:[72,76,79,84,88],    gap:[2.4,4.2], vol:.9,  wave:'sine'}
+  };
+  function ensure(){
+    if(ctx) return true;
+    try{
+      ctx=new (window.AudioContext||window.webkitAudioContext)();
+      master=ctx.createGain(); master.gain.value=.22;
+      const lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=2400;
+      an=ctx.createAnalyser(); an.fftSize=1024;
+      master.connect(lp); lp.connect(ctx.destination); lp.connect(an);
+      fx=ctx.createDelay(1.0); fx.delayTime.value=.38;
+      const fb=ctx.createGain(); fb.gain.value=.36; const fl=ctx.createBiquadFilter(); fl.type='lowpass'; fl.frequency.value=1500;
+      fx.connect(fl); fl.connect(fb); fb.connect(fx); fl.connect(master);
+      return true;
+    }catch(e){ ctx=null; return false; }
+  }
+  function note(dest,m,vol,wave,dur){
+    const t=ctx.currentTime, f=mtof(m);
+    [[1,1],[2,.22]].forEach(([mul,a])=>{
+      const o=ctx.createOscillator(), g=ctx.createGain(); o.type=wave; o.frequency.value=f*mul;
+      g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol*a,t+.03); g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+      o.connect(g); g.connect(dest); g.connect(fx); o.start(t); o.stop(t+dur+.1);
+    });
+  }
+  function makeScene(name){
+    const sp=SCENES[name], g=ctx.createGain(); g.gain.value=0; g.connect(master);
+    const oscs=[];
+    sp.pad.forEach((m,i)=>{
+      [-4,4].forEach(det=>{
+        const o=ctx.createOscillator(), pg=ctx.createGain(); o.type='sine'; o.frequency.value=mtof(m); o.detune.value=det;
+        pg.gain.value=.05/Math.sqrt(sp.pad.length);
+        const lfo=ctx.createOscillator(), lg=ctx.createGain(); lfo.frequency.value=.07+i*.03; lg.gain.value=pg.gain.value*.5; lfo.connect(lg); lg.connect(pg.gain);
+        o.connect(pg); pg.connect(g); o.start(); lfo.start(); oscs.push(o,lfo);
+      });
+    });
+    let timer=null, dead=false, last=-1;
+    function next(){
+      if(dead||!sp.notes.length) return;
+      let k; do{ k=Math.floor(Math.random()*sp.notes.length); }while(k===last&&sp.notes.length>1); last=k;
+      note(g,sp.notes[k],.07,sp.wave,3.4);
+      timer=setTimeout(next,(sp.gap[0]+Math.random()*(sp.gap[1]-sp.gap[0]))*1000);
+    }
+    timer=setTimeout(next,1200);
+    g.gain.linearRampToValueAtTime(sp.vol,ctx.currentTime+3);
+    return { name, stop(){ dead=true; clearTimeout(timer); const t=ctx.currentTime; g.gain.cancelScheduledValues(t); g.gain.setValueAtTime(g.gain.value,t); g.gain.linearRampToValueAtTime(0,t+2.4); setTimeout(()=>{ oscs.forEach(o=>{try{o.stop();}catch(e){}}); try{g.disconnect();}catch(e){} },2800); } };
+  }
+  function sceneName(){
+    const r=curRoom; if(r>=1&&r<=5) return 'r'+r; if(r===6) return 'end';
+    const v=document.querySelector('.view.on'); return (v&&v.id==='summary')?'end':'hub';
+  }
+  function tick(){
+    const want=(soundOn&&musicOn&&!document.hidden)?sceneName():null;
+    if(want===curName) return;
+    if(cur){ cur.stop(); cur=null; }
+    curName=want;
+    if(want && ensure()){ if(ctx.state==='suspended') ctx.resume().catch(()=>{}); cur=makeScene(want); }
+  }
+  setInterval(tick,400);
+  document.addEventListener('visibilitychange',()=>{ if(ctx){ if(document.hidden) ctx.suspend(); else if(soundOn) ctx.resume().catch(()=>{}); } });
+
+  // 소리 버튼: 클릭(사용자 동작) 안에서 오디오를 깨움
+  const _ts=toggleSound;
+  window.toggleSound=function(){ _ts(); if(soundOn&&ensure()){ if(ctx&&ctx.state==='suspended'&&ctx.resume){ctx.resume().then(()=>{if(soundOn)tick()}).catch(()=>{})}else{tick()} } const c=document.getElementById('soundcard'); if(c) c.classList.toggle('on',soundOn); };
+  window.toggleMusic=function(){ musicOn=!musicOn; const b=document.getElementById('musBtn'); b.classList.toggle('off',!musicOn); b.style.opacity=musicOn?'1':'.45'; };
+  window.enableSoundFromCover=function(){
+    if(!soundOn) window.toggleSound();
+    document.getElementById('soundcardtxt').innerHTML='소리가 켜졌습니다. 이어폰을 권장합니다.<br>방에서 상단 🔊와 ♪로 끌 수 있어요.';
+    document.getElementById('soundOnBtn').style.display='none';
+  };
+
+  // 잠금 해제 연출: 맑은 화음 + 번쩍임 + 진동(핸드폰)
+  function unlockFx(){
+    if(soundOn && ensure()){ if(ctx.state==='suspended') ctx.resume().catch(()=>{}); [72,76,79,84].forEach((m,i)=>setTimeout(()=>{ if(ctx) note(master,m,.11,'sine',2.6); },i*110)); try{ if(navigator.vibrate) navigator.vibrate([25,45,30]); }catch(e){} }
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){ const f=document.getElementById('flash'); f.classList.add('on'); setTimeout(()=>f.classList.remove('on'),260); }
+  }
+  window.addEventListener('message',e=>{ if((e.data||{}).q==='unlock') unlockFx(); });
+  window.__music={ info(){ if(!an) return null; const a=new Float32Array(an.fftSize); an.getFloatTimeDomainData(a); let sum=0; for(let i=0;i<a.length;i++) sum+=a[i]*a[i]; return {scene:curName, state:ctx&&ctx.state, rms:+Math.sqrt(sum/a.length).toFixed(5)}; } };
+})();
+</script>
+</body>
+</html>

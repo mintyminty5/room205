@@ -1,0 +1,47 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>205호 우리 반 게시판</title>
+<style>
+*{box-sizing:border-box;margin:0}body{background:#101820;color:#F3EBDD;font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;line-height:1.6;word-break:keep-all}
+.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:18px 28px;border-bottom:1px solid #3A4B58}
+h1{font-size:26px;flex:1;min-width:240px}.top input{font:inherit;font-size:18px;padding:8px 12px;width:150px;background:#1b2833;color:#F3EBDD;border:1px solid #3A4B58}
+.top button{font:inherit;font-size:17px;padding:9px 18px;border:2px solid #B0803A;background:#B0803A;color:#101820;font-weight:700;cursor:pointer}
+.sub{padding:10px 28px;color:#9FB0BC;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;padding:8px 28px 48px}
+.card{background:#E9E3D4;color:#20262B;padding:18px 20px;border-radius:6px;font-size:20px;line-height:1.6}
+.card .l{font-size:13px;opacity:.6;margin-top:10px}.card .l:first-child{margin-top:0}
+.empty{padding:60px 28px;color:#9FB0BC;font-size:20px}
+</style></head><body>
+<div class="top"><h1>205호 · 우리 반 게시판</h1><input id="code" maxlength="30" placeholder="반 코드" autocomplete="off"><button id="go">불러오기</button></div>
+<div class="sub" id="sub">선생님이 고른 글만 올라와요. 20초마다 새로 불러와요.</div>
+<div class="grid" id="grid"></div><div class="empty" id="empty" style="display:none"></div>
+<script>
+var SHARE_URL='https://script.google.com/macros/s/AKfycbzdy6SeAe3sUBxgdR1f8oOSTnVDKFkXAceG1jrCjCC5SdCDQZnBet_60tuAGar2fbMY/exec';
+var timer=null;
+function render(items){
+  var g=document.getElementById('grid'); g.textContent='';
+  var e=document.getElementById('empty');
+  if(!items.length){e.style.display='block';e.textContent='아직 올라온 글이 없어요.';return;}
+  e.style.display='none';
+  items.forEach(function(it){
+    var d=document.createElement('div');d.className='card';
+    var a=document.createElement('div');a.className='l';a.textContent='내일 내가 할 것';
+    var b=document.createElement('div');b.textContent=it.s3;
+    var c=document.createElement('div');c.className='l';c.textContent='우리 반이 다음 주에 해볼 것';
+    var f=document.createElement('div');f.textContent=it.s4;
+    d.appendChild(a);d.appendChild(b);d.appendChild(c);d.appendChild(f);g.appendChild(d);
+  });
+}
+function load(){
+  var code=document.getElementById('code').value.trim();
+  if(!code) return;
+  fetch(SHARE_URL+'?action=board&code='+encodeURIComponent(code)).then(function(r){return r.json();}).then(function(j){
+    var s=document.getElementById('sub');
+    if(!j||!j.ok){s.textContent=j&&j.error==='code'?'반 코드를 다시 확인해 주세요.':'불러오지 못했어요.';return;}
+    s.textContent='우리 반 글 '+j.items.length+'개 · 선생님이 고른 글만 올라와요. 20초마다 새로 불러와요.';
+    render(j.items);
+  }).catch(function(){document.getElementById('sub').textContent='연결이 불안정해요. 잠시 뒤 다시 시도해요.';});
+}
+document.getElementById('go').onclick=function(){load();if(timer)clearInterval(timer);timer=setInterval(load,20000);};
+document.getElementById('code').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('go').click();});
+(function(){var c=new URLSearchParams(location.search).get('c');if(c){document.getElementById('code').value=c;document.getElementById('go').click();}})();
+</script></body></html>
