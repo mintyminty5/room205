@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>205호 방탈출 · 교사용 키트</title>
+<style>body{font:16px/1.7 "Noto Sans KR",system-ui,sans-serif;max-width:820px;margin:0 auto;padding:24px 18px 80px;color:#222}h1{font-size:26px}h2{margin-top:32px;border-bottom:2px solid #e3d9c2;padding-bottom:4px}code{background:#f3efe4;padding:1px 5px;border-radius:4px}pre{background:#1e2a30;color:#f1ead6;padding:12px 14px;border-radius:8px;overflow:auto}table{border-collapse:collapse;margin:10px 0}td{border:1px solid #d8d0bb;padding:6px 10px}.dl{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.dl a{background:#a5843f;color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-weight:700}li{margin:3px 0}</style></head><body>
+<div class="dl"><a href="room205-starter.html" download>게임 본체 받기</a><a href="room205-starter-board.html" download>게시판 파일 받기</a><a href="Code.gs" download>앱스크립트 코드(Code.gs) 받기</a></div>
+<h1>205호 방탈출 · 앱스크립트 붙이기 (교사용 안내)</h1>
+<p>게임이 이미 돌아가는 상태에서, 학생이 쓴 글(STEP 3·4)을 <b>내 구글 시트로 받는</b> 방법입니다. 약 20분.</p>
+<p>못 붙여도 괜찮아요. 주소 칸을 비워 두면 게임은 그대로 돌아가는 '간단판'입니다.</p>
+<h2>키트 구성</h2>
+<table>
+<tr><td>파일</td><td>용도</td></tr>
+<tr><td>room205-starter.html</td><td>게임 본체. 맨 위 <code>shareUrl</code>만 내 주소로 바꿈</td></tr>
+<tr><td>room205-starter-board.html</td><td>내 화면에 띄우는 우리 반 게시판 (주소 한 줄 설정)</td></tr>
+<tr><td>Code.gs</td><td>구글 앱스크립트 코드 (붙여 넣기용)</td></tr>
+</table>
+<h2>1단계. 앱스크립트 만들기 (구글 계정에서)</h2>
+<ol>
+<li>https://script.google.com → <b>새 프로젝트</b></li>
+<li>기본으로 있는 코드를 모두 지우고 <code>Code.gs</code> 내용을 전부 붙여 넣기 → 저장(디스크 아이콘)</li>
+<li>위쪽 함수 선택 칸에서 <b>setup</b> 선택 → <b>실행</b></li>
+<li>권한 창이 뜨면: 권한 검토 → 내 계정 선택 → <b>"Google에서 확인하지 않은 앱"</b> 화면에서 <b>고급 → (프로젝트 이름)으로 이동(안전하지 않음) → 허용</b></li>
+</ol>
+<ul>
+<li>본인이 만든 스크립트라서 나오는 정상 화면이에요.</li>
+</ul>
+<ol>
+<li>내 구글 드라이브에 '205호 공유판 제출' 시트가 생겨요.</li>
+</ol>
+<h2>2단계. 웹 앱으로 배포</h2>
+<ol>
+<li>오른쪽 위 <b>배포 → 새 배포</b> → 톱니바퀴 → <b>웹 앱</b></li>
+<li>실행: <b>나</b> / 액세스 권한이 있는 사용자: <b>모든 사용자</b> → <b>배포</b></li>
+<li>나온 <b>웹 앱 URL</b>(<code>https://script.google.com/macros/s/…/exec</code>)을 복사</li>
+</ol>
+<h2>3단계. 반 코드 정하기</h2>
+<p>시트 '205호 공유판 제출' → 아래 <b>반코드</b> 탭 → A2부터 한 줄에 하나씩 학급 코드 입력 (예: 3반). 기본값 TEST205는 지우세요.</p>
+<h2>4단계. 게임에 주소 넣기</h2>
+<p><code>room205-starter.html</code>을 메모장 등으로 열면 맨 위에 이렇게 있어요.</p>
+<pre>
+window.ROOM205_CONFIG = {
+</pre>
+<p>      shareUrl: ''        ← 따옴표 안에 2단계에서 복사한 주소 붙여 넣기</p>
+<pre>
+};
+</pre>
+<p>게시판 파일(<code>room205-starter-board.html</code>)에도 <code>var SHARE_URL=''</code> 줄이 있어요. 같은 주소를 넣으세요.</p>
+<h2>5단계. 사이트로 올리기 → 학생 링크</h2>
+<p>올린 주소 뒤에 <code>?c=반코드</code>를 붙여 나눠 주세요. 예: <code>https://내사이트/?c=3반</code> (코드가 자동으로 채워져요)</p>
+<p>게시판: <code>https://내사이트/board.html?c=3반</code> (파일 이름을 board.html로 올리세요)</p>
+<h2>수업 중</h2>
+<ol>
+<li>학생이 최종 미션 STEP 3·4를 쓰고 <b>우리 반에 보내기</b></li>
+<li>시트 <b>제출</b> 탭에서 읽고, 공개해도 되는 글은 <b>E열 '승인'에 체크</b></li>
+<li>게시판 화면에 20초 안에 나타남 (승인한 글만)</li>
+</ol>
+<h2>자주 하는 실수</h2>
+<ul>
+<li><b>코드를 고친 뒤 다시 배포할 때</b>: 「배포 관리 → 연필(수정) → 버전: 새 버전 → 배포」. <b>「새 배포」를 누르면 주소가 바뀌어</b> 게임이 안 돼요.</li>
+<li>주소 끝이 <code>/exec</code>인지 확인 (<code>/dev</code>는 안 됨)</li>
+<li>접근 권한을 '모든 사용자'로 하지 않으면 학생 기기에서 안 돼요</li>
+<li>학교 네트워크가 script.google.com을 막으면 제출이 안 돼요 → 연수 전에 학생 기기로 확인</li>
+</ul>
+<h2>개인정보·안전</h2>
+<ul>
+<li>이름은 받지 않아요. 학생 글은 <b>내 시트에만</b> 쌓여요.</li>
+<li>STEP 2(개인 경험)는 서버로 보내지 않아요. 학생에게 알려 주세요.</li>
+<li>학생에게 "보낸 글은 선생님이 고른 글만 반 친구들에게 보여요"라고 먼저 말해 주세요.</li>
+<li>반 코드는 학급 밖에 공유하지 마세요. 수업이 끝나면 시트의 글과 코드를 지우세요.</li>
+<li>다른 선생님의 웹 앱 주소를 같이 쓰지 마세요. 학생 글이 그 선생님 시트로 가요.</li>
+</ul>
+</body></html>
